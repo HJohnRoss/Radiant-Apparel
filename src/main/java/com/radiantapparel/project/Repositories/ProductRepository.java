@@ -3,7 +3,6 @@ package com.radiantapparel.project.Repositories;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
-
 import org.springframework.data.repository.CrudRepository;
 
 import com.radiantapparel.project.Models.Product;
