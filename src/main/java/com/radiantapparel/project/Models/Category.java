@@ -41,7 +41,11 @@ public class Category {
     private Date updatedAt;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "products_has_categories", joinColumns = @JoinColumn(name = "category_id"), inverseJoinColumns = @JoinColumn(name = "product_id"))
+    @JoinTable(
+        name = "products_has_categories",
+        joinColumns = @JoinColumn(name = "category_id"), 
+        inverseJoinColumns = @JoinColumn(name = "product_id")
+    )
     private List<Product> products;
 
     @ManyToOne(fetch = FetchType.LAZY)
