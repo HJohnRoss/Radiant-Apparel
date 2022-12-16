@@ -1,38 +1,36 @@
 package com.radiantapparel.project.Models;
 
 import java.util.Date;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "categories")
-public class Category {
+@Table(name = "prices")
+public class Price {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotEmpty(message = "name is required")
-    @Size(min = 2, max = 255, message = "name must be at least 2 characters long")
-    private String name;
+    @NotEmpty(message = "unit amount is required")
+    private Integer unit_amount;
+
+    @NotEmpty
+    private String currency;
+
+    @NotEmpty
+    private String recurring;
 
     @Column(updatable = false)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -40,13 +38,8 @@ public class Category {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date updatedAt;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "products_has_categories", joinColumns = @JoinColumn(name = "category_id"), inverseJoinColumns = @JoinColumn(name = "product_id"))
-    private List<Product> products;
-
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "type_id")
-    private Type type;
+    private Product product;
 
     @PrePersist
     protected void onCreate() {
@@ -66,12 +59,28 @@ public class Category {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public Integer getUnit_amount() {
+        return unit_amount;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUnit_amount(Integer unit_amount) {
+        this.unit_amount = unit_amount;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+    public String getRecurring() {
+        return recurring;
+    }
+
+    public void setRecurring(String recurring) {
+        this.recurring = recurring;
     }
 
     public Date getCreatedAt() {
@@ -90,11 +99,12 @@ public class Category {
         this.updatedAt = updatedAt;
     }
 
-    public List<Product> getProducts() {
-        return products;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setProducts(List<Product> products) {
-        this.products = products;
+    public void setProduct(Product product) {
+        this.product = product;
     }
+
 }
