@@ -1,12 +1,11 @@
 package com.radiantapparel.project.Repositories;
 
-import java.util.List;
-import java.util.Locale.Category;
-
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import com.radiantapparel.project.Models.Price;
+
 @Repository
-public interface CategoryRepository extends CrudRepository<Category, Long> {
-    // List<Category> findAll();
+public interface PriceRepository extends CrudRepository<Price, Long> {
+    // List<Price> findAll();
 }
