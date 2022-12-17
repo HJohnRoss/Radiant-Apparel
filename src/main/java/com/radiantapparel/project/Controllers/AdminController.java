@@ -104,18 +104,18 @@ public class AdminController {
         
         StringBuilder stringBuilder = new StringBuilder();
         
-        stringBuilder.append(unitAmount.toString());
+        stringBuilder.append(unitAmount);
         for(int i = 0; i < stringBuilder.length(); i++){
             if(stringBuilder.charAt(i) == '.'){
                 stringBuilder.deleteCharAt(i);
             }
         }
-        int StripeUnitAmount = Integer.parseInt(stringBuilder.toString());
+        Integer.parseInt(stringBuilder.toString());
 
         PriceDatabase newPrice = priceService.createPrice(price);
 
         Map<String, Object> params = new HashMap<>();
-        params.put("unit_amount", StripeUnitAmount);
+        params.put("unit_amount", Integer.parseInt(stringBuilder.toString()));
         params.put("currency", "usd");
         params.put("product", newPrice.getProduct().getStripeProductId());
 

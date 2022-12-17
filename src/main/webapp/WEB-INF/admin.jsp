@@ -84,6 +84,15 @@
                 <button>Add Category</button>
             </form:form>
         </div>
+        <div>
+            <h2>Add a product to a category:</h2>
+            <h4>Select a Type of category:</h4>
+            <ul>
+                <c:forEach var="oneType" items="${allTypes}">
+                    <li><a href=""><c:out value="${oneType.name}"></c:out></a></li>
+                </c:forEach>
+            </ul>
+        </div>
     </div>
 </body>
 </html>
