@@ -113,4 +113,13 @@ public class Product {
         return images;
     }
 
+    public String getImages() {
+        return images;
+    }
+
+    public void setImages(String images) {
+        this.images = images;
+    }
+    
+
 }
