@@ -110,11 +110,11 @@ public class Product {
     }
 
     public String getImage() {
-        return image;
+        return images;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setImage(String images) {
+        this.images = images;
     }
 
 }
