@@ -28,13 +28,10 @@
             <form:label path="images">Url for an image:</form:label>
             <form:input path="images" name="images" type="text"></form:input>
         </div>
-        <button>Add Price</button>
+        <button>Add Product</button>
     </form:form>
 
-    <!-- ===================== MAKE A FORM FOR CREATING PRICES FOR PRODUCTS =============== -->
-    <!-- Tip: it is a list, and use the form i made for creating a product as reference -->
-    <!-- PS: made a new attribute in the ProductDatabase class for the strip product id -->
-    <!-- create a product after adding your stripe api key to the ProjectApplication -->
+
     <h1>Add a Price</h1>
     <form:form action="/price/create" method="post" modelAttribute="price">
         <form:errors path="unitAmount"></form:errors>
