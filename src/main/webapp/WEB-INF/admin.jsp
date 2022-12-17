@@ -21,14 +21,23 @@
         <form:errors path="name"></form:errors>
         <div>
             <form:label path="name">Name of product:</form:label>
-            <form:input path="name" type="text"></form:input>
+            <form:input path="name" name="name" type="text"></form:input>
         </div>
         <form:errors path="images"></form:errors>
         <div>
             <form:label path="images">Url for an image:</form:label>
-            <form:input path="images" type="text"></form:input>
+            <form:input path="images" name="images" type="text"></form:input>
         </div>
         <button>Submit</button>
     </form:form>
+
+    <!-- ===================== MAKE A FORM FOR CREATING PRICES FOR PRODUCTS =============== -->
+    <!-- Tip: it is a list, and use the form i made for creating a product as reference -->
+    <!-- PS: made a new attribute in the ProductDatabase class for the strip product id -->
+    <!-- create a product after adding your stripe api key to the ProjectApplication -->
+    <h1>Add a Price</h1>
+    <c:forEach var="oneProduct" items="${allProducts}">
+        <c:out value="${oneProduct.stripeProductId}"></c:out>
+    </c:forEach>
 </body>
 </html>

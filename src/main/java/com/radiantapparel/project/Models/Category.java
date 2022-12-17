@@ -45,7 +45,7 @@ public class Category {
         joinColumns = @JoinColumn(name = "category_id"), 
         inverseJoinColumns = @JoinColumn(name = "product_id")
     )
-    private List<Product> products;
+    private List<ProductDatabase> products;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "type_id")
@@ -93,11 +93,11 @@ public class Category {
         this.updatedAt = updatedAt;
     }
 
-    public List<Product> getProducts() {
+    public List<ProductDatabase> getProducts() {
         return products;
     }
 
-    public void setProducts(List<Product> products) {
+    public void setProducts(List<ProductDatabase> products) {
         this.products = products;
     }
 }

@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.repository.CrudRepository;
 
-import com.radiantapparel.project.Models.Product;
+import com.radiantapparel.project.Models.ProductDatabase;
 
 @Repository
-public interface ProductRepository extends CrudRepository<Product, Long> {
-    List<Product> findAll();
+public interface ProductRepository extends CrudRepository<ProductDatabase, Long> {
+    List<ProductDatabase> findAll();
 }

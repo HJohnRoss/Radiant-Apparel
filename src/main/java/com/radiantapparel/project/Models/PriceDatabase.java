@@ -18,7 +18,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "prices")
-public class Price {
+public class PriceDatabase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -39,7 +39,7 @@ public class Price {
     private Date updatedAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Product product;
+    private ProductDatabase product;
 
     @PrePersist
     protected void onCreate() {
@@ -99,11 +99,11 @@ public class Price {
         this.updatedAt = updatedAt;
     }
 
-    public Product getProduct() {
+    public ProductDatabase getProduct() {
         return product;
     }
 
-    public void setProduct(Product product) {
+    public void setProduct(ProductDatabase product) {
         this.product = product;
     }
 
