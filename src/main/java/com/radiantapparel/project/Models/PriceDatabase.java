@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -24,7 +25,8 @@ public class PriceDatabase {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull(message = "unit amount is required")
+    @Min(value=0, message = "Price must be greater than 1")
+    @NotNull(message = "Price is required")
     private Double unitAmount;
 
     @Column(updatable = false)

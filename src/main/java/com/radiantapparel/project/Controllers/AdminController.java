@@ -90,7 +90,7 @@ public class AdminController {
     // CREATE PRICE
     @PostMapping("/price/create")
     public String createPrice(@Valid @ModelAttribute("price") PriceDatabase price, BindingResult result,
-            Model model, @RequestParam("unitAmount") Double unitAmount) throws StripeException {
+            Model model, @RequestParam("unitAmount") String unitAmount) throws StripeException {
 
         if(result.hasErrors()){
             model.addAttribute("price", price);
