@@ -100,4 +100,12 @@ public class Category {
     public void setProducts(List<ProductDatabase> products) {
         this.products = products;
     }
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
 }

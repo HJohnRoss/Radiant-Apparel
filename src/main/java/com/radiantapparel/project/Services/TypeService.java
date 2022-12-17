@@ -17,4 +17,8 @@ public class TypeService {
     public List<Type> allTypes(){
         return typeRepository.findAll();
     }
+
+    public Type createType(Type type){
+        return typeRepository.save(type);
+    }
 }
