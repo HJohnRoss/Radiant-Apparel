@@ -20,6 +20,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.URL;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -32,6 +33,10 @@ public class Product {
     @NotEmpty(message = "name is required")
     @Size(min = 2, max = 255, message = "name must be at least 2 characters long")
     private String name;
+
+    @NotEmpty(message = "image is required")
+    @URL(message = "must be a url")
+    private String images;
 
     @Column(updatable = false)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -103,4 +108,13 @@ public class Product {
     public void setPrices(List<Price> prices) {
         this.prices = prices;
     }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
 }

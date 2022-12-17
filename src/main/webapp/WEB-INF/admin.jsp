@@ -16,6 +16,19 @@
     <title>Admin</title>
 </head>
 <body>
-    
+    <h2>Create a Product</h2>
+    <form:form action="/product/create" method="post" modelAttribute="product">
+        <form:errors path="name"></form:errors>
+        <div>
+            <form:label path="name">Name of product:</form:label>
+            <form:input path="name" type="text"></form:input>
+        </div>
+        <form:errors path="images"></form:errors>
+        <div>
+            <form:label path="images">Url for an image:</form:label>
+            <form:input path="images" type="text"></form:input>
+        </div>
+        <button>Submit</button>
+    </form:form>
 </body>
 </html>
