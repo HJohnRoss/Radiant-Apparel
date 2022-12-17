@@ -16,9 +16,9 @@
     <title>Radiant Apparel</title>
 </head>
 <body>
-    <c:forEach var="product" items="${allProducts.data}">
-        <img src="<c:out value="${product.images[0]}"></c:out>" alt="">
-        <p><c:out value="${product}"></c:out></p>
+    <c:forEach var="product" items="${allProducts}">
+        <img src="<c:out value="${product.images}"></c:out>" alt="">
+        <p><c:out value="${product.name}"></c:out></p>
     </c:forEach>
 </body>
 </html>
