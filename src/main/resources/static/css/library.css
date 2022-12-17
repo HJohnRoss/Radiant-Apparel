@@ -1,0 +1,43 @@
+
+
+
+/* THIS FOLDER IS FOR BASIC CSS. MAKE SURE TO MAKE INDIVIDUAL CHANGES IN THE DESIGNATED CSS FOLDER */
+.d-flex{
+    display: flex;
+}
+
+.justify-content-between{
+    justify-content: space-between;
+}
+
+.justify-content-around{
+    justify-content: space-around;
+}
+
+.justify-content-start{
+    justify-content: flex-start;
+}
+
+.justify-content-end{
+    justify-content: flex-end;
+}
+
+.justify-content-center{
+    justify-content: center;
+}
+
+.align-items-center{
+    align-items: center;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.navbar{
+    margin: 0% 5%;
+}
+
+.text-danger{
+    color: red;
+}
