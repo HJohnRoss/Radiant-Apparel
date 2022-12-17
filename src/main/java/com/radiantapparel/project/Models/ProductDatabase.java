@@ -25,7 +25,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "products")
-public class Product {
+public class ProductDatabase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -38,6 +38,8 @@ public class Product {
     @URL(message = "must be a url")
     private String images;
 
+    private String stripeProductId;
+
     @Column(updatable = false)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date createdAt;
@@ -49,7 +51,7 @@ public class Product {
     private List<Category> categories;
 
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
-    private List<Price> prices;
+    private List<PriceDatabase> prices;
 
     @PrePersist
     protected void onCreate() {
@@ -101,11 +103,11 @@ public class Product {
         this.categories = categories;
     }
 
-    public List<Price> getPrices() {
+    public List<PriceDatabase> getPrices() {
         return prices;
     }
 
-    public void setPrices(List<Price> prices) {
+    public void setPrices(List<PriceDatabase> prices) {
         this.prices = prices;
     }
 
@@ -120,6 +122,12 @@ public class Product {
     public void setImages(String images) {
         this.images = images;
     }
-    
 
+    public String getStripeProductId() {
+        return stripeProductId;
+    }
+
+    public void setStripeProductId(String stripeProductId) {
+        this.stripeProductId = stripeProductId;
+    }
 }
