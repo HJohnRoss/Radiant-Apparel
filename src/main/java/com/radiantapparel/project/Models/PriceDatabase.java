@@ -13,6 +13,7 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -23,14 +24,8 @@ public class PriceDatabase {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotEmpty(message = "unit amount is required")
-    private Integer unit_amount;
-
-    @NotEmpty
-    private String currency;
-
-    @NotEmpty
-    private String recurring;
+    @NotNull(message = "unit amount is required")
+    private Double unitAmount;
 
     @Column(updatable = false)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -59,28 +54,12 @@ public class PriceDatabase {
         this.id = id;
     }
 
-    public Integer getUnit_amount() {
-        return unit_amount;
+    public Double getUnitAmount() {
+        return unitAmount;
     }
 
-    public void setUnit_amount(Integer unit_amount) {
-        this.unit_amount = unit_amount;
-    }
-
-    public String getCurrency() {
-        return currency;
-    }
-
-    public void setCurrency(String currency) {
-        this.currency = currency;
-    }
-
-    public String getRecurring() {
-        return recurring;
-    }
-
-    public void setRecurring(String recurring) {
-        this.recurring = recurring;
+    public void setUnitAmount(Double unitAmount) {
+        this.unitAmount = unitAmount;
     }
 
     public Date getCreatedAt() {

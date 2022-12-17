@@ -28,7 +28,7 @@
             <form:label path="images">Url for an image:</form:label>
             <form:input path="images" name="images" type="text"></form:input>
         </div>
-        <button>Submit</button>
+        <button>Add Price</button>
     </form:form>
 
     <!-- ===================== MAKE A FORM FOR CREATING PRICES FOR PRODUCTS =============== -->
@@ -36,8 +36,23 @@
     <!-- PS: made a new attribute in the ProductDatabase class for the strip product id -->
     <!-- create a product after adding your stripe api key to the ProjectApplication -->
     <h1>Add a Price</h1>
-    <c:forEach var="oneProduct" items="${allProducts}">
-        <c:out value="${oneProduct.stripeProductId}"></c:out>
-    </c:forEach>
+    <form:form action="/price/create" method="post" modelAttribute="price">
+        <form:errors path="unitAmount"></form:errors>
+        <div>
+            <form:label path="unitAmount">Price of Product:</form:label>
+            <form:input path="unitAmount" name="unitAmount" type="text" placeholder="1.00"></form:input>
+        </div>
+        <div>
+            <form:label path="product">Product:</form:label>
+            <form:select path="product" name="product">
+                <c:forEach var="oneProduct" items="${allProducts}">
+                    <c:if test="${oneProduct.prices[0] == null}">
+                        <option value="${oneProduct.id}"><c:out value="${oneProduct.name}"></c:out></option>
+                    </c:if>
+                </c:forEach>
+            </form:select>
+        </div>
+        <button>Add Price</button>
+    </form:form>
 </body>
 </html>
