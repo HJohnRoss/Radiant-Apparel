@@ -16,7 +16,7 @@
     <title>Admin</title>
 </head>
 <body>
-    <h2>Create a Product</h2>
+    <h2>Add a Product</h2>
     <form:form action="/product/create" method="post" modelAttribute="product">
         <form:errors path="name"></form:errors>
         <div>
