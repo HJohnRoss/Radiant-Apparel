@@ -113,8 +113,4 @@ public class Product {
         return images;
     }
 
-    public void setImage(String image) {
-        this.images = image;
-    }
-
 }
