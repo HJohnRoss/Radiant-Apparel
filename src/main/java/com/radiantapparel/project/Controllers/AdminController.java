@@ -98,6 +98,7 @@ public class AdminController {
         params.put("product", newPrice.getProduct().getStripeProductId());
 
         Price.create(params);
+        
         return "redirect:/admin";
     }
 }
