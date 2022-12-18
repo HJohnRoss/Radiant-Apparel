@@ -5,9 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.radiantapparel.project.Models.Category;
 import com.radiantapparel.project.Models.ProductDatabase;
 import com.radiantapparel.project.Repositories.ProductRepository;
 import com.stripe.model.Product;
+
 
 @Service
 public class ProductService {
@@ -25,4 +27,14 @@ public class ProductService {
         // saving product
         productRepository.save(product);
     }
+
+    public List<ProductDatabase> findAllByCategory(Category category) {
+        return productRepository.findAllByCategories(category);
+    }
+
+    public List<ProductDatabase> findByCategoriesNotContains(Category category) {
+        return productRepository.findByCategoriesNotContains(category);
+    }
 }
+
+
