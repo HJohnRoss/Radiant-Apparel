@@ -190,6 +190,7 @@ public class AdminController {
     }
 
     // ========================================== DELETE ==========================================
+    // delete product
     @GetMapping("/products/delete")
     public String showDeleteProducts(Model model){
 
@@ -223,5 +224,39 @@ public class AdminController {
         productService.deleteProduct(productId);
 
         return "redirect:/products/delete";
+    }
+
+    // delete types
+    @GetMapping("/type/delete")
+    public String showDeleteTypes(Model model){
+        
+        model.addAttribute("allTypes", typeService.allTypes());
+        return "adminDeleteTypes.jsp";
+    }
+
+    @DeleteMapping("/type/delete/{id}")
+    public String deleteType(@PathVariable("id") Long typeId){
+
+        for(Category oneCategory : typeService.typeCategories(typeId)){
+            categoryService.deleteCategory(oneCategory);
+        }
+
+        typeService.deleteType(typeId);
+        return "redirect:/type/delete";
+    }
+
+    // delete Categories
+    @GetMapping("/category/delete")
+    public String showDeleteCategories(Model model){
+
+        model.addAttribute("allCategories", categoryService.allCategories());
+        return "adminDeleteCategories.jsp";
+    }
+
+    @DeleteMapping("/category/delete/{id}")
+    public String deleteCategory(@PathVariable("id") Long categoryId){
+
+        categoryService.deleteCategory(categoryId);
+        return "redirect:/category/delete";
     }
 }
