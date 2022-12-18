@@ -123,7 +123,10 @@ public class AdminController {
         params.put("currency", "usd");
         params.put("product", newPrice.getProduct().getStripeProductId());
 
-        Price.create(params);
+        Price stripePrice = Price.create(params);
+
+        newPrice.setStripePriceId(stripePrice.getId());
+        priceService.createPrice(newPrice);
         
         return "redirect:/admin";
     }

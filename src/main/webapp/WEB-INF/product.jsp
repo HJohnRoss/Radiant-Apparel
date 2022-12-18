@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>!!!! PRODUCT NAME !!!!</title>
+    <title><c:out value="${product.name}"></c:out></title>
     <link rel="stylesheet" href="/css/library.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -29,10 +29,10 @@
             <p>|</p>
             <a href="#" class = "text-white">About</a>
             <p>|</p>
-            <a href="/shop" class = "text-white">Shop</a>
+            <a href="/shop" class = "text-white ">Shop</a>
             <p>|</p>
             <a href="/admin" class = "text-white">Help</a>
-            <button style="border: none; background-color: transparent; color: white; font-size:24px"><i class="fa fa-shopping-cart"></i> Cart</button>
+            <a href="/cart" class="pointer-select" style="border: none; background-color: transparent; color: white; font-size:24px"><i class="fa fa-shopping-cart"></i> Cart</a>
         </div>
     </nav> 
     <div>
@@ -45,8 +45,12 @@
                     <h1><c:out value="${product.name}"></c:out></h1>
                     <p>Reviews</p>
                 </div>
-                <h1><c:out value="${product.prices[0].unitAmount}"></c:out></h1>
-                <button>Add to Cart</button>
+                <h1><c:out value="${currencyFormat.format(product.prices[0].unitAmount)}"></c:out></h1>
+                <form action="/cart/add/${product.id}" method="post">
+                    <label for="quantity">Quantity:</label>
+                    <input name="quantity" value="1" type="number"/>
+                    <button>Add to Cart</button>
+                </form>
             </div>
         </div>
     </div>

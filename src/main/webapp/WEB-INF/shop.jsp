@@ -62,7 +62,7 @@
             <div class="d-flex">
             <c:forEach var="type" items="${allTypes}">
                 <div class="dropdown">
-                    <p class="">
+                    <p class="pointer-select">
                         <c:out value="${type.name}"></c:out>&nbsp;<c:if test="${allTypes.indexOf(type) != allTypes.size()- 1}">|</c:if>&nbsp;
                     </p>
                     <div class="dropdown-content">

@@ -165,3 +165,6 @@ ul {
     font-size: 500%;
 }
 
+.pointer-select {
+    cursor: pointer;
+}
