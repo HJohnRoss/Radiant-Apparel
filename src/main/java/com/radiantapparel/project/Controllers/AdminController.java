@@ -176,7 +176,7 @@ public class AdminController {
     public String showCategory(@PathVariable("id") Long id, Model model){
         
         model.addAttribute("oneCategory", categoryService.oneCategory(id));
-        model.addAttribute("allProducts", productService.findByCategoriesNotContains(categoryService.oneCategory(id)));
+        model.addAttribute("someProducts", productService.findByCategoriesNotContains(categoryService.oneCategory(id)));
         return "adminCategory.jsp";
     }
 

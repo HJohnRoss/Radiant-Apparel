@@ -23,7 +23,7 @@
         <div>
             <label name="productId">Type of Category:</label>
             <select name="productId">
-                <c:forEach var="oneProduct" items="${allProducts}">
+                <c:forEach var="oneProduct" items="${someProducts}">
                         <option value="${oneProduct.id}"><c:out value="${oneProduct.name}"></c:out></option>
                 </c:forEach>
             </select>
