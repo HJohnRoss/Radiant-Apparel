@@ -104,9 +104,10 @@ public class AdminController {
             model.addAttribute("allTypes", typeService.allTypes());
             return "admin.jsp";
         }
-        
+
+
         StringBuilder stringBuilder = new StringBuilder();
-        
+
         stringBuilder.append(unitAmount);
         for(int i = 0; i < stringBuilder.length(); i++){
             if(stringBuilder.charAt(i) == '.'){
@@ -201,6 +202,7 @@ public class AdminController {
     @DeleteMapping("/product/delete/{id}")
     public String deleteProduct(@PathVariable("id") Long productId, @RequestParam("stripeProductId") String stripeProductId) throws StripeException{
 
+        
         // getting stripe product object
         Product StripeProduct = Product.retrieve(stripeProductId);
 
@@ -209,7 +211,6 @@ public class AdminController {
         params.put("active", false);
 
         StripeProduct.update(params);
-
         
         // setting categories = null
         ProductDatabase product = productService.oneProduct(productId);
