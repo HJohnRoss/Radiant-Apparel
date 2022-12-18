@@ -45,7 +45,9 @@
                 <a href="#" class = "nav-tag">Help</a>
             </div>
             <div class = "navcart">
-                <button style="border: none; background-color: transparent; color: rgb(198,241,241); font-size:24px"><i class="fa fa-shopping-cart"></i> Cart</button>
+                <form action="#">
+                    <button type = "submit" style="border: none; background-color: transparent; color: rgb(198,241,241); font-size:24px"><i class="fa fa-shopping-cart"></i> Cart</button>
+                </form>
             </div>
             
             
