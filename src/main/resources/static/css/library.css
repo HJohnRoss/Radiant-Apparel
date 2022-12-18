@@ -34,10 +34,18 @@
     text-align: center;
 }
 
+.flex-column {
+    flex-direction: column;
+}
+
 .navbar{
     margin: 0% 5%;
 }
 
 .text-danger{
     color: red;
+}
+
+ul {
+    list-style: none;
 }
