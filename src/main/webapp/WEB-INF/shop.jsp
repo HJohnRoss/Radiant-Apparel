@@ -71,7 +71,12 @@
         </div>
     </div>
 
-
+    <div>
+        <c:forEach var="oneProduct" items="${categoryProducts}">
+            <img src='<c:out value="${oneProduct.images}"/>' alt="testing">
+            <p><c:out value="${oneProduct.name}"></c:out></p>
+        </c:forEach>
+    </div>
 
     <!-- <c:forEach var="product" items="${allProducts}">
         <img src="<c:out value="${product.images}"></c:out>" alt="">

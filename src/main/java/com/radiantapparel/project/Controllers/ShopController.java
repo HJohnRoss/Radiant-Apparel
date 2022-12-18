@@ -1,5 +1,7 @@
 package com.radiantapparel.project.Controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.radiantapparel.project.Models.Category;
+import com.radiantapparel.project.Models.ProductDatabase;
 import com.radiantapparel.project.Services.CategoryService;
 import com.radiantapparel.project.Services.ProductService;
 import com.radiantapparel.project.Services.TypeService;
@@ -33,12 +36,13 @@ public class ShopController {
         return "shop.jsp";
     }
 
-    @PostMapping("/category/show/{id}")
+    @GetMapping("/category/show/{id}")
     public String categoryProducts(@PathVariable("id")Long id, Model model) {
         model.addAttribute("allProducts", productService.allProducts());
         model.addAttribute("allTypes", typeService.allTypes());
         Category category = categoryService.oneCategory(id);
-        model.addAttribute("categoryProducts", categoryService);
-        return "redirect:/shop";
+        List<ProductDatabase> categoryProducts = productService.findAllByCategory(category);
+        model.addAttribute("categoryProducts", categoryProducts);
+        return "shop.jsp";
     }
 }
