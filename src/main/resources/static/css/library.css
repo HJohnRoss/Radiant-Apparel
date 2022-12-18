@@ -1,4 +1,7 @@
-
+*{
+    margin: 0;
+    padding: 0;
+}
 
 
 /* THIS FOLDER IS FOR BASIC CSS. MAKE SURE TO MAKE INDIVIDUAL CHANGES IN THE DESIGNATED CSS FOLDER */
@@ -34,10 +37,152 @@
     text-align: center;
 }
 
-.navbar{
-    margin: 0% 5%;
-}
-
 .text-danger{
     color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.bgdark{
+    background-color: rgb(22,21,39)
+}
+
+
+.bgnavy{
+    background-color: rgb(6,15,94);
+}
+
+.bgblue{
+    background-color: rgb(59,103,198);
+}
+
+.bgviolet{
+    background-color: rgb(130,116,201);
+}
+
+.bgpink{
+    background-color: rgb(217,182,224);
+}
+
+.bgbeige{
+    background-color: rgb(229,216,182);
+}
+
+.text-dark{
+    color: rgb(22,21,39)
+}
+
+.navbar{
+    padding: 0% 3%;
+    max-height: 80px;
+    display: flex;
+    position: sticky;
+    top: 0;
+    margin-top: -105px;
+    justify-content: space-between;
+}
+
+.navcontentstart{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 35%;
+}
+
+.navcontentend{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 50%;
+}
+
+.navextension{
+    margin: 0px;
+    min-height: 130px;
+}
+
+#logo{
+    max-height: 100px;
+}
+
+.text-white{
+    color: white;
+}
+
+.searchbtn{
+    border: none;
+    height: 25px;
+    width: 50px;
+    border-radius: 15%;
+    
+}
+
+.searchbtn:hover{
+    background-color: rgb(30,80,198);
 }

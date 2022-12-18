@@ -15,16 +15,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/library.css">
     <link rel="stylesheet" href="/css/dashboard.css">
-    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Radiant Apparel</title>
 </head>
 <body>
-        <nav class="navbar">
+    <div class = "navextension bgdark d-flex align-items-center">
+    </div>
+    <nav class="navbar bgdark">
+        <div class = "navcontentstart bgdark">
+            <img src="/img/thirdlogodark.png" alt="Radiance Logo" id = "logo">
+            <div class = "searchbox">
+                <form action="#">
+                    <!-- <input type="image" name = "searchimg" src="/img/magnifying-glass.png" alt="Icon made by Chanut from www.flaticon.com" id = searchimg> -->
+                    <input type="text" name = "search" class = "searchbar" placeholder="Search....">
+                    <input type="submit" class="searchbtn bgblue">
+                </form>
+            </div>
+        </div>
+        <div class = "navcontentend bgdark">
+            <a href="#" class = "text-white">Home</a>
+            <p>|</p>
+            <a href="#" class = "text-white">About</a>
+            <p>|</p>
+            <a href="#" class = "text-white">Shop</a>
+            <p>|</p>
+            <a href="#" class = "text-white">Help</a>
+            <button style="border: none; background-color: transparent; color: white; font-size:24px"><i class="fa fa-shopping-cart"></i> Cart</button>
             
-        </nav>
+            
+        </div>
         
-        
-        
+    </nav>
+    <div class="height">
+
     </div>
 </body>
 </html>
