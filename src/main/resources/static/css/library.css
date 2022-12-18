@@ -37,14 +37,18 @@
     text-align: center;
 }
 
-.navbar{
-    margin: 0% 5%;
+<<<<<<< HEAD
+.flex-column {
+    flex-direction: column;
 }
+=======
 
+>>>>>>> Ciaran
 .text-danger{
     color: red;
 }
 
+<<<<<<< HEAD
 
 
 
@@ -190,7 +194,8 @@
 .searchbtn:hover{
     background-color: rgb(30,80,198);
 }
-
+=======
 ul {
     list-style: none;
 }
+>>>>>>> Ciaran
