@@ -41,4 +41,8 @@ public class CategoryService {
         category.getProducts().add(product);
         categoryRepository.save(category);
     }
+
+    public void deleteCategory(Category category) {
+        categoryRepository.delete(category);
+    }
 }

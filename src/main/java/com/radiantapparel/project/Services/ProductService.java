@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.radiantapparel.project.Models.Category;
+import com.radiantapparel.project.Models.PriceDatabase;
 import com.radiantapparel.project.Models.ProductDatabase;
 import com.radiantapparel.project.Repositories.ProductRepository;
 import com.stripe.model.Product;
@@ -45,5 +46,36 @@ public class ProductService {
         else {
             return null;
         }
+    }
+
+    public void deleteProduct(Long productId) {
+        productRepository.deleteById((Long) productId);
+    }
+
+    public List<PriceDatabase> productPrices(Long id) {
+        Optional<ProductDatabase> optionalProduct = productRepository.findById((Long) id);
+        if(optionalProduct.isPresent()){
+            ProductDatabase product = optionalProduct.get();
+            return product.getPrices();
+        }
+        return null;
+    }
+
+    public List<Category> productCategories(Long id) {
+        Optional<ProductDatabase> optionalProduct = productRepository.findById(id);
+        if(optionalProduct.isPresent()){
+            ProductDatabase product = optionalProduct.get();
+            return product.getCategories();
+        }
+        return null;
+    }
+
+    public ProductDatabase oneProduct(Long id) {
+        Optional<ProductDatabase> optionalProduct = productRepository.findById(id);
+        if(optionalProduct.isPresent()){
+            ProductDatabase product = optionalProduct.get();
+            return product;
+        }
+        return null;
     }
 }
