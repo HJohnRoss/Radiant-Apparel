@@ -29,6 +29,8 @@ public class PriceDatabase {
     @NotNull(message = "Price is required")
     private Double unitAmount;
 
+    String stripePriceId;
+
     @Column(updatable = false)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date createdAt;
@@ -86,6 +88,14 @@ public class PriceDatabase {
 
     public void setProduct(ProductDatabase product) {
         this.product = product;
+    }
+
+    public String getStripePriceId() {
+        return stripePriceId;
+    }
+
+    public void setStripePriceId(String stripePriceId) {
+        this.stripePriceId = stripePriceId;
     }
 
 }

@@ -137,3 +137,7 @@
 .mt-10 {
     margin-top: 100px;
 }
+
+.pointer-select {
+    cursor: pointer;
+}

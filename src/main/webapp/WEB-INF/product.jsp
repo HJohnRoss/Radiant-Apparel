@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>!!!! PRODUCT NAME !!!!</title>
+    <title><c:out value="${product.name}"></c:out></title>
     <link rel="stylesheet" href="/css/library.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -45,8 +45,23 @@
                     <h1><c:out value="${product.name}"></c:out></h1>
                     <p>Reviews</p>
                 </div>
-                <h1><c:out value="${product.prices[0].unitAmount}"></c:out></h1>
-                <button>Add to Cart</button>
+                <h1><c:out value="${currencyFormat.format(product.prices[0].unitAmount)}"></c:out></h1>
+                <form action="/cart/add/${product.id}">
+                    <label for="quantity">Quantity:</label>
+                    <select name="quatity">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                    </select>
+                    <button>Add to Cart</button>
+                </form>
             </div>
         </div>
     </div>
