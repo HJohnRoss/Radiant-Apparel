@@ -37,85 +37,13 @@
     text-align: center;
 }
 
-<<<<<<< HEAD
 .flex-column {
     flex-direction: column;
 }
-=======
 
->>>>>>> Ciaran
 .text-danger{
     color: red;
 }
-
-<<<<<<< HEAD
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .bgdark{
     background-color: rgb(22,21,39)
@@ -194,8 +122,6 @@
 .searchbtn:hover{
     background-color: rgb(30,80,198);
 }
-=======
 ul {
     list-style: none;
 }
->>>>>>> Ciaran
