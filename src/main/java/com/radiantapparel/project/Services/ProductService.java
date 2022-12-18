@@ -36,5 +36,3 @@ public class ProductService {
         return productRepository.findByCategoriesNotContains(category);
     }
 }
-
-
