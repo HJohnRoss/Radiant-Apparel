@@ -15,22 +15,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Radiant Apparel</title>
     <link rel="stylesheet" href="/css/library.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Shop bottom so takes prio -->
     <link rel="stylesheet" href="/css/shop.css">
 </head>
 <body>
-    <nav class="d-flex justify-content-between">
-        <p><img src="#" alt="#"></p>
-        <div>
-
-            <a href="/home">home</a> |
-            <a href="#">About</a> |
-            <a href="/shop">Shop</a> |
-            <a href="#">Help</a> |
+    <div class = "navextension bgdark d-flex align-items-center">
+    </div>
+    <nav class="navbar bgdark">
+        <div class = "navcontentstart bgdark">
+            <img src="/img/thirdlogodark.png" alt="Radiance Logo" id = "logo">
         </div>
+        <div class = "navcontentend bgdark">
+            <a href="#" class = "text-white">Home</a>
+            <p>|</p>
+            <a href="#" class = "text-white">About</a>
+            <p>|</p>
+            <a href="#" class = "text-white">Shop</a>
+            <p>|</p>
+            <a href="#" class = "text-white">Help</a>
+            <button style="border: none; background-color: transparent; color: white; font-size:24px"><i class="fa fa-shopping-cart"></i> Cart</button>
+            
+            
+        </div>
+        
     </nav>
     
-    <div class="d-flex flex-column justify-content-center align-items-center">
+    <div class="d-flex flex-column justify-content-center align-items-center mt-10">
         <!-- Border decor around -->
         <h1 class="shopHeading">Radiant Apparel</h1>
         <div id="headingLine"></div>
@@ -50,7 +61,7 @@
                     </p>
                     <div class="dropdown-content">
                         <c:forEach var="category" items="${type.categories}">
-                            <a href="/category/${category.id}"><c:out value="${category.name}"></c:out></a>
+                            <a href="/category/show/${category.id}"><c:out value="${category.name}"></c:out></a>
                         </c:forEach>
                     </div>
                 </div>
