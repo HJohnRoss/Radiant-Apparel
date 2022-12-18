@@ -1,6 +1,7 @@
 package com.radiantapparel.project.Services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,5 +35,15 @@ public class ProductService {
 
     public List<ProductDatabase> findByCategoriesNotContains(Category category) {
         return productRepository.findByCategoriesNotContains(category);
+    }
+
+    public ProductDatabase findProductById(Long id) {
+        Optional<ProductDatabase> optionalProduct = productRepository.findById(id);
+        if(optionalProduct.isPresent()) {
+            return optionalProduct.get();
+        }
+        else {
+            return null;
+        }
     }
 }

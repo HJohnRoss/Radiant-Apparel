@@ -42,3 +42,12 @@
 .dropdown-content a:hover {background-color: #ddd;}
 
 .dropdown:hover .dropdown-content {display: block;}
+
+.productImgs {
+    margin: 10px;
+    height: 200px;
+}
+
+.listProducts {
+    padding: 20px;
+}

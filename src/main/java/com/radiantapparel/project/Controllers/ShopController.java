@@ -45,4 +45,5 @@ public class ShopController {
         model.addAttribute("categoryProducts", categoryProducts);
         return "shop.jsp";
     }
+
 }

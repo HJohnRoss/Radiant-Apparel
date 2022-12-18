@@ -14,8 +14,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>!!!! PRODUCT NAME !!!!</title>
+    <link rel="stylesheet" href="/css/library.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    
+    <div class = "navextension bgdark d-flex align-items-center">
+    </div>
+    <nav class="navbar bgdark">
+        <div class = "navcontentstart bgdark">
+            <img src="/img/thirdlogodark.png" alt="Radiance Logo" id = "logo">
+        </div>
+        <div class = "navcontentend bgdark">
+            <a href="#" class = "text-white">Home</a>
+            <p>|</p>
+            <a href="#" class = "text-white">About</a>
+            <p>|</p>
+            <a href="/shop" class = "text-white">Shop</a>
+            <p>|</p>
+            <a href="/admin" class = "text-white">Help</a>
+            <button style="border: none; background-color: transparent; color: white; font-size:24px"><i class="fa fa-shopping-cart"></i> Cart</button>
+        </div>
+    </nav> 
+    <div>
+        <div class="mt-10 d-flex">
+            <div>
+                <img src='<c:out value="${product.images}"/>' alt="testing">
+            </div>
+            <div>
+                <div>
+                    <h1><c:out value="${product.name}"></c:out></h1>
+                    <p>Reviews</p>
+                </div>
+                <h1><c:out value="${product.prices[0].unitAmount}"></c:out></h1>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
