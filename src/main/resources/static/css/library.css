@@ -4,6 +4,7 @@
 }
 
 
+
 /* THIS FOLDER IS FOR BASIC CSS. MAKE SURE TO MAKE INDIVIDUAL CHANGES IN THE DESIGNATED CSS FOLDER */
 .d-flex{
     display: flex;
@@ -122,6 +123,14 @@
     margin-left: 30px;
 }
 
+.nav-space{
+    color: rgb(198,241,241);
+    text-decoration: none;
+    font-size: 20px;
+    margin-left: 30px;
+    cursor: default;
+}
+
 .navcart{
     margin-left: 30px;
 }
@@ -139,6 +148,20 @@ ul {
     list-style: none;
 }
 
+.mt-5{
+    margin-top: 50px;
+}
+
 .mt-10 {
     margin-top: 100px;
 }
+
+.pdt-10{
+    padding-top: 100px;
+}
+
+.head{
+    color: rgb(198,241,241);
+    font-size: 500%;
+}
+

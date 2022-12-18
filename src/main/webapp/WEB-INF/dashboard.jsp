@@ -33,20 +33,20 @@
             </div>
         </div>
         <div class = "navcontentend bgdark">
-            <div class="d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center justify-content-around ">
                 <a href="/" class = "nav-tag">Home</a>
-                <p>|</p>
+                <p class = "nav-space">|</p>
                 <a href="#" class = "nav-tag">About</a>
-                <p>|</p>
+                <p class = "nav-space">|</p>
                 <a href="/shop" class = "nav-tag">Shop</a>
-                <p>|</p>
+                <p class = "nav-space">|</p>
                 <a href="/admin" class = "nav-tag">Admin</a>
-                <p>|</p>
+                <p class = "nav-space">|</p>
                 <a href="#" class = "nav-tag">Help</a>
             </div>
             <div class = "navcart">
                 <form action="#">
-                    <button type = "submit" style="border: none; background-color: transparent; color: rgb(198,241,241); font-size:24px"><i class="fa fa-shopping-cart"></i> Cart</button>
+                    <button type = "submit" style="cursor:pointer; border: none; background-color: transparent; color: rgb(198,241,241); font-size:24px"><i class="fa fa-shopping-cart"></i> Cart</button>
                 </form>
             </div>
             
@@ -54,6 +54,16 @@
         </div>
         
     </nav>
+    <div class="gradient height2 pdt-10">
+        <div class="text-center">
+            <h1 class="head">Radient Apparel</h1>
+            <div class="d-flex justify-content-center">
+                <div class="seperator mt-5"></div>
+            </div>
+
+        </div>
+
+    </div>
     <div class="height">
         <h1 class="text-danger mt-10">CHANGE STRIPE KEY!!!</h1>
     </div>

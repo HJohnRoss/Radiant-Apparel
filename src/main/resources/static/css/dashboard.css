@@ -1,10 +1,27 @@
-
+:root{
+    --gradient: linear-gradient(
+        45deg,
+        rgb(217,183,40),
+        rgb(238,239,130),
+        rgb(158,158,158),
+        rgb(242,242,234)
+    )
+}
 .searchbox{
 
 }
 
 .height{
     min-height: 8000px;
+    background-image: var(--gradient);
+}
+
+.height2{
+    min-height: 1500px;
+}
+
+.gradient{
+    background-image: linear-gradient( to top,rgb(19,26,43),  rgb(198,241,241), rgb(19,26,43));
 }
 
 
@@ -50,4 +67,9 @@
     .searchbtn:hover{
         background-color: rgb(47,86,124);
     }
+}
+
+.seperator{
+    border-top: 1px solid rgb(19,26,43) ;
+    width: 50%;
 }
