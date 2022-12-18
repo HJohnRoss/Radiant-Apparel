@@ -13,10 +13,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/library.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Admin</title>
 </head>
 <body>
-    <div>
+    <div class = "navextension bgdark d-flex align-items-center">
+    </div>
+    <nav class="navbar bgdark">
+        <div class = "navcontentstart bgdark">
+            <img src="/img/thirdlogodark.png" alt="Radiance Logo" id = "logo">
+        </div>
+        <div class = "navcontentend bgdark">
+            <div class="d-flex align-items-center justify-content-between">
+                <a href="/" class = "nav-tag">Home</a>
+                <p>|</p>
+                <a href="#" class = "nav-tag">About</a>
+                <p>|</p>
+                <a href="/shop" class = "nav-tag">Shop</a>
+                <p>|</p>
+                <a href="/admin" class = "nav-tag">Admin</a>
+                <p>|</p>
+                <a href="#" class = "nav-tag">Help</a>
+            </div>
+            <div class = "navcart">
+                <button style="border: none; background-color: transparent; color: rgb(198,241,241); font-size:24px"><i class="fa fa-shopping-cart"></i> Cart</button>
+            </div>
+            
+            
+        </div>
+        
+    </nav>
+    <div class = "mt-10">
         <a href="/">Home</a>
         <h2>Add a Product</h2>
         <form:form action="/product/create" method="post" modelAttribute="product">

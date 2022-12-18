@@ -8,7 +8,46 @@
 }
 
 
-.searchbar{
-    min-height: 20px;
-    min-width: 300px;
+
+@media only screen and (max-width: 699px) {
+    .searchbar{
+        display: none;
+    }
+
+    .searchbtn{
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 700px){
+    .searchbar{
+        min-height: 20px;
+    }
+
+
+}
+
+@media only screen and (max-width: 1650px){
+    .searchbtn{
+        display: none;
+    }
+}
+
+
+@media only screen and (min-width: 1024px){
+    .searchbar{
+        min-height: 20px;
+        min-width: 300px;
+    }
+
+    .searchbtn{
+        border: none;
+        height: 25px;
+        width: 50px;
+        border-radius: 15%;
+    }
+    
+    .searchbtn:hover{
+        background-color: rgb(47,86,124);
+    }
 }

@@ -33,14 +33,20 @@
             </div>
         </div>
         <div class = "navcontentend bgdark">
-            <a href="#" class = "text-white">Home</a>
-            <p>|</p>
-            <a href="#" class = "text-white">About</a>
-            <p>|</p>
-            <a href="#" class = "text-white">Shop</a>
-            <p>|</p>
-            <a href="#" class = "text-white">Help</a>
-            <button style="border: none; background-color: transparent; color: white; font-size:24px"><i class="fa fa-shopping-cart"></i> Cart</button>
+            <div class="d-flex align-items-center justify-content-between">
+                <a href="/" class = "nav-tag">Home</a>
+                <p>|</p>
+                <a href="#" class = "nav-tag">About</a>
+                <p>|</p>
+                <a href="/shop" class = "nav-tag">Shop</a>
+                <p>|</p>
+                <a href="/admin" class = "nav-tag">Admin</a>
+                <p>|</p>
+                <a href="#" class = "nav-tag">Help</a>
+            </div>
+            <div class = "navcart">
+                <button style="border: none; background-color: transparent; color: rgb(198,241,241); font-size:24px"><i class="fa fa-shopping-cart"></i> Cart</button>
+            </div>
             
             
         </div>
