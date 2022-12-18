@@ -31,15 +31,15 @@
             <p>|</p>
             <a href="#" class = "text-white">About</a>
             <p>|</p>
-            <a href="#" class = "text-white">Shop</a>
+            <a href="/shop" class = "text-white">Shop</a>
             <p>|</p>
-            <a href="#" class = "text-white">Help</a>
+            <a href="/admin" class = "text-white">Help</a>
             <button style="border: none; background-color: transparent; color: white; font-size:24px"><i class="fa fa-shopping-cart"></i> Cart</button>
             
             
         </div>
         
-    </nav>
+    </nav>  
     
     <div class="d-flex flex-column justify-content-center align-items-center mt-10">
         <!-- Border decor around -->
@@ -70,12 +70,15 @@
             </div>
         </div>
     </div>
-
-    <div>
-        <c:forEach var="oneProduct" items="${categoryProducts}">
-            <img src='<c:out value="${oneProduct.images}"/>' alt="testing">
-            <p><c:out value="${oneProduct.name}"></c:out></p>
-        </c:forEach>
+    <div class="listProducts">
+        <div class="d-flex">
+            <c:forEach var="oneProduct" items="${categoryProducts}">
+                <div>
+                    <img src='<c:out value="${oneProduct.images}"/>' alt="testing" class="productImgs">
+                    <p><a href="/product/show/${oneProduct.id}"><c:out value="${oneProduct.name}"></c:out></a></p>
+                </div>
+            </c:forEach>
+        </div>
     </div>
 
     <!-- <c:forEach var="product" items="${allProducts}">

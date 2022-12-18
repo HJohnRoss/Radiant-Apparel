@@ -47,7 +47,7 @@
         
     </nav>
     <div class="height">
-
+        <h1 class="text-danger mt-10">CHANGE STRIPE KEY!!!</h1>
     </div>
 </body>
 </html>

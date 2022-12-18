@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -186,5 +187,76 @@ public class AdminController {
 
         categoryService.addProduct(categoryId, productId);
         return "redirect:/admin";
+    }
+
+    // ========================================== DELETE ==========================================
+    // delete product
+    @GetMapping("/products/delete")
+    public String showDeleteProducts(Model model){
+
+        model.addAttribute("allProducts", productService.allProducts());
+        return "adminDeleteProducts.jsp";
+    }
+
+    @DeleteMapping("/product/delete/{id}")
+    public String deleteProduct(@PathVariable("id") Long productId, @RequestParam("stripeProductId") String stripeProductId) throws StripeException{
+
+        // getting stripe product object
+        Product StripeProduct = Product.retrieve(stripeProductId);
+
+        // setting productive to false
+        Map<String, Object> params = new HashMap<>();
+        params.put("active", false);
+
+        StripeProduct.update(params);
+
+        
+        // setting categories = null
+        ProductDatabase product = productService.oneProduct(productId);
+        product.setCategories(null);
+
+        // deleting all the prices for that product
+        for(PriceDatabase onePrice : productService.productPrices(productId)){
+            priceService.deletePrice(onePrice);
+        }
+
+        // delete product from our database
+        productService.deleteProduct(productId);
+
+        return "redirect:/products/delete";
+    }
+
+    // delete types
+    @GetMapping("/type/delete")
+    public String showDeleteTypes(Model model){
+        
+        model.addAttribute("allTypes", typeService.allTypes());
+        return "adminDeleteTypes.jsp";
+    }
+
+    @DeleteMapping("/type/delete/{id}")
+    public String deleteType(@PathVariable("id") Long typeId){
+
+        for(Category oneCategory : typeService.typeCategories(typeId)){
+            categoryService.deleteCategory(oneCategory);
+        }
+
+        typeService.deleteType(typeId);
+        return "redirect:/type/delete";
+    }
+
+    // delete Categories
+    @GetMapping("/category/delete")
+    public String showDeleteCategories(Model model){
+
+        model.addAttribute("allCategories", categoryService.allCategories());
+        return "adminDeleteCategories.jsp";
+    }
+
+    @DeleteMapping("/category/delete/{id}")
+    public String deleteCategory(@PathVariable("id") Long categoryId){
+
+        categoryService.deleteCategory(categoryId);
+        return "redirect:/category/delete";
     }
 }

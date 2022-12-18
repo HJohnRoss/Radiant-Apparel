@@ -17,6 +17,7 @@
 </head>
 <body>
     <div>
+        <a href="/">Home</a>
         <h2>Add a Product</h2>
         <form:form action="/product/create" method="post" modelAttribute="product">
             <form:errors path="name"></form:errors>
@@ -77,7 +78,7 @@
                     <form:label path="type">Type of Category:</form:label>
                     <form:select path="type">
                         <c:forEach var="oneType" items="${allTypes}">
-                                <option value="${oneType.id}"><c:out value="${oneType.name}"></c:out></option>
+                            <option value="${oneType.id}"><c:out value="${oneType.name}"></c:out></option>
                         </c:forEach>
                     </form:select>
                 </div>
@@ -93,6 +94,14 @@
                 </c:forEach>
             </ul>
         </div>
+    </div>
+    <div>
+        <h2>Delete:</h2>
+        <ul>
+            <li><a href="/products/delete">products</a></li>
+            <li><a href="/type/delete">Type of category</a></li>
+            <li><a href="/category/delete">Category</a></li>
+        </ul>
     </div>
 </body>
 </html>
