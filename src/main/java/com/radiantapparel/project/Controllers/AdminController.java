@@ -12,7 +12,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.radiantapparel.project.Models.Category;
@@ -158,6 +160,31 @@ public class AdminController {
         }
 
         categoryService.createCategory(category);
+        return "redirect:/admin";
+    }
+
+    // ONE TYPE
+    @GetMapping("/type/{id}")
+    public String showType(@PathVariable("id") Long id, Model model){
+
+        model.addAttribute("oneType", typeService.oneType((Long) id));
+        return "adminType.jsp";
+    }
+
+    // ONE CATEGORY
+    @GetMapping("/category/{id}")
+    public String showCategory(@PathVariable("id") Long id, Model model){
+        
+        model.addAttribute("oneCategory", categoryService.oneCategory(id));
+        model.addAttribute("allProducts", productService.allProducts());
+        return "adminCategory.jsp";
+    }
+
+    // ADDING A PRODUCT TO A CATEGORY
+    @PutMapping("/product/add/{id}")
+    public String addProduct(@PathVariable("id") Long categoryId, @RequestParam("productId") Long productId){
+
+        categoryService.addProduct(categoryId, productId);
         return "redirect:/admin";
     }
 }

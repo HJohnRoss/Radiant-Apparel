@@ -89,7 +89,7 @@
             <h4>Select a Type of category:</h4>
             <ul>
                 <c:forEach var="oneType" items="${allTypes}">
-                    <li><a href=""><c:out value="${oneType.name}"></c:out></a></li>
+                    <li><a href="/type/${oneType.id}"><c:out value="${oneType.name}"></c:out></a></li>
                 </c:forEach>
             </ul>
         </div>
