@@ -12,7 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestAttribute;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.radiantapparel.project.Models.ProductDatabase;
 import com.radiantapparel.project.Services.ProductService;
@@ -34,23 +34,23 @@ public class ProductController {
     }
 
     @PostMapping("/cart/add/{productId}")
-    public String addToCart(@PathVariable("productId") Long productId, @RequestAttribute("quantity") Long quantity) throws StripeException{
+    public String addToCart(@PathVariable("productId") Long productId, @RequestParam("quantity") String quantity) throws StripeException{
         // getting product from our database
         ProductDatabase product = productService.findProductById(productId);
 
         List<Object> lineItems = new ArrayList<>();
         Map<String, Object> lineItem1 = new HashMap<>();
-        lineItem1.put("price", "price_H5ggYwtDq4fbrJ");
+        lineItem1.put("price", product.getPrices().get(0).getStripePriceId());
         lineItem1.put("quantity", quantity);
-        lineItems.add(product);
+        lineItems.add(lineItem1);
         Map<String, Object> params = new HashMap<>();
         params.put(
         "success_url",
-        "https:///success"
+        "https://success"
         );
         params.put(
         "cancel_url",
-        "https://example.com/cancel"
+        "https://cancel"
         );
         params.put("line_items", lineItems);
         params.put("mode", "payment");

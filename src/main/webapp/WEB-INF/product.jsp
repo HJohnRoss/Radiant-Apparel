@@ -46,20 +46,9 @@
                     <p>Reviews</p>
                 </div>
                 <h1><c:out value="${currencyFormat.format(product.prices[0].unitAmount)}"></c:out></h1>
-                <form action="/cart/add/${product.id}">
+                <form action="/cart/add/${product.id}" method="post">
                     <label for="quantity">Quantity:</label>
-                    <select name="quatity">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>9</option>
-                        <option>10</option>
-                    </select>
+                    <input name="quantity" value="1" type="number"/>
                     <button>Add to Cart</button>
                 </form>
             </div>
