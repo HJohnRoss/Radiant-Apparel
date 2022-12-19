@@ -8,10 +8,11 @@ ul {
 }
 
 #headingLine {
-    width: 200px;
-    border-top: 1px solid black;
+    width: 475px;
+    border-top: 1px solid lightslategray;
     margin-bottom: 5px;
     margin-top: 2px;
+    opacity: 60%;
 }
 
 .dropdown:hover .dropdown-content a{display: flex;}
@@ -47,9 +48,49 @@ ul {
 
 .productImgs {
     margin: 10px;
-    height: 200px;
+    height: 300px;
 }
 
 .listProducts {
     padding: 20px;
+
+}
+
+.shopHeading {
+    font-size: 450%;
+}
+
+.productColumns {
+    flex-wrap: wrap;
+    width: 1000px;
+
+}
+
+.btn {
+    border: none;
+    padding: 8px 11px;
+    cursor: pointer;
+    border-radius: 5px 5px;
+}
+
+.searchbtn {
+    padding: 6px 8px;
+    border-radius: 5px 5px;
+}
+
+.btn:hover {
+    background-color: lightslategrey;
+    transition-duration: 0.4s;
+}
+
+.searchbtn:hover {
+    border-radius: 5px 5px;
+}
+
+.test {
+    margin-top: 10px;
+}
+
+.typeList {
+    margin-top: 10px;
 }

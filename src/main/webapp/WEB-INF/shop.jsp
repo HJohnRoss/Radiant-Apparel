@@ -51,15 +51,15 @@
         <!-- Border decor around -->
         <h1 class="shopHeading">Radiant Apparel</h1>
         <div id="headingLine"></div>
-        <div>
+        <div class="test">
             <form action="#">
-                <input type="text" placeholder="Search..." name="search">
-                <button type="submit">Submit</button>
+                <input class="searchbtn" type="text" placeholder="Search..." name="search">
+                <button class="btn" type="submit">Submit</button>
             </form>
         </div>
         <div>
             <!-- For Each -->
-            <div class="d-flex">
+            <div class="d-flex typeList">
             <c:forEach var="type" items="${allTypes}">
                 <div class="dropdown">
                     <p class="pointer-select">
@@ -76,12 +76,12 @@
             </div>
         </div>
     </div>
-    <div class="listProducts">
-        <div class="d-flex">
+    <div class="listProducts d-flex justify-content-center">
+        <div class="d-flex justify-content-center productColumns">
             <c:forEach var="oneProduct" items="${categoryProducts}">
                 <div>
-                    <img src='<c:out value="${oneProduct.images}"/>' alt="testing" class="productImgs">
-                    <p><a href="/product/show/${oneProduct.id}"><c:out value="${oneProduct.name}"></c:out></a></p>
+                    <a href="/product/show/${oneProduct.id}"><img src='<c:out value="${oneProduct.images}"/>' alt="testing" class="productImgs">
+                    <p class="ml-5"><c:out value="${oneProduct.name}"></c:out></a></p>
                 </div>
             </c:forEach>
         </div>
