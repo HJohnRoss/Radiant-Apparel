@@ -1,5 +1,6 @@
 package com.radiantapparel.project.Controllers;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpSession;
@@ -16,6 +17,8 @@ public class CartController {
     
     @GetMapping("/cart")
     public String cart(Model model, HttpSession session) throws StripeException{
+        model.addAttribute("currencyFormat",NumberFormat.getCurrencyInstance());
+
         ArrayList<ProductDatabase> cart = (ArrayList<ProductDatabase>) session.getAttribute("cart");
 
         ArrayList<ProductDatabase> newCart = new ArrayList<>();

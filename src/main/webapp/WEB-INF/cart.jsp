@@ -16,16 +16,13 @@
     <title>Your Cart</title>
 </head>
 <body>
+    <c:forEach var="oneProduct" items="${cart}">
+        <img src='<c:out value="${oneProduct.images}"/>' alt="">
+        <p><c:out value="${oneProduct.name}"></c:out></p>
+        <p><c:out value="${currencyFormat.format(oneProduct.price.unitAmount)}"></c:out></p>
+    </c:forEach>
     <form action="/checkout" method="post">
-        <c:forEach var="oneProduct" items="${cart}">
-            <input type="hidden" value="${oneProduct.stripeProductId}">
-            <input type="hidden" value="${oneProduct.price.stripePriceId}">
-            <label for="quantity">Quantity:</label>
-            <input name="quantity" value="1" type="number"/>
-            <img src='<c:out value="${oneProduct.images}"/>' alt="">
-            <p><c:out value="${oneProduct.name}"></c:out></p>
-        </c:forEach>
-        <button>Add to Cart</button>
+        <button>Checkout</button>
     </form>
 </body>
 </html>
