@@ -1,5 +1,6 @@
 package com.radiantapparel.project.Controllers;
 
+import java.text.NumberFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,18 +33,27 @@ public class ShopController {
     
     @GetMapping("/shop")
     public String showShop(Model model) throws StripeException{
-        model.addAttribute("allProducts", productService.allProducts());
+        model.addAttribute("categoryProducts", productService.allProducts());
         model.addAttribute("allTypes", typeService.allTypes());
+        model.addAttribute("currencyFormat",NumberFormat.getCurrencyInstance());
         return "shop.jsp";
     }
 
     @GetMapping("/category/show/{id}")
     public String categoryProducts(@PathVariable("id")Long id, Model model) {
-        model.addAttribute("allProducts", productService.allProducts());
         model.addAttribute("allTypes", typeService.allTypes());
         Category category = categoryService.oneCategory(id);
         List<ProductDatabase> categoryProducts = productService.findAllByCategory(category);
         model.addAttribute("categoryProducts", categoryProducts);
+        model.addAttribute("currencyFormat",NumberFormat.getCurrencyInstance());
+        return "shop.jsp";
+    }
+
+    @GetMapping("/search")
+    public String searchProduct(@RequestParam("name")String name, Model model) {
+        model.addAttribute("categoryProducts", productService.findByName(name));
+        model.addAttribute("allTypes", typeService.allTypes());
+        model.addAttribute("currencyFormat",NumberFormat.getCurrencyInstance());
         return "shop.jsp";
     }
 

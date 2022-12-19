@@ -16,6 +16,7 @@
     <title><c:out value="${product.name}"></c:out></title>
     <link rel="stylesheet" href="/css/library.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/product.css">
 </head>
 <body>
     <div class = "navextension bgdark d-flex align-items-center">
@@ -36,19 +37,39 @@
         </div>
     </nav> 
     <div>
-        <div class="mt-10 d-flex">
+        <div class="d-flex justify-content-center p-10">
             <div>
-                <img src='<c:out value="${product.images}"/>' alt="testing">
+                <img class="productImage" src='<c:out value="${product.images}"/>' alt="testing">
             </div>
-            <div>
-                <div>
-                    <h1><c:out value="${product.name}"></c:out></h1>
-                    <p>Reviews</p>
+            <div class="ml-5 productOptions">
+                <div class="d-flex flex-column ">
+                        <h1><c:out value="${product.name}"></c:out></h1>
+                    <p class="mt-10">Reviews</p>
+                    <h1 class="mt-10"><c:out value="${currencyFormat.format(product.price.unitAmount)}"></c:out></h1>
+
+                    <div class="mt-10 d-flex">
+                        <div class="cartBtn">
+                            <form action="/cart/add/${product.id}" method="post">
+                                <button class="productBtn">Add to Cart</button>
+                            </form>
+                        </div>
+                        <div class="cartBtn">
+                            <form action="/wishlist/add/${product.id}" method="post">
+                                <button class="productBtn">Add to Wishlist</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
+
                 <h1><c:out value="${currencyFormat.format(product.price.unitAmount)}"></c:out></h1>
+
+
+                <h1><c:out value="${currencyFormat.format(product.prices[0].unitAmount)}"></c:out></h1>
+
                 <form action="/cart/add/${product.id}" method="post">
                     <button>Add to Cart</button>
                 </form>
+
             </div>
         </div>
     </div>

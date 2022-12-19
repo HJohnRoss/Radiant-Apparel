@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Patua One', cursive;
 }
-
 
 
 /* THIS FOLDER IS FOR BASIC CSS. MAKE SURE TO MAKE INDIVIDUAL CHANGES IN THE DESIGNATED CSS FOLDER */
@@ -158,6 +160,14 @@ ul {
 
 .mt-10 {
     margin-top: 100px;
+}
+
+.mr-10 {
+    margin-right: 100px;
+}
+
+.p-10 {
+    padding: 100px;
 }
 
 .pt-10{
