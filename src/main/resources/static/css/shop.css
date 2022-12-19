@@ -94,3 +94,8 @@ ul {
 .typeList {
     margin-top: 10px;
 }
+
+.productNames {
+    text-decoration: none;
+    color: black;
+}
