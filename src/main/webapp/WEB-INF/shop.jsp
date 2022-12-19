@@ -64,36 +64,38 @@
                                     <button class="btn" type="submit">Submit</button>
                                 </form>
                             </div>
+
                             <div>
-                                <!-- For Each -->
                                 <div class="d-flex typeList">
                                     <c:forEach var="type" items="${allTypes}">
-                                        <div class="dropdown">
-
-                                                <h3 class="pointer-select">
-                                                    <c:out value="${type.name}"></c:out>&nbsp;<c:if
-                                                        test="${allTypes.indexOf(type) != allTypes.size()- 1}">|</c:if>
-                                                    &nbsp;
-                                                </h3>
-                                            <div class="dropdown-content">
-                                                <div class="d-flex justify-content-center">
-                                                    <c:forEach var="category" items="${type.categories}">
-                                                        <a href="/category/show/${category.id}">
-                                                            <c:out value="${category.name}"></c:out>
-                                                        </a>
-                                                    </c:forEach>
+                                        <div>
+                                            <div class="dropdown">
+                                                    <h3 class="pointer-select">
+                                                        <c:out value="${type.name}"></c:out>&nbsp;<c:if
+                                                            test="${allTypes.indexOf(type) != allTypes.size()- 1}">|</c:if>
+                                                        &nbsp;
+                                                    </h3>
+                                                <div class="dropdown-content">
+                                                        <c:forEach var="category" items="${type.categories}">
+                                                            <a href="/category/show/${category.id}">
+                                                                <c:out value="${category.name}"></c:out>
+                                                            </a>
+                                                        </c:forEach>
                                                 </div>
                                             </div>
-                                            
                                         </div>
                                     </c:forEach>
                                 </div>
                             </div>
                         </div>
+
+
+
+
                         <div class="listProducts d-flex justify-content-center">
                             <div class="d-flex justify-content-between productColumns">
                                 <c:forEach var="oneProduct" items="${categoryProducts}">
-                                    <div>
+                                    <div class="oneProduct">
                                         <a class="productNames" href="/product/show/${oneProduct.id}"><img
                                                 src='<c:out value="${oneProduct.images}"/>' alt="testing"
                                                 class="productImgs">
