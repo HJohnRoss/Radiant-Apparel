@@ -4,6 +4,7 @@
 }
 
 
+
 /* THIS FOLDER IS FOR BASIC CSS. MAKE SURE TO MAKE INDIVIDUAL CHANGES IN THE DESIGNATED CSS FOLDER */
 .d-flex{
     display: flex;
@@ -46,33 +47,45 @@
 }
 
 .bgdark{
-    background-color: rgb(22,21,39)
+    background-color: rgb(19,26,43);
 }
 
 
 .bgnavy{
-    background-color: rgb(6,15,94);
+    background-color: rgb(29,43,68);
+}
+
+.bgdarkblue{
+    background-color: rgb(47,86,124);
 }
 
 .bgblue{
-    background-color: rgb(59,103,198);
+    background-color: rgb(61,119,166);
 }
 
-.bgviolet{
-    background-color: rgb(130,116,201);
+.bglightblue{
+    background-color: rgb(116,172,207);
 }
 
-.bgpink{
-    background-color: rgb(217,182,224);
+.bgwhite{
+    background-color: rgb(198,241,241);
 }
 
-.bgbeige{
-    background-color: rgb(229,216,182);
+.text-white{
+    color: rgb(198,241,241);
 }
+
+
+
+
+
+
 
 .text-dark{
     color: rgb(22,21,39)
 }
+
+
 
 .navbar{
     padding: 0% 3%;
@@ -103,6 +116,25 @@
     min-height: 130px;
 }
 
+.nav-tag{
+    color: rgb(198,241,241);
+    text-decoration: none;
+    font-size: 20px;
+    margin-left: 30px;
+}
+
+.nav-space{
+    color: rgb(198,241,241);
+    text-decoration: none;
+    font-size: 20px;
+    margin-left: 30px;
+    cursor: default;
+}
+
+.navcart{
+    margin-left: 30px;
+}
+
 #logo{
     max-height: 100px;
 }
@@ -111,21 +143,28 @@
     color: white;
 }
 
-.searchbtn{
-    border: none;
-    height: 25px;
-    width: 50px;
-    border-radius: 15%;
-    
-}
 
-.searchbtn:hover{
-    background-color: rgb(30,80,198);
-}
 ul {
     list-style: none;
 }
 
+.mt-5{
+    margin-top: 50px;
+}
+
 .mt-10 {
     margin-top: 100px;
+}
+
+.pdt-10{
+    padding-top: 100px;
+}
+
+.head{
+    color: rgb(198,241,241);
+    font-size: 500%;
+}
+
+.pointer-select {
+    cursor: pointer;
 }

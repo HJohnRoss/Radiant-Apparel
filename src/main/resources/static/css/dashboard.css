@@ -1,14 +1,75 @@
-
+:root{
+    --gradient: linear-gradient(
+        45deg,
+        rgb(217,183,40),
+        rgb(238,239,130),
+        rgb(158,158,158),
+        rgb(242,242,234)
+    )
+}
 .searchbox{
 
 }
 
 .height{
     min-height: 8000px;
+    background-image: var(--gradient);
+}
+
+.height2{
+    min-height: 1500px;
+}
+
+.gradient{
+    background-image: linear-gradient( to top,rgb(19,26,43),  rgb(198,241,241), rgb(19,26,43));
 }
 
 
-.searchbar{
-    min-height: 20px;
-    min-width: 300px;
+
+@media only screen and (max-width: 699px) {
+    .searchbar{
+        display: none;
+    }
+
+    .searchbtn{
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 700px){
+    .searchbar{
+        min-height: 20px;
+    }
+
+
+}
+
+@media only screen and (max-width: 1650px){
+    .searchbtn{
+        display: none;
+    }
+}
+
+
+@media only screen and (min-width: 1024px){
+    .searchbar{
+        min-height: 20px;
+        min-width: 300px;
+    }
+
+    .searchbtn{
+        border: none;
+        height: 25px;
+        width: 50px;
+        border-radius: 15%;
+    }
+    
+    .searchbtn:hover{
+        background-color: rgb(47,86,124);
+    }
+}
+
+.seperator{
+    border-top: 1px solid rgb(19,26,43) ;
+    width: 50%;
 }

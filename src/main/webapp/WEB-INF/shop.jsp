@@ -27,19 +27,25 @@
             <img src="/img/thirdlogodark.png" alt="Radiance Logo" id = "logo">
         </div>
         <div class = "navcontentend bgdark">
-            <a href="#" class = "text-white">Home</a>
-            <p>|</p>
-            <a href="#" class = "text-white">About</a>
-            <p>|</p>
-            <a href="/shop" class = "text-white">Shop</a>
-            <p>|</p>
-            <a href="/admin" class = "text-white">Help</a>
-            <button style="border: none; background-color: transparent; color: white; font-size:24px"><i class="fa fa-shopping-cart"></i> Cart</button>
+            <div class="d-flex align-items-center justify-content-between">
+                <a href="/" class = "nav-tag">Home</a>
+                <p>|</p>
+                <a href="#" class = "nav-tag">About</a>
+                <p>|</p>
+                <a href="/shop" class = "nav-tag">Shop</a>
+                <p>|</p>
+                <a href="/admin" class = "nav-tag">Admin</a>
+                <p>|</p>
+                <a href="#" class = "nav-tag">Help</a>
+            </div>
+            <div class = "navcart">
+                <button style="border: none; background-color: transparent; color: rgb(198,241,241); font-size:24px"><i class="fa fa-shopping-cart"></i> Cart</button>
+            </div>
             
             
         </div>
         
-    </nav>  
+    </nav>
     
     <div class="d-flex flex-column justify-content-center align-items-center mt-10">
         <!-- Border decor around -->
@@ -56,7 +62,7 @@
             <div class="d-flex">
             <c:forEach var="type" items="${allTypes}">
                 <div class="dropdown">
-                    <p class="">
+                    <p class="pointer-select">
                         <c:out value="${type.name}"></c:out>&nbsp;<c:if test="${allTypes.indexOf(type) != allTypes.size()- 1}">|</c:if>&nbsp;
                     </p>
                     <div class="dropdown-content">

@@ -3,7 +3,9 @@
     padding: 0px;
 }   
 
-
+ul {
+    list-style: none;
+}
 
 #headingLine {
     width: 200px;
