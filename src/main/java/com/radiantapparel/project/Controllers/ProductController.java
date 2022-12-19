@@ -33,41 +33,42 @@ public class ProductController {
         model.addAttribute("product", productService.findProductById(id));
         model.addAttribute("currencyFormat",NumberFormat.getCurrencyInstance());
         if(session.getAttribute("cart") == null){
-            ArrayList<Object> newCart = new ArrayList<>();
+            ArrayList<ProductDatabase> newCart = new ArrayList<>();
             session.setAttribute("cart", newCart);
         }
         return "product.jsp";
     }
 
     @PostMapping("/cart/add/{productId}")
-    public String addToCart(@PathVariable("productId") Long productId, @RequestParam("quantity") String quantity, HttpSession session) throws StripeException{
+    public String addToCart(@PathVariable("productId") Long productId, HttpSession session) throws StripeException{
         // getting product from our database
         ProductDatabase product = productService.findProductById(productId);
+        
 
-        List<Object> lineItems = new ArrayList<>();
-        Map<String, Object> lineItem1 = new HashMap<>();
-        lineItem1.put("price", product.getPrices().get(0).getStripePriceId());
-        lineItem1.put("quantity", quantity);
-        lineItems.add(lineItem1);
-        Map<String, Object> params = new HashMap<>();
-        params.put(
-        "success_url",
-        "https://success"
-        );
-        params.put(
-        "cancel_url",
-        "https://cancel"
-        );
-        params.put("line_items", lineItems);
-        params.put("mode", "payment");
+        // List<Object> lineItems = new ArrayList<>();
+        // Map<String, Object> lineItem1 = new HashMap<>();
+        // lineItem1.put("price", product.getPrices().get(0).getStripePriceId());
+        // lineItem1.put("quantity", quantity);
+        // lineItems.add(lineItem1);
+        // Map<String, Object> params = new HashMap<>();
+        // params.put(
+        // "success_url",
+        // "https://success"
+        // );
+        // params.put(
+        // "cancel_url",
+        // "https://cancel"
+        // );
+        // params.put("line_items", lineItems);
+        // params.put("mode", "payment");
 
-        Session stripeSession = Session.create(params);
+        // Session stripeSession = Session.create(params);
 
-        Object cart = session.getAttribute("cart");
+        ArrayList<ProductDatabase> cart = (ArrayList) session.getAttribute("cart");
 
-        ((ArrayList<Object>) cart).add(stripeSession.getId());
+        cart.add(product);
         session.setAttribute("cart", cart);
-        System.out.println(cart);
+        
         return "redirect:/product/show/{productId}";
     }
 }
