@@ -37,9 +37,9 @@
             <p>|</p>
             <a href="#" class = "text-white">About</a>
             <p>|</p>
-            <a href="#" class = "text-white">Shop</a>
+            <a href="/shop" class = "text-white">Shop</a>
             <p>|</p>
-            <a href="#" class = "text-white">Help</a>
+            <a href="/admin" class = "text-white">Help</a>
             <button style="border: none; background-color: transparent; color: white; font-size:24px"><i class="fa fa-shopping-cart"></i> Cart</button>
             
             
