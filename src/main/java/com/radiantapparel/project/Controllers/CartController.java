@@ -2,6 +2,7 @@ package com.radiantapparel.project.Controllers;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -19,10 +20,10 @@ public class CartController {
     public String cart(Model model, HttpSession session) throws StripeException{
         model.addAttribute("currencyFormat",NumberFormat.getCurrencyInstance());
 
-        ArrayList<ProductDatabase> cart = (ArrayList<ProductDatabase>) session.getAttribute("cart");
+        ArrayList<Map<ProductDatabase, String>> cart = (ArrayList<Map<ProductDatabase, String>>) session.getAttribute("cart");
 
-        ArrayList<ProductDatabase> newCart = new ArrayList<>();
-        for(ProductDatabase product : cart){
+        ArrayList<Map<ProductDatabase, String>> newCart = new ArrayList<>();
+        for(Map<ProductDatabase, String> product : cart){
             newCart.add(product);
         }
         model.addAttribute("cart", newCart);

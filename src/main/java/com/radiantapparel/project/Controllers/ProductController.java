@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.servlet.http.HttpSession;
 
@@ -33,7 +34,7 @@ public class ProductController {
         model.addAttribute("product", productService.findProductById(id));
         model.addAttribute("currencyFormat",NumberFormat.getCurrencyInstance());
         if(session.getAttribute("cart") == null){
-            ArrayList<ProductDatabase> newCart = new ArrayList<>();
+            ArrayList<Map<ProductDatabase, String>> newCart = new ArrayList<>();
             session.setAttribute("cart", newCart);
             model.addAttribute("cart", session.getAttribute("cart"));
         }
@@ -41,20 +42,23 @@ public class ProductController {
     }
 
     @PostMapping("/cart/add/{productId}")
-    public String addToCart(@PathVariable("productId") String productId, @RequestParam("quantity") String quantity, HttpSession session) throws StripeException{
+    public String addToCart(@PathVariable("productId") Long productId, @RequestParam("quantity") String quantity, HttpSession session) throws StripeException{
         // getting product from our database
+        ProductDatabase product = productService.findProductById(productId);
 
-        Map<String, String> cartObject = new HashMap<String, String>();
-        cartObject.put(productId, quantity);
+        Map<ProductDatabase, String> cartObject = new HashMap<ProductDatabase, String>();
+        cartObject.put(product, quantity);
 
 
-        ArrayList<Map<String, String>> cart = (ArrayList) session.getAttribute("cart");
+        ArrayList<Map<ProductDatabase, String>> cart = (ArrayList) session.getAttribute("cart");
 
         boolean inCart = false;
-        for(Map<String, String> oneProduct : cart){
-            if(oneProduct.containsKey((String) productId)){
-                oneProduct.replace(productId, quantity);
-                inCart = true;
+        for(Map<ProductDatabase, String> oneProduct : cart){
+            for(Entry<ProductDatabase, String> oneKey : oneProduct.entrySet()){
+                if(oneKey.getKey().getId().equals(product.getId())){
+                    oneProduct = cartObject;
+                    inCart = true;
+                }
             }
         }
         if(inCart == false){
