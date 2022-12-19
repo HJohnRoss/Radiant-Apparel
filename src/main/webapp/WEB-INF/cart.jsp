@@ -16,10 +16,13 @@
     <title>Your Cart</title>
 </head>
 <body>
-    <c:forEach var="oneProduct" items="${cart}">
-        <img src='<c:out value="${oneProduct.images}"/>' alt="">
-        <p><c:out value="${oneProduct.name}"></c:out></p>
-        <p><c:out value="${currencyFormat.format(oneProduct.price.unitAmount)}"></c:out></p>
+    <c:forEach var="oneObject" items="${cart}">
+
+        <c:forEach var="oneKey" items="${oneObject.entrySet()}">
+                ${oneKey.getKey()}
+                ${oneKey.getValue()}
+        </c:forEach>
+        
     </c:forEach>
     <form action="/checkout" method="post">
         <button>Checkout</button>
