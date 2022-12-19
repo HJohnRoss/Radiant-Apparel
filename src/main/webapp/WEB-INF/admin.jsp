@@ -74,7 +74,7 @@
                     <form:label path="product">Product:</form:label>
                     <form:select path="product" name="product">
                         <c:forEach var="oneProduct" items="${allProducts}">
-                            <c:if test="${oneProduct.prices[0] == null}">
+                            <c:if test="${oneProduct.price == null}">
                                 <option value="${oneProduct.id}"><c:out value="${oneProduct.name}"></c:out></option>
                             </c:if>
                         </c:forEach>
