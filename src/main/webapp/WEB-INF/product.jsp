@@ -96,8 +96,27 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
+                        <div class="reviews">
+                            <form:form action="/product/review/${product.id}" method="post" modelAttribute="review">
+                                <input type="hidden" value="${product.id}" name="product">
+                                <input type="hidden" value="${userId}" name="reviewer">
+                                <form:label path="name">Add a review</form:label>
+                                <form:input class="input" path="name"/>
+                                <form:errors path="name"/>
+                                <input type="submit" value="Post"/>
+                            </form:form>
+                            <div>
+                                <c:forEach var="review" items="${productReviews}">
+                                    <c:if test="${review.reviewer != null}">
+                                        <h5>Posted by <c:out value="${review.reviewer.firstName}"></c:out>: </h5>
+                                        <p><c:out value="${review.name}"></c:out></p>
+                                    </c:if>
+
+                                </c:forEach>
+                            </div>
+                        </div>
+
                     </body>
 
                     </html>

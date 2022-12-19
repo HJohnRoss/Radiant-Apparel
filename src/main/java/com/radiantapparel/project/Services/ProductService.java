@@ -9,8 +9,10 @@ import org.springframework.stereotype.Service;
 import com.radiantapparel.project.Models.Category;
 import com.radiantapparel.project.Models.PriceDatabase;
 import com.radiantapparel.project.Models.ProductDatabase;
+import com.radiantapparel.project.Models.Review;
 import com.radiantapparel.project.Repositories.ProductRepository;
 import com.stripe.model.Product;
+
 
 
 @Service
@@ -81,5 +83,14 @@ public class ProductService {
     
     public List<ProductDatabase> findByName(String name) {
         return productRepository.findByNameContaining(name);
+    }
+
+    public void addReview(Long productId, Review review) {
+        Optional<ProductDatabase> optionalProduct = productRepository.findById(productId);
+        if(optionalProduct.isPresent()) {
+            ProductDatabase product = optionalProduct.get();
+            List<Review> productReviews = product.getReviews();
+            productReviews.add(review);
+        }
     }
 }
