@@ -82,7 +82,7 @@
         <div class="d-flex justify-content-center productColumns">
             <c:forEach var="oneProduct" items="${categoryProducts}">
                 <div>
-                    <a href="/product/show/${oneProduct.id}"><img src='<c:out value="${oneProduct.images}"/>' alt="testing" class="productImgs">
+                    <a class="productNames" href="/product/show/${oneProduct.id}"><img src='<c:out value="${oneProduct.images}"/>' alt="testing" class="productImgs">
                     <p class="ml-5"><c:out value="${oneProduct.name}"></c:out></a></p>
                 </div>
             </c:forEach>
