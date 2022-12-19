@@ -86,7 +86,8 @@ a {
 .productColumns {
     flex-wrap: wrap;
     width: 1700px;
-    
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .btn {

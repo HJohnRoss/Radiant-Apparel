@@ -13,11 +13,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.persistence.criteria.Fetch;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
@@ -53,6 +55,14 @@ public class ProductDatabase {
 
     @OneToOne(mappedBy = "product", fetch = FetchType.LAZY)
     private PriceDatabase price;
+
+    @Column(updatable=false)
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
+    private List<Review> reviews;
+
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="product_id")
+    private User user;
 
     @PrePersist
     protected void onCreate() {
@@ -131,4 +141,22 @@ public class ProductDatabase {
     public void setStripeProductId(String stripeProductId) {
         this.stripeProductId = stripeProductId;
     }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    
 }
