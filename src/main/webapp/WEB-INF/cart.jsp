@@ -16,6 +16,8 @@
     <title>Your Cart</title>
 </head>
 <body>
-    
+    <c:forEach var="oneProduct" items="${cart}">
+        <p><c:out value="${oneProduct.id}"></c:out></p>
+    </c:forEach>
 </body>
 </html>

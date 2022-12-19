@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,14 +29,18 @@ public class ProductController {
     ProductService productService;
 
     @GetMapping("/product/show/{id}")
-    public String showProduct(@PathVariable("id")Long id, Model model) {
+    public String showProduct(@PathVariable("id")Long id, Model model, HttpSession session) {
         model.addAttribute("product", productService.findProductById(id));
         model.addAttribute("currencyFormat",NumberFormat.getCurrencyInstance());
+        if(session.getAttribute("cart") == null){
+            ArrayList<Object> newCart = new ArrayList<>();
+            session.setAttribute("cart", newCart);
+        }
         return "product.jsp";
     }
 
     @PostMapping("/cart/add/{productId}")
-    public String addToCart(@PathVariable("productId") Long productId, @RequestParam("quantity") String quantity) throws StripeException{
+    public String addToCart(@PathVariable("productId") Long productId, @RequestParam("quantity") String quantity, HttpSession session) throws StripeException{
         // getting product from our database
         ProductDatabase product = productService.findProductById(productId);
 
@@ -55,7 +61,13 @@ public class ProductController {
         params.put("line_items", lineItems);
         params.put("mode", "payment");
 
-        Session.create(params);
+        Session stripeSession = Session.create(params);
+
+        Object cart = session.getAttribute("cart");
+
+        ((ArrayList<Object>) cart).add(stripeSession.getId());
+        session.setAttribute("cart", cart);
+        System.out.println(cart);
         return "redirect:/product/show/{productId}";
     }
 }
