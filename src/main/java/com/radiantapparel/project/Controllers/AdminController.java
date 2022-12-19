@@ -220,9 +220,7 @@ public class AdminController {
         product.setCategories(null);
 
         // deleting all the prices for that product
-        for(PriceDatabase onePrice : productService.productPrices(productId)){
-            priceService.deletePrice(onePrice);
-        }
+        priceService.deletePrice(productService.productPrices(productId));
 
         // delete product from our database
         productService.deleteProduct(productId);

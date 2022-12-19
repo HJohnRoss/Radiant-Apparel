@@ -52,11 +52,11 @@ public class ProductService {
         productRepository.deleteById((Long) productId);
     }
 
-    public List<PriceDatabase> productPrices(Long id) {
+    public PriceDatabase productPrices(Long id) {
         Optional<ProductDatabase> optionalProduct = productRepository.findById((Long) id);
         if(optionalProduct.isPresent()){
             ProductDatabase product = optionalProduct.get();
-            return product.getPrices();
+            return product.getPrice();
         }
         return null;
     }

@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -50,8 +51,8 @@ public class ProductDatabase {
     @JoinTable(name = "products_has_categories", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
     private List<Category> categories;
 
-    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
-    private List<PriceDatabase> prices;
+    @OneToOne(mappedBy = "product", fetch = FetchType.LAZY)
+    private PriceDatabase price;
 
     @PrePersist
     protected void onCreate() {
@@ -103,12 +104,12 @@ public class ProductDatabase {
         this.categories = categories;
     }
 
-    public List<PriceDatabase> getPrices() {
-        return prices;
+    public PriceDatabase getPrice() {
+        return price;
     }
 
-    public void setPrices(List<PriceDatabase> prices) {
-        this.prices = prices;
+    public void setPrices(PriceDatabase price) {
+        this.price = price;
     }
 
     public String getImage() {
