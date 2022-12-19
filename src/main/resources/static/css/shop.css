@@ -15,17 +15,18 @@ ul {
     opacity: 60%;
 }
 
-.dropdown:hover .dropdown-content a{
-    display: flex;
-    padding-left: 100px;
-    padding-right: 100px;
-    
-}
+    .dropdown:hover .dropdown-content a{
+        display: flex;
+        
+        padding-left: 100px;
+        padding-right: 100px;
+        
+    }
+
 
 .dropdown {
     position: relative;
     display: flex;
-    flex-direction: column;
 }
 
 .dropdown:hover {
@@ -40,7 +41,7 @@ ul {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .word-wrap {
@@ -51,7 +52,7 @@ ul {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
-    /* display: block; */
+    display: block;
 
 }
 
@@ -85,7 +86,7 @@ a {
 .productColumns {
     flex-wrap: wrap;
     width: 1700px;
-
+    
 }
 
 .btn {
@@ -98,6 +99,8 @@ a {
 .searchbtn {
     padding: 6px 8px;
     border-radius: 5px 5px;
+    width: 350px;
+    margin-right: 5px;
 }
 
 .btn:hover {
@@ -121,4 +124,8 @@ a {
 .productNames {
     text-decoration: none;
     color: black;
+}
+
+.oneProduct {
+    margin-bottom: 15px;
 }
