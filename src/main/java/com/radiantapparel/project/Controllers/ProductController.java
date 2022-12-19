@@ -35,38 +35,31 @@ public class ProductController {
         if(session.getAttribute("cart") == null){
             ArrayList<ProductDatabase> newCart = new ArrayList<>();
             session.setAttribute("cart", newCart);
+            model.addAttribute("cart", session.getAttribute("cart"));
         }
         return "product.jsp";
     }
 
     @PostMapping("/cart/add/{productId}")
-    public String addToCart(@PathVariable("productId") Long productId, HttpSession session) throws StripeException{
+    public String addToCart(@PathVariable("productId") String productId, @RequestParam("quantity") String quantity, HttpSession session) throws StripeException{
         // getting product from our database
-        ProductDatabase product = productService.findProductById(productId);
-        
 
-        // List<Object> lineItems = new ArrayList<>();
-        // Map<String, Object> lineItem1 = new HashMap<>();
-        // lineItem1.put("price", product.getPrices().get(0).getStripePriceId());
-        // lineItem1.put("quantity", quantity);
-        // lineItems.add(lineItem1);
-        // Map<String, Object> params = new HashMap<>();
-        // params.put(
-        // "success_url",
-        // "https://success"
-        // );
-        // params.put(
-        // "cancel_url",
-        // "https://cancel"
-        // );
-        // params.put("line_items", lineItems);
-        // params.put("mode", "payment");
+        Map<String, String> cartObject = new HashMap<String, String>();
+        cartObject.put(productId, quantity);
 
-        // Session stripeSession = Session.create(params);
 
-        ArrayList<ProductDatabase> cart = (ArrayList) session.getAttribute("cart");
+        ArrayList<Map<String, String>> cart = (ArrayList) session.getAttribute("cart");
 
-        cart.add(product);
+        boolean inCart = false;
+        for(Map<String, String> oneProduct : cart){
+            if(oneProduct.containsKey((String) productId)){
+                oneProduct.replace(productId, quantity);
+                inCart = true;
+            }
+        }
+        if(inCart == false){
+            cart.add(cartObject);
+        }
         session.setAttribute("cart", cart);
         
         return "redirect:/product/show/{productId}";
