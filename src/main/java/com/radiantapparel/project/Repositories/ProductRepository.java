@@ -19,4 +19,5 @@ public interface ProductRepository extends CrudRepository<ProductDatabase, Long>
 
     List<ProductDatabase> findByCategoriesNotContains(Category category);
 
+    List<ProductDatabase> findByNameContaining(String name);
 }

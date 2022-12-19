@@ -47,12 +47,14 @@
         
     </nav>
     
-    <div class="d-flex flex-column justify-content-center align-items-center mt-10">
+    <div class="d-flex flex-column justify-content-center align-items-center mt-10 ">
         <!-- Border decor around -->
-        <h1 class="shopHeading">Radiant Apparel</h1>
+        <div class="text-center">
+            <h1 class="shopHeading">Radiant Apparel</h1>
+        </div>
         <div id="headingLine"></div>
         <div class="test">
-            <form action="#">
+            <form action="/search/${name}">
                 <input class="searchbtn" type="text" placeholder="Search..." name="search">
                 <button class="btn" type="submit">Submit</button>
             </form>
@@ -86,7 +88,11 @@
             </c:forEach>
         </div>
     </div>
-
+    <div>
+        <c:forEach var="product" items="${productsBySearch}">
+            <p><c:out value="${product.name}"></c:out></p>
+        </c:forEach>
+    </div>
     <!-- <c:forEach var="product" items="${allProducts}">
         <img src="<c:out value="${product.images}"></c:out>" alt="">
         <p><c:out value="${product.name}"></c:out></p>

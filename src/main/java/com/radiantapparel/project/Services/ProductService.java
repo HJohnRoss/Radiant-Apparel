@@ -78,4 +78,8 @@ public class ProductService {
         }
         return null;
     }
+    
+    public List<ProductDatabase> findByName(String name) {
+        return productRepository.findByNameContaining(name);
+    }
 }
