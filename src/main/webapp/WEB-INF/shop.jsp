@@ -68,7 +68,7 @@
                                 <!-- For Each -->
                                 <div class="d-flex typeList">
                                     <c:forEach var="type" items="${allTypes}">
-                                        <!-- <div class="dropdown"> -->
+                                        <div class="dropdown">
 
                                                 <h3 class="pointer-select">
                                                     <c:out value="${type.name}"></c:out>&nbsp;<c:if
@@ -85,7 +85,7 @@
                                                 </div>
                                             </div>
                                             
-                                        <!-- </div> -->
+                                        </div>
                                     </c:forEach>
                                 </div>
                             </div>
