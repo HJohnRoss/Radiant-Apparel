@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Radiant Apparel</title>
 </head>
-<body>
+<body onload="scrollright()">
     <div class = "navextension bgdark d-flex align-items-center">
     </div>
     <nav class="navbar bgdark">
@@ -61,8 +61,8 @@
                 <div class="seperator mt-5"></div>
             </div>
             <div class="carousel d-flex align-items-center justify-content-center">
-                <button class="carouselbuttonleft carouselbutton">Left Button</button>
-                <div class="carousel-container d-flex">
+                <button class="carouselbutton" onclick="scrollleft()">Left Button</button>
+                <div class="carousel-container d-flex" id="carousel-container">
                     <div class="pb-10 carousel1 d-flex" >
                         <c:forEach var="oneProduct" items="${allProducts}">
                             <div>
@@ -71,7 +71,7 @@
                         </c:forEach>
                     </div>
                 </div>
-                <button class="carouselbuttonright carouselbutton">Right Button</button>
+                <button class="carouselbutton" onclick="scrollright()" >Right Button</button>
                 
             </div>
 
@@ -81,5 +81,6 @@
     <div class="height">
         <h1 class="text-danger mt-10">CHANGE STRIPE KEY!!!</h1>
     </div>
+    <script src="/js/dashboard.js"></script>
 </body>
 </html>
