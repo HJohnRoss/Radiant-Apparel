@@ -61,15 +61,6 @@
                     </div>
                 </div>
 
-                <h1><c:out value="${currencyFormat.format(product.price.unitAmount)}"></c:out></h1>
-
-
-                <h1><c:out value="${currencyFormat.format(product.prices[0].unitAmount)}"></c:out></h1>
-
-                <form action="/cart/add/${product.id}" method="post">
-                    <button>Add to Cart</button>
-                </form>
-
             </div>
         </div>
     </div>
