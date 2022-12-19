@@ -7,9 +7,7 @@
         rgb(242,242,234)
     )
 }
-.searchbox{
 
-}
 
 .height{
     min-height: 8000px;
@@ -17,7 +15,7 @@
 }
 
 .height2{
-    min-height: 1500px;
+    min-height: 1200px;
 }
 
 .gradient{
@@ -73,3 +71,27 @@
     border-top: 1px solid rgb(19,26,43) ;
     width: 50%;
 }
+
+.carousel-container{
+    height: 300px;
+    width: 900px;
+    margin: 0px auto;
+    overflow-y: hidden;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+.productImgs{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    margin: 0px 30px;
+    scroll-snap-align: center;
+    
+}
+
+/* .carousel1{
+    overflow: hidden;
+    
+} */

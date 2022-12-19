@@ -54,11 +54,25 @@
         </div>
         
     </nav>
-    <div class="gradient height2 pdt-10">
+    <div class="gradient height2 pt-10">
         <div class="text-center">
             <h1 class="head">Radient Apparel</h1>
             <div class="d-flex justify-content-center">
                 <div class="seperator mt-5"></div>
+            </div>
+            <div class="carousel d-flex align-items-center justify-content-center">
+                <button class="carouselbuttonleft carouselbutton">Left Button</button>
+                <div class="carousel-container d-flex">
+                    <div class="pb-10 carousel1 d-flex" >
+                        <c:forEach var="oneProduct" items="${allProducts}">
+                            <div>
+                                <img src='<c:out value="${oneProduct.images}"/>' alt="testing" class="productImgs item${oneProduct.id}">
+                            </div>
+                        </c:forEach>
+                    </div>
+                </div>
+                <button class="carouselbuttonright carouselbutton">Right Button</button>
+                
             </div>
 
         </div>
