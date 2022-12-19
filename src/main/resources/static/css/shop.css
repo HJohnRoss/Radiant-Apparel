@@ -15,15 +15,22 @@ ul {
     opacity: 60%;
 }
 
-.dropdown:hover .dropdown-content a{display: flex;}
+.dropdown:hover .dropdown-content a{
+    display: flex;
+    padding-left: 100px;
+    padding-right: 100px;
+    
+}
 
 .dropdown {
     position: relative;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
 }
 
-.dropdown p:hover {
+.dropdown:hover {
     background-color: whitesmoke;
+    
 }
 
 .dropdown-content {
@@ -33,26 +40,38 @@ ul {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    margin-top: 20px;
+}
+
+.word-wrap {
+    flex-wrap: wrap;
 }
 
 .dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
+<<<<<<< Updated upstream
     display: block;
+=======
+    /* display: block; */
+
+>>>>>>> Stashed changes
 }
 
 .dropdown-content a:hover {background-color: #ddd;}
 
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 
 .productImgs {
-    margin: 10px;
-    height: 300px;
+    /* margin: 25px; */
+    height: 650px;
 }
 
 .listProducts {
-    padding: 20px;
+    
 
 }
 
@@ -62,7 +81,7 @@ ul {
 
 .productColumns {
     flex-wrap: wrap;
-    width: 1000px;
+    width: 1700px;
 
 }
 
@@ -93,6 +112,7 @@ ul {
 
 .typeList {
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .productNames {
