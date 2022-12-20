@@ -99,6 +99,7 @@
                                 </c:if>
                             </div>
                         </div>
+                        <h1>Reviews</h1>
                         <div class="reviewLine"></div>
                         <div class="reviews">
                             <c:forEach var="review" items="${productReviews}">

@@ -35,7 +35,7 @@
         <div class = "navcontentend bgdark">
             <div class="d-flex align-items-center justify-content-between">
                 <a href="/" class = "nav-tag pointer-select">Home</a>
-                <p>|</p>
+                <p class = "nav-space">|</p>
                 <a href="#" class = "nav-tag">About</a>
                 <p class = "nav-space">|</p>
                 <a href="/shop" class = "nav-tag">Shop</a>
