@@ -32,11 +32,42 @@
     width: 600px;
 }
 
+.oneReview {
+    margin-top: 50px;
+}
 
 .reviews {
+    padding: 20px;
+    margin-left: 80px;
+    font-size: 150%;
+}
 
+.reviewLine {
+    width: 1700px;
+    border: grey solid 2px;
+    margin-left: 150px;
+    opacity: 10%;
+    border-radius: 25%;
+
+}
+
+.oneReviewLine {
+    width: 800px;
+    border: grey solid 2px;
+    opacity: 40%;
 }
 
 .dateReviewed {
     color: rgb(129, 129, 129);
+}
+
+.reviewForm {
+    padding-right: 100px;
+    padding-top: 100px;
+}
+
+.btn {
+    height: 30px;
+    width: 100px;
+    margin-top: 10px;
 }

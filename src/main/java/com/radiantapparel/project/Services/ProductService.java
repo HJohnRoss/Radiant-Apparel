@@ -86,7 +86,7 @@ public class ProductService {
     }
 
     public void addReview(Long productId, Review review) {
-        Optional<ProductDatabase> optionalProduct = productRepository.findById(productId);
+        Optional<ProductDatabase> optionalProduct = productRepository.findById((Long) productId);
         if(optionalProduct.isPresent()) {
             ProductDatabase product = optionalProduct.get();
             List<Review> productReviews = product.getReviews();

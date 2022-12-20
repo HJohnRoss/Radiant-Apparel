@@ -18,7 +18,7 @@ public class ReviewService {
     }
 
     public List<Review> productReviews(Long productId) {
-        return reviewRepository.findByProductIdIs(productId);
+        return reviewRepository.findTop5ByProductIdIsOrderByCreatedAtDesc(productId);
     }
 
     public Review createReview(Review r) {

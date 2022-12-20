@@ -10,5 +10,5 @@ public interface ReviewRepository extends CrudRepository<Review, Long>{
 
     List<Review> findAll();
     
-    List<Review> findByProductIdIs(Long id);
+    List<Review> findTop5ByProductIdIsOrderByCreatedAtDesc(Long id);
 }
