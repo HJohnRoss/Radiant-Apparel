@@ -115,7 +115,7 @@
             <c:forEach var = "oneProduct" items = "${allProducts}">
                 <c:choose>
                     <c:when test ="${allProducts.indexOf(oneProduct) == 0}">
-                        <div>
+                        <div class="text-center">
                             <a class="producta" href="/product/show/${oneProduct.id}">
                                 <img src='<c:out value="${oneProduct.images}"/>' alt="testing" class="productImgs3 ">
                                 <p class="producttag2"><c:out value="${oneProduct.name}"></c:out></p>
