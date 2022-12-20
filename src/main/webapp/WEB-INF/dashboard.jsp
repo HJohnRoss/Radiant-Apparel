@@ -60,40 +60,46 @@
             <h1 class="head text-danger">CHANGE STRIPE KEY!!!</h1>
             <div class="d-flex justify-content-center">
             </div>
-            <div class="carousel d-flex align-items-center justify-content-center">
-                <button class="carouselbuttonleft" onclick="scrollleft()"> < </button>
-                <div class="carousel-container d-flex" id="carousel-container">
-                    <div class="pb-10 carousel1 d-flex" >
-                        <c:forEach var="oneProduct" items="${allProducts}">
-                            <div>
-                                <img src='<c:out value="${oneProduct.images}"/>' alt="testing" class="productImgs item${oneProduct.id}">
-                            </div>
-                        </c:forEach>
+            <div class="d-flex justify-content-center">
+
+                <div class="carousel d-flex align-items-center justify-content-center">
+                    <button class="carouselbuttonleft" onclick="scrollleft()"> < </button>
+                    <div class="carousel-container d-flex" id="carousel-container">
+                        <div class="pb-10 carousel1 d-flex" >
+                            <c:forEach var="oneProduct" items="${allProducts}">
+                                <div>
+                                    <img src='<c:out value="${oneProduct.images}"/>' alt="testing" class="productImgs item${oneProduct.id}">
+                                </div>
+                            </c:forEach>
+                        </div>
                     </div>
+                    <button class="carouselbuttonright" onclick="scrollright()" > > </button>
+                    
                 </div>
-                <button class="carouselbuttonright" onclick="scrollright()" > > </button>
                 
             </div>
-
         </div>
 
     </div>
     <div class="gradient height text-center">
         <h1 class="text-dark title pt-10">Featured Products</h1>
-        <div class="carousel2 d-flex align-items-center justify-content-center">
-            <button class="carouselbuttonleft" onclick="scrollleft2()"> < </button>
-            <div class="carousel-container2 d-flex" id="carousel-container2">
-                <div class="pb-10 carousel1 d-flex" >
-                    <c:forEach var="oneProduct" items="${allProducts}">
-                        <div>
-                            <img src='<c:out value="${oneProduct.images}"/>' alt="testing" class="productImgs2 ">
-                        </div>
-                        <div class="featured"></div>
-                    </c:forEach>
+        <div class="d-flex justify-content-center">
+
+            <div class="carousel2 d-flex align-items-center justify-content-center">
+                <button class="carouselbuttonleft" onclick="scrollleft2()"> < </button>
+                <div class="carousel-container2 d-flex" id="carousel-container2">
+                    <div class="pb-10 carousel1 d-flex" >
+                        <c:forEach var="oneProduct" items="${allProducts}">
+                            <div>
+                                <img src='<c:out value="${oneProduct.images}"/>' alt="testing" class="productImgs2 ">
+                            </div>
+                            <div class="featured"></div>
+                        </c:forEach>
+                    </div>
                 </div>
+                <button class="carouselbuttonright" onclick="scrollright2()" > > </button>
+                
             </div>
-            <button class="carouselbuttonright" onclick="scrollright2()" > > </button>
-            
         </div>
 
     </div>

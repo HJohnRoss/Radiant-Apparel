@@ -118,9 +118,11 @@
 
 .carousel{
     margin-top: 0px;
+    width: 1200px;
 }
 
 .carousel2{
+    width: 1200px;
     padding-top: 100px;
 }
 
@@ -171,8 +173,6 @@
 
 .carouselbuttonright{
     font-size: 500%;
-    margin-right: 400px;
-    margin-left: -400px;
     background-color: transparent;
     border: none;
     color: rgb(198,241,241);
@@ -181,8 +181,6 @@
 
 .carouselbuttonleft{
     font-size: 500%;
-    margin-left: 400px;
-    margin-right: -400px;
     background-color: transparent;
     border: none;
     color: rgb(198,241,241);
