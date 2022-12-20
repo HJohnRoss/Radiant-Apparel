@@ -1,0 +1,70 @@
+.gradient{
+    background-image: radial-gradient(rgb(61,119,166), rgb(19,26,43) 60%);
+    background-size: 200% 400%;
+    background-position: top;
+}
+
+button{
+    background-color: rgb(228,102,7);
+    color: rgb(19,26,43);
+    border: none;
+    border-radius: 5px 5px;
+    padding: 5px;
+    margin: 6px;
+    font-weight: bold;
+    transition-duration: 1s;
+}
+
+button:hover{
+    box-shadow:0px 0px 5px 2px rgb(198,241,241),0px 0px 10px 5px  rgb(228,102,7), 0px 0px 10px 2px rgb(198,241,241) inset;
+}
+
+.adminbtn{
+    background-color: rgb(228,102,7);
+    color: rgb(19,26,43);
+    border: none;
+    border-radius: 5px 5px;
+    padding: 5px;
+    margin: 6px;
+    font-weight: bold;
+    transition-duration: 1s;
+    text-decoration: none;
+}
+
+.adminbtn:hover{
+    box-shadow:0px 0px 5px 2px rgb(198,241,241),0px 0px 10px 5px  rgb(228,102,7), 0px 0px 10px 2px rgb(198,241,241) inset;
+}
+
+a, p, h1, h2, h3, h4, label{
+    color: rgb(198,241,241);
+}
+
+.set-width{
+    width: 30%;
+    margin: auto;
+}
+
+.pd-admin{
+    margin-top: 200px;
+}
+
+.adminstuff{
+    margin-left: 20px;
+}
+
+.adminimg{
+    height: 100px;
+    margin: 10px 0px;
+}
+
+.adminwidth{
+    width: 100px;
+}
+
+.wrap{
+    flex-wrap: wrap;
+}
+
+.adminpmargin{
+    margin-top: 10px;
+}

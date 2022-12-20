@@ -81,6 +81,12 @@
     color: rgb(198,241,241);
 }
 
+.bottle{
+    background-color: rgb(29,43,68);
+    padding: 70px;
+    border-radius: 15px;
+}
+
 
 
 
@@ -102,6 +108,20 @@
     margin-top: -105px;
     justify-content: space-between;
     opacity: 90%;
+    transition-duration: 1s;
+}
+
+.navbar button{
+    border: none;
+    border-radius: 5px 5px;
+    padding: 8px;
+    margin: 6px;
+    font-weight: bold;
+    transition-duration: 1s;
+}
+
+.navbar button:hover{
+    box-shadow: 0px 0px 10px 3px rgb(198,241,241), 0px 0px 10px 3px rgb(198,241,241) inset, 0px 0px 10px 6px rgb(79, 24, 219);
 }
 
 .navcontentstart{
@@ -191,3 +211,6 @@ ul {
 .pointer-select {
     cursor: pointer;
 }
+
+
+
