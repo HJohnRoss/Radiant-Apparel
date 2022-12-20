@@ -35,8 +35,16 @@ public class CartController {
             session.setAttribute("cart", newCart);
             model.addAttribute("cart", session.getAttribute("cart"));
         }
-
         ArrayList<Map<ProductDatabase, String>> cart = (ArrayList<Map<ProductDatabase, String>>) session.getAttribute("cart");
+
+        // getting the total session did not work
+        Double total = 0.0;
+        for(Map<ProductDatabase, String> oneProduct : cart){
+            for(Entry<ProductDatabase, String> oneKey : oneProduct.entrySet()){
+                total += (oneKey.getKey().getPrice().getUnitAmount() * Integer.parseInt(oneKey.getValue()));
+            }
+        }
+        model.addAttribute("total", total);
 
         model.addAttribute("cart", cart);
         return "cart.jsp";

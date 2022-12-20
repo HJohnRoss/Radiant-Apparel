@@ -21,6 +21,7 @@
     <ul>
         <c:forEach var="oneProduct" items="${allProducts}">
             <li>
+                <img src='<c:out value="${oneProduct.images}"/>' alt="">
                 <p><c:out value="${oneProduct.name}"></c:out></p>
                 <form action="/product/delete/${oneProduct.id}" method="post">
                     <input type="hidden" name="_method" value="delete"/>

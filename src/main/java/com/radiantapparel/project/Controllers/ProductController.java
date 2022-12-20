@@ -3,7 +3,6 @@ package com.radiantapparel.project.Controllers;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -24,9 +23,6 @@ import com.radiantapparel.project.Models.ProductDatabase;
 import com.radiantapparel.project.Models.Review;
 import com.radiantapparel.project.Services.ProductService;
 import com.radiantapparel.project.Services.ReviewService;
-import com.stripe.exception.StripeException;
-import com.stripe.model.checkout.Session;
-import com.stripe.param.PriceCreateParams.ProductData;
 
 
 @Controller
@@ -57,13 +53,13 @@ public class ProductController {
     public String addToCart(@PathVariable("productId") Long productId, @RequestParam("quantity") String quantity, HttpSession session) {
         // getting product from our database
         ProductDatabase product = productService.findProductById(productId);
-
+        
         Map<ProductDatabase, String> cartObject = new HashMap<ProductDatabase, String>();
         cartObject.put(product, quantity);
-
-
+        
+        
         ArrayList<Map<ProductDatabase, String>> cart = (ArrayList) session.getAttribute("cart");
-
+        
         boolean inCart = false;
         for(Map<ProductDatabase, String> oneProduct : cart){
             for(Entry<ProductDatabase, String> oneKey : oneProduct.entrySet()){
