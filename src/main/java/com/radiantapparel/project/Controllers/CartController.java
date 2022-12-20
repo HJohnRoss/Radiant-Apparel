@@ -30,6 +30,12 @@ public class CartController {
     public String cart(Model model, HttpSession session) throws StripeException{
         model.addAttribute("currencyFormat",NumberFormat.getCurrencyInstance());
 
+        if(session.getAttribute("cart") == null){
+            ArrayList<Map<ProductDatabase, String>> newCart = new ArrayList<>();
+            session.setAttribute("cart", newCart);
+            model.addAttribute("cart", session.getAttribute("cart"));
+        }
+
         ArrayList<Map<ProductDatabase, String>> cart = (ArrayList<Map<ProductDatabase, String>>) session.getAttribute("cart");
 
         model.addAttribute("cart", cart);
@@ -63,7 +69,9 @@ public class CartController {
         for(Map<ProductDatabase, String> oneProduct : cart){
             for(Entry<ProductDatabase, String> oneKey : oneProduct.entrySet()){
                 if(oneKey.getKey().getId().equals(product.getId())){
-                    oneProduct.clear();
+                    cart.remove(cart.indexOf(oneProduct));
+                    session.setAttribute("cart", cart);
+                    return "redirect:/cart";
                 }
             }
         }
