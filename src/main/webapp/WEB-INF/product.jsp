@@ -47,76 +47,84 @@
                             <div class="d-flex justify-content-center p-10">
                                 <div>
                                     <img class="productImage" src='<c:out value="${product.images}"/>' alt="testing">
+                                    <form:form action="/product/review/${product.id}" method="post"
+                                        modelAttribute="review">
+                                        <input type="hidden" value="${product.id}" name="product">
+                                        <input type="hidden" value="${userId}" name="reviewer">
+                                        <form:label path="name">Add a review</form:label>
+                                        <form:textarea class="input" path="name" />
+                                        <form:errors path="name" />
+                                        <input type="submit" value="Post" />
+                                    </form:form>
                                 </div>
                                 <div class="ml-5 productOptions">
                                     <div class="d-flex flex-column ">
                                         <h1>
                                             <c:out value="${product.name}"></c:out>
                                         </h1>
-                                        <p class="mt-10">Reviews</p>
                                         <h1 class="mt-10">
                                             <c:out value="${currencyFormat.format(product.price.unitAmount)}"></c:out>
                                         </h1>
-                                        <c:choose>
-                                            <c:when test='${!cart.contains(product.id)}'>
-                                                <form action="/cart/add/${product.id}" method="post">
-                                                    <label for="quantity">Quantity:</label>
-                                                    <select name="quantity">
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                        <option value="6">6</option>
-                                                        <option value="7">7</option>
-                                                        <option value="8">8</option>
-                                                        <option value="9">9</option>
-                                                        <option value="10">10</option>
-                                                    </select>
-                                                    <div class="mt-10 d-flex">
-                                                        <div class="cartBtn">
-                                                            <button class="productBtn">Add to Cart</button>
-                                                        </div>
-                                                </form>
+                                        <form action="/cart/add/${product.id}" method="post">
+                                            <label for="quantity">Quantity:</label>
+                                            <select name="quantity">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                            </select>
+                                            <div class="mt-10 d-flex">
                                                 <div class="cartBtn">
-                                                    <form action="/wishlist/add/${product.id}" method="post">
-                                                        <button class="productBtn">Add to Wishlist</button>
-                                                    </form>
+                                                    <button class="productBtn">Add to Cart</button>
                                                 </div>
-                                            </c:when>
-
-                                            <c:otherwise>
-                                                <div class="cartBtn">
-                                                    <form action="/wishlist/add/${product.id}" method="post">
-                                                        <button class="productBtn">Add to Wishlist</button>
-                                                    </form>
-                                                </div>
-                                            </c:otherwise>
-                                        </c:choose>
+                                        </form>
+                                        <div class="cartBtn">
+                                            <form action="/wishlist/add/${product.id}" method="post">
+                                                <button class="productBtn">Add to Wishlist</button>
+                                            </form>
+                                        </div>
                                     </div>
+                                </div>
+                                <div class="reviews">
+                                    <c:forEach var="review" items="${productReviews}">
+                                        <c:if test="${review.reviewer != null}">
+                                            <div class="oneReview">
+                                                <h4>Posted by <c:out value="${review.reviewer.firstName}">
+                                                    </c:out>: </h4>
+                                                <h5 class="dateReviewed">Reviewed on
+                                                    <fmt:formatDate value="${review.createdAt}"
+                                                        pattern="MMMM dd yyyy" />
+                                                </h5>
+                                                <p>
+                                                    <c:out value="${review.name}"></c:out>
+                                                </p>
+                                            </div>
+                                        </c:if>
+                                    </c:forEach>
                                 </div>
                             </div>
                         </div>
-                        <div class="reviews">
-                            <form:form action="/product/review/${product.id}" method="post" modelAttribute="review">
-                                <input type="hidden" value="${product.id}" name="product">
-                                <input type="hidden" value="${userId}" name="reviewer">
-                                <form:label path="name">Add a review</form:label>
-                                <form:input class="input" path="name"/>
-                                <form:errors path="name"/>
-                                <input type="submit" value="Post"/>
-                            </form:form>
-                            <div>
-                                <c:forEach var="review" items="${productReviews}">
-                                    <c:if test="${review.reviewer != null}">
-                                        <h5>Posted by <c:out value="${review.reviewer.firstName}"></c:out>: </h5>
-                                        <p><c:out value="${review.name}"></c:out></p>
-                                    </c:if>
-
-                                </c:forEach>
-                            </div>
-                        </div>
-
                     </body>
+                    <!-- <div class="reviews">
+                        <c:forEach var="review" items="${productReviews}">
+                            <c:if test="${review.reviewer != null}">
+                                <div class="oneReview">
+                                    <h4>Posted by <c:out value="${review.reviewer.firstName}"></c:out>: </h4>
+                                    <h5 class="dateReviewed">Reviewed on
+                                        <fmt:formatDate value="${review.createdAt}" pattern="MMMM dd yyyy" />
+                                    </h5>
+                                    <p>
+                                        <c:out value="${review.name}"></c:out>
+                                    </p>
+                                </div>
+                            </c:if>
+                        </c:forEach>
+                    </div> -->
 
                     </html>
