@@ -114,13 +114,9 @@
         <div class="BRP mt-10">
             <c:forEach var = "oneProduct" items = "${allProducts}">
                 <c:choose>
-                    <c:when test ="${oneProduct.id == 1}">
-                        <div class="text-center">
-                            <a class="producta" href="/product/show/${oneProduct.id}">
-                                <img src='<c:out value="${oneProduct.images}"/>' alt="testing" class="productImgs3 ">
-                                <p class="producttag2"><c:out value="${oneProduct.name}"></c:out></p>
-                                <p class="producttag5"><c:out value="${currencyFormat.format(oneProduct.price.unitAmount)}"></c:out></p>
-                            </a>
+                    <c:when test ="${allProducts.indexOf(oneProduct) == 0}">
+                        <div>
+                            <img src='<c:out value="${oneProduct.images}"/>' alt="testing" class="productImgs3">
                         </div>
                     </c:when>
                     <c:otherwise>
