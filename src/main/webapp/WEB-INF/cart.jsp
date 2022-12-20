@@ -41,8 +41,11 @@
                             <button class="productBtn">Update Quantity</button>
                         </div>
                 </form>
-        </c:forEach>
-        
+                <form action="/cart/delete/${oneKey.getKey().id}" method="post">
+                    <button><img src="/img/delete.png" alt="Delete icons created by Ilham Fitrotul Hayat - Flaticon"></button>
+                </form>
+            </c:forEach>
+
     </c:forEach>
     <form action="/checkout" method="post">
         <button>Checkout</button>
