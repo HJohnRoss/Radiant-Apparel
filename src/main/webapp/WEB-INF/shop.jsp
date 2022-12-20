@@ -33,7 +33,7 @@
                                 <div class="d-flex align-items-center justify-content-between">
                                     <a href="/" class="nav-tag">Home</a>
                                     <p class = "nav-space">|</p>
-                                    <a href="#" class="nav-tag">About</a>
+                                    <a href="/about" class="nav-tag">About</a>
                                     <p class = "nav-space">|</p>
                                     <a href="/shop" class="nav-tag">Shop</a>
                                     <p class = "nav-space">|</p>
@@ -51,66 +51,69 @@
                             </div>
 
                         </nav>
+                        <div class="gradient">
 
-                        <div class="d-flex flex-column justify-content-center align-items-center mt-10 ">
-                            <!-- Border decor around -->
-                            <div class="text-center">
-                                <h1 class="shopHeading">Radiant Apparel</h1>
-                            </div>
-                            <div id="headingLine"></div>
-                            <div class="test">
-                                <form action="/search">
-                                    <input class="searchbtn" type="text" placeholder="Search..." name="name">
-                                    <button class="btn" type="submit">Submit</button>
-                                </form>
-                            </div>
-
-                            <div>
-                                <div class="d-flex typeList">
-                                    <c:forEach var="type" items="${allTypes}">
-                                        <div>
-                                            <div class="dropdown">
-                                                    <h3 class="pointer-select">
-                                                        <c:out value="${type.name}"></c:out>&nbsp;<c:if
-                                                            test="${allTypes.indexOf(type) != allTypes.size()- 1}">|</c:if>
-                                                        &nbsp;
-                                                    </h3>
-                                                <div class="dropdown-content">
-                                                        <c:forEach var="category" items="${type.categories}">
-                                                            <a href="/category/show/${category.id}">
-                                                                <c:out value="${category.name}"></c:out>
-                                                            </a>
-                                                        </c:forEach>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </c:forEach>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-                        <div class="listProducts d-flex justify-content-center">
-                            <div class="d-flex justify-content-between productColumns">
-                                <c:forEach var="oneProduct" items="${categoryProducts}">
-                                    <div class="oneProduct">
-                                        <a class="productNames" href="/product/show/${oneProduct.id}"><img
-                                                src='<c:out value="${oneProduct.images}"/>' alt="testing"
-                                                class="productImgs">
-                                            <p class="">
-                                                <c:out value="${oneProduct.name}"></c:out>
-                                                <br>
-                                                <c:out value="${currencyFormat.format(oneProduct.price.unitAmount)}">
-                                                </c:out>
-                                        </a>
-                                        </p>
+                                <div class="d-flex flex-column justify-content-center align-items-center pt-10">
+                                    <!-- Border decor around -->
+                                    <div class="text-center">
+                                        <h1 class="shopHeading">Radiant Apparel</h1>
                                     </div>
-                                </c:forEach>
-
-                            </div>
+                                    <div id="headingLine"></div>
+                                    <div class="test">
+                                        <form action="/search">
+                                            <input class="searchbtn" type="text" placeholder="Search..." name="name">
+                                            <button class="btn" type="submit">Submit</button>
+                                        </form>
+                                    </div>
+                                    
+                                    <div>
+                                        <div class="d-flex typeList">
+                                            <c:forEach var="type" items="${allTypes}">
+                                                <div>
+                                                    <div class="dropdown">
+                                                        <h3 class="pointer-select text-light">
+                                                            <c:out value="${type.name}"></c:out>&nbsp;<c:if
+                                                            test="${allTypes.indexOf(type) != allTypes.size()- 1}">|</c:if>
+                                                            &nbsp;
+                                                        </h3>
+                                                        <div class="dropdown-content">
+                                                            <c:forEach var="category" items="${type.categories}">
+                                                                <a href="/category/show/${category.id}">
+                                                                    <c:out value="${category.name}"></c:out>
+                                                                </a>
+                                                            </c:forEach>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </c:forEach>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                
+                                
+                                
+                                <div class="listProducts d-flex justify-content-center">
+                                    <div class="d-flex justify-content-between productColumns">
+                                        <c:forEach var="oneProduct" items="${categoryProducts}">
+                                            <div class="oneProduct">
+                                                <a class="productNames" href="/product/show/${oneProduct.id}"><img
+                                                    src='<c:out value="${oneProduct.images}"/>' alt="testing"
+                                                    class="productImgs">
+                                                    <p class="text-light">
+                                                        <c:out value="${oneProduct.name}"></c:out>
+                                                    </p>
+                                                    <p class="text-light">
+                                                        <c:out value="${currencyFormat.format(oneProduct.price.unitAmount)}">
+                                                        </c:out>
+                                                    </p>
+                                                </a>
+                                            </div>
+                                        </c:forEach>
+                                        
+                                    </div>
+                                </div>
                         </div>
-                    </body>
-
+                        </body>
+                        
                     </html>

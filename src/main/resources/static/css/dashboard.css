@@ -38,6 +38,9 @@
     flex-wrap:wrap;  
 }
 
+.searchbar{
+    border-radius: 5px 5px;
+}
 
 
 @media only screen and (max-width: 699px) {
@@ -89,7 +92,7 @@
 }
 
 .carousel-container{
-    height: 300px;
+    height: 350px;
     width: 940px;
     margin: 0px auto;
     overflow-y: hidden;
@@ -99,7 +102,7 @@
 }
 
 .carousel-container2{
-    height: 500px;
+    height: 550px;
     width: 700px;
     margin: 0px auto;
     overflow-y: hidden;
@@ -131,6 +134,7 @@
     height: 250px;
     object-fit: cover;
     margin: 10px 30px;
+    margin-left: 32px;
     margin-top: 25px;
     scroll-snap-align: center;
     box-shadow: 3px 3px 10px 10px rgb(246,246,246) ;
@@ -187,3 +191,36 @@
     cursor: pointer;
 }
 
+.producttag{
+    font-size: 200%;
+    color: rgb(198,241,241);
+}
+
+.producta{
+    text-decoration: none;
+}
+
+.producttag2{
+    font-size: 200%;
+    color: rgb(198,241,241);
+    margin-top: -250px;
+    margin-left: 200px;
+}
+
+.producttag3{
+    font-size: 200%;
+    color: rgb(198,241,241);
+    margin-top: -70px;
+}
+
+.producttag4{
+    font-size: 200%;
+    color: rgb(198,241,241);
+    margin-bottom: 30px;
+}
+
+.producttag5{
+    font-size: 200%;
+    color: rgb(198,241,241);
+    margin-left: 200px;
+}

@@ -2,7 +2,6 @@ package com.radiantapparel.project.Controllers;
 
 import java.util.ArrayList;
 import java.util.Map;
-import java.text.NumberFormat;
 
 import javax.servlet.http.HttpSession;
 
@@ -13,20 +12,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.radiantapparel.project.Models.ProductDatabase;
 import com.radiantapparel.project.Services.ProductService;
-import com.stripe.exception.StripeException;
 
 
 @Controller
-public class DashboardController {
+public class AboutController {
 
-    @Autowired
-    ProductService productService;
 
-    @GetMapping("/")
-    public String showDashboard(Model model, HttpSession session) throws StripeException{
-        
-        model.addAttribute("allProducts", productService.allProducts());
-        model.addAttribute("currencyFormat",NumberFormat.getCurrencyInstance());
+    @GetMapping("/about")
+    public String showAbout(Model model, HttpSession session){
 
         if(session.getAttribute("cart") == null){
             ArrayList<Map<ProductDatabase, String>> newCart = new ArrayList<>();
@@ -34,7 +27,7 @@ public class DashboardController {
             model.addAttribute("cart", session.getAttribute("cart"));
         }
 
-        return "dashboard.jsp";
+        return "about.jsp";
     }
 
 }

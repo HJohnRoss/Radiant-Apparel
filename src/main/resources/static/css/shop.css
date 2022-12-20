@@ -27,10 +27,12 @@ ul {
 .dropdown {
     position: relative;
     display: flex;
+    transition-duration: 1s;
 }
 
 .dropdown:hover {
-    background-color: whitesmoke;
+    /* this changes the color of mens womens children */
+    background-color: rgb(47,86,124);
     
 }
 
@@ -53,6 +55,9 @@ ul {
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    /* a tags in dropdown */
+    background-color: rgb(47,86,124);
+    transition-duration: 1s;
 
 }
 
@@ -63,7 +68,9 @@ a {
 
 
 
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {
+    background-color: rgb(61,119,166);
+}
 
 .dropdown:hover .dropdown-content {
     display: block;
@@ -72,7 +79,15 @@ a {
 .productImgs {
     /* margin: 25px; */
     height: 650px;
+    transition-duration: 1s;
 }
+
+.productImgs:hover{
+    box-shadow: 3px 3px 10px 10px rgb(246,246,246) ;
+    box-shadow: -3px -3px 10px 10px rgb(246,246,246) ;
+}
+
+
 
 .listProducts {
     
@@ -81,6 +96,7 @@ a {
 
 .shopHeading {
     font-size: 450%;
+    color: rgb(198,241,241);
 }
 
 .productColumns {
@@ -129,4 +145,10 @@ a {
 
 .oneProduct {
     margin-bottom: 15px;
+}
+
+.gradient{
+    background-image: radial-gradient(rgb(61,119,166), rgb(19,26,43) 70%);
+    background-size: 100% 200%;
+    background-position: top;
 }
