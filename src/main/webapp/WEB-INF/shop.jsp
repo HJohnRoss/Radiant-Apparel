@@ -32,13 +32,13 @@
                             <div class="navcontentend bgdark">
                                 <div class="d-flex align-items-center justify-content-between">
                                     <a href="/" class="nav-tag">Home</a>
-                                    <p>|</p>
+                                    <p class = "nav-space">|</p>
                                     <a href="#" class="nav-tag">About</a>
-                                    <p>|</p>
+                                    <p class = "nav-space">|</p>
                                     <a href="/shop" class="nav-tag">Shop</a>
-                                    <p>|</p>
+                                    <p class = "nav-space">|</p>
                                     <a href="/admin" class="nav-tag">Admin</a>
-                                    <p>|</p>
+                                    <p class = "nav-space">|</p>
                                     <a href="#" class="nav-tag">Help</a>
                                 </div>
                                 <div class="navcart">
