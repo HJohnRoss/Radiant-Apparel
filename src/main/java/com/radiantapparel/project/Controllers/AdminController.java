@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,12 +46,16 @@ public class AdminController {
     TypeService typeService;
 
     @GetMapping("/admin")
-    public String showAdmin(Model model) {
+    public String showAdmin(Model model, HttpSession session) {
         model.addAttribute("product", new ProductDatabase());
         model.addAttribute("price", new PriceDatabase());
         model.addAttribute("category", new Category());
         model.addAttribute("type", new Type());
-
+        if(session.getAttribute("cart") == null){
+            ArrayList<Map<ProductDatabase, String>> newCart = new ArrayList<>();
+            session.setAttribute("cart", newCart);
+            model.addAttribute("cart", session.getAttribute("cart"));
+        }
 
         model.addAttribute("allProducts", productService.allProducts());
         model.addAttribute("allTypes", typeService.allTypes());
@@ -170,7 +175,13 @@ public class AdminController {
 
     // ONE TYPE
     @GetMapping("/type/{id}")
-    public String showType(@PathVariable("id") Long id, Model model){
+    public String showType(@PathVariable("id") Long id, Model model, HttpSession session){
+
+        if(session.getAttribute("cart") == null){
+            ArrayList<Map<ProductDatabase, String>> newCart = new ArrayList<>();
+            session.setAttribute("cart", newCart);
+            model.addAttribute("cart", session.getAttribute("cart"));
+        }
 
         model.addAttribute("oneType", typeService.oneType((Long) id));
         return "adminType.jsp";
@@ -178,8 +189,14 @@ public class AdminController {
 
     // ONE CATEGORY
     @GetMapping("/category/{id}")
-    public String showCategory(@PathVariable("id") Long id, Model model){
+    public String showCategory(@PathVariable("id") Long id, Model model, HttpSession session){
         
+        if(session.getAttribute("cart") == null){
+            ArrayList<Map<ProductDatabase, String>> newCart = new ArrayList<>();
+            session.setAttribute("cart", newCart);
+            model.addAttribute("cart", session.getAttribute("cart"));
+        }
+
         model.addAttribute("oneCategory", categoryService.oneCategory(id));
         model.addAttribute("someProducts", productService.findByCategoriesNotContains(categoryService.oneCategory(id)));
         return "adminCategory.jsp";
@@ -196,7 +213,13 @@ public class AdminController {
     // ========================================== DELETE ==========================================
     // delete product
     @GetMapping("/products/delete")
-    public String showDeleteProducts(Model model){
+    public String showDeleteProducts(Model model, HttpSession session){
+
+        if(session.getAttribute("cart") == null){
+            ArrayList<Map<ProductDatabase, String>> newCart = new ArrayList<>();
+            session.setAttribute("cart", newCart);
+            model.addAttribute("cart", session.getAttribute("cart"));
+        }
 
         model.addAttribute("allProducts", productService.allProducts());
         return "adminDeleteProducts.jsp";
@@ -230,8 +253,14 @@ public class AdminController {
 
     // delete types
     @GetMapping("/type/delete")
-    public String showDeleteTypes(Model model){
+    public String showDeleteTypes(Model model, HttpSession session){
         
+        if(session.getAttribute("cart") == null){
+            ArrayList<Map<ProductDatabase, String>> newCart = new ArrayList<>();
+            session.setAttribute("cart", newCart);
+            model.addAttribute("cart", session.getAttribute("cart"));
+        }
+
         model.addAttribute("allTypes", typeService.allTypes());
         return "adminDeleteTypes.jsp";
     }
@@ -249,7 +278,13 @@ public class AdminController {
 
     // delete Categories
     @GetMapping("/category/delete")
-    public String showDeleteCategories(Model model){
+    public String showDeleteCategories(Model model, HttpSession session){
+
+        if(session.getAttribute("cart") == null){
+            ArrayList<Map<ProductDatabase, String>> newCart = new ArrayList<>();
+            session.setAttribute("cart", newCart);
+            model.addAttribute("cart", session.getAttribute("cart"));
+        }
 
         model.addAttribute("allCategories", categoryService.allCategories());
         return "adminDeleteCategories.jsp";

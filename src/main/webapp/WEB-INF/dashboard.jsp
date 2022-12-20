@@ -35,7 +35,7 @@
         <div class = "navcontentend bgdark">
             <div class="d-flex align-items-center justify-content-between">
                 <a href="/" class = "nav-tag pointer-select">Home</a>
-                <p>|</p>
+                <p class = "nav-space">|</p>
                 <a href="#" class = "nav-tag">About</a>
                 <p class = "nav-space">|</p>
                 <a href="/shop" class = "nav-tag">Shop</a>
@@ -108,7 +108,7 @@
         <div class="BRP mt-10">
             <c:forEach var = "oneProduct" items = "${allProducts}">
                 <c:choose>
-                    <c:when test ="${oneProduct.id == 1}">
+                    <c:when test ="${allProducts.indexOf(oneProduct) == 0}">
                         <div>
                             <img src='<c:out value="${oneProduct.images}"/>' alt="testing" class="productImgs3">
                         </div>
