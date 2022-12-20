@@ -42,7 +42,7 @@ public class ProductController {
     }
 
     @PostMapping("/cart/add/{productId}")
-    public String addToCart(@PathVariable("productId") Long productId, @RequestParam("quantity") String quantity, HttpSession session) throws StripeException{
+    public String addToCart(@PathVariable("productId") Long productId, @RequestParam("quantity") String quantity, HttpSession session) {
         // getting product from our database
         ProductDatabase product = productService.findProductById(productId);
 

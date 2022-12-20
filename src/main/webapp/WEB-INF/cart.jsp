@@ -17,12 +17,14 @@
 </head>
 <body>
     <c:forEach var="oneObject" items="${cart}">
-
         <c:forEach var="oneKey" items="${oneObject.entrySet()}">
-                ${oneKey.getKey().name}
-                <form action="/cart/add/${oneKey.getKey().id}" method="post">
+                <h1><c:out value="${oneKey.getKey().name}"></c:out></h1>
+                <img src="${oneKey.getKey().image}"/>
+                <h4>Price: <c:out value="${currencyFormat.format(oneKey.getKey().price.unitAmount * oneKey.getValue())}"></c:out></h4>
+                <form action="/cart/update/${oneKey.getKey().id}" method="post">
                     <label for="quantity">Quantity:</label>
-                    <select name="quantity" value="${oneKey.getValue()}">
+                    <select name="quantity">
+                        <option value="${oneKey.getValue()}"><c:out value="${oneKey.getValue()}"></c:out></option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -39,7 +41,6 @@
                             <button class="productBtn">Update Quantity</button>
                         </div>
                 </form>
-                ${oneKey.getValue()}
         </c:forEach>
         
     </c:forEach>
