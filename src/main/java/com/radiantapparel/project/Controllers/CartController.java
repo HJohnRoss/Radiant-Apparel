@@ -53,4 +53,22 @@ public class CartController {
 
         return "redirect:/cart";
     }
+
+    @PostMapping("/cart/delete/{productId}")
+    public String deleteCart(@PathVariable("productId") Long productId, HttpSession session){
+        ProductDatabase product = productService.findProductById(productId);
+
+        ArrayList<Map<ProductDatabase, String>> cart = (ArrayList) session.getAttribute("cart");
+
+        for(Map<ProductDatabase, String> oneProduct : cart){
+            for(Entry<ProductDatabase, String> oneKey : oneProduct.entrySet()){
+                if(oneKey.getKey().getId().equals(product.getId())){
+                    oneProduct.clear();
+                }
+            }
+        }
+        session.setAttribute("cart", cart);
+
+        return "redirect:/cart";
+    }
 }
