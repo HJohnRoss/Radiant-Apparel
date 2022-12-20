@@ -60,9 +60,13 @@ public class ProductDatabase {
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
     private List<Review> reviews;
 
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="product_id")
-    private User user;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+        name="wishlist",
+        joinColumns = @JoinColumn(name="product_id"),
+        inverseJoinColumns = @JoinColumn(name="user_id")
+    )
+    private List<User> users;
 
     @PrePersist
     protected void onCreate() {
@@ -150,12 +154,12 @@ public class ProductDatabase {
         this.reviews = reviews;
     }
 
-    public User getUser() {
-        return user;
+    public List<User> getUsers() {
+        return users;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUsers(List<User>users) {
+        this.users = users;
     }
 
     

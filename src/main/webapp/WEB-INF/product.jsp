@@ -76,12 +76,14 @@
                                                 <div class="cartBtn">
                                                     <button class="productBtn">Add to Cart</button>
                                                 </div>
-                                        </form>
-                                        <div class="cartBtn">
-                                            <form action="/wishlist/add/${product.id}" method="post">
-                                                <button class="productBtn">Add to Wishlist</button>
                                             </form>
-                                        </div>
+                                            <c:if test="${loggedIn == true && wishlist.contains(product) == false}">
+                                                <div class="cartBtn">
+                                                    <form action="/wishlist/add/${product.id}" method="post">
+                                                        <button class="productBtn">Add to Wishlist</button>
+                                                    </form>
+                                                </div>
+                                            </c:if>
                                     </div>
                                 </div>
                                 <c:if test="${userId != null}">

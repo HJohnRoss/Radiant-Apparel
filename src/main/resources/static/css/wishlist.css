@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    padding: 75px 200px 0px 200px ;
+    font-size: 150%;
+
+}
+
+.wishListHead {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.productImages {
+    height: 500px;
+}
+
+.oneProduct {
+    margin-bottom: 15px;
+    padding-right: 100px;
+}
+
+.seperator {
+    width: 1600px;
+    margin-right: 300px;
+    border: grey solid 2px;
+    opacity: 20%;
+    border-radius: 25%;
+    margin-bottom: 15px;
+}
+
+.productInfo {
+    font-size: 125%;
+    width: 500px;
+    text-align: end;
+}
+
+.productInfo p {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}

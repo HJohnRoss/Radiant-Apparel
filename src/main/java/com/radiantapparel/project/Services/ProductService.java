@@ -10,8 +10,11 @@ import com.radiantapparel.project.Models.Category;
 import com.radiantapparel.project.Models.PriceDatabase;
 import com.radiantapparel.project.Models.ProductDatabase;
 import com.radiantapparel.project.Models.Review;
+import com.radiantapparel.project.Models.User;
 import com.radiantapparel.project.Repositories.ProductRepository;
+import com.radiantapparel.project.Repositories.UserRepository;
 import com.stripe.model.Product;
+import com.stripe.param.PriceCreateParams.ProductData;
 
 
 
@@ -20,6 +23,9 @@ public class ProductService {
     
     @Autowired
 	private ProductRepository productRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     public List<ProductDatabase> allProducts(){
         return productRepository.findAll();
@@ -93,4 +99,18 @@ public class ProductService {
             productReviews.add(review);
         }
     }
+
+    public List<ProductDatabase> userProducts(User user) {
+        return productRepository.findAllByUsers(user);
+    }
+
+    public void addProduct(Long productId, User user) {
+        Optional<ProductDatabase> optionalProduct = productRepository.findById(productId);
+        if(optionalProduct.isPresent()) {
+            ProductDatabase product = optionalProduct.get();
+            List<ProductDatabase> wishlist = user.getProducts();
+            wishlist.add(product);
+        }
+    }
+
 }
