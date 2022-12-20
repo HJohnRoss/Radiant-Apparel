@@ -27,6 +27,7 @@ ul {
 .dropdown {
     position: relative;
     display: flex;
+    transition-duration: 1s;
 }
 
 .dropdown:hover {
@@ -56,6 +57,7 @@ ul {
     display: block;
     /* a tags in dropdown */
     background-color: rgb(47,86,124);
+    transition-duration: 1s;
 
 }
 
@@ -66,7 +68,9 @@ a {
 
 
 
-.dropdown-content a:hover {background-color: rgb(61,119,166);}
+.dropdown-content a:hover {
+    background-color: rgb(61,119,166);
+}
 
 .dropdown:hover .dropdown-content {
     display: block;
