@@ -48,10 +48,8 @@
                         </form>
                     </c:forEach>
             </c:forEach>
-            <form action="/checkout" method="post">
                 <h2>Total: <c:out value="${currencyFormat.format(total)}"></c:out></h2>
-                <button>Checkout</button>
-            </form>
+                <a href="/checkout">Checkout</a>
         </c:when>
         <c:otherwise>
             <p>Cart is empty</p>
