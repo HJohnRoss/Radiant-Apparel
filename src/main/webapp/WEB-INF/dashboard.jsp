@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Radiant Apparel</title>
 </head>
-<body onload="scrollright()">
+<body>
     <div class = "navextension bgdark d-flex align-items-center">
     </div>
     <nav class="navbar bgdark">
@@ -54,14 +54,14 @@
         </div>
         
     </nav>
-    <div class="gradient height2 pt-10">
+    <div class="gradient2 height2 pt-10">
         <div class="text-center">
             <h1 class="head">Radient Apparel</h1>
+            <h1 class="head text-danger">CHANGE STRIPE KEY!!!</h1>
             <div class="d-flex justify-content-center">
-                <div class="seperator mt-5"></div>
             </div>
             <div class="carousel d-flex align-items-center justify-content-center">
-                <button class="carouselbutton" onclick="scrollleft()">Left Button</button>
+                <button class="carouselbuttonleft" onclick="scrollleft()"> < </button>
                 <div class="carousel-container d-flex" id="carousel-container">
                     <div class="pb-10 carousel1 d-flex" >
                         <c:forEach var="oneProduct" items="${allProducts}">
@@ -71,15 +71,50 @@
                         </c:forEach>
                     </div>
                 </div>
-                <button class="carouselbutton" onclick="scrollright()" >Right Button</button>
+                <button class="carouselbuttonright" onclick="scrollright()" > > </button>
                 
             </div>
 
         </div>
 
     </div>
-    <div class="height">
-        <h1 class="text-danger mt-10">CHANGE STRIPE KEY!!!</h1>
+    <div class="gradient height text-center">
+        <h1 class="text-dark title pt-10">Featured Products</h1>
+        <div class="carousel2 d-flex align-items-center justify-content-center">
+            <button class="carouselbuttonleft" onclick="scrollleft2()"> < </button>
+            <div class="carousel-container2 d-flex" id="carousel-container2">
+                <div class="pb-10 carousel1 d-flex" >
+                    <c:forEach var="oneProduct" items="${allProducts}">
+                        <div>
+                            <img src='<c:out value="${oneProduct.images}"/>' alt="testing" class="productImgs2 ">
+                        </div>
+                        <div class="featured"></div>
+                    </c:forEach>
+                </div>
+            </div>
+            <button class="carouselbuttonright" onclick="scrollright2()" > > </button>
+            
+        </div>
+
+    </div>
+    <div class="gradient3 height3">
+        <h1 class="title text-center text-light">Best Reviewed Products</h1>
+        <div class="BRP mt-10">
+            <c:forEach var = "oneProduct" items = "${allProducts}">
+                <c:choose>
+                    <c:when test ="${oneProduct.id == 1}">
+                        <div>
+                            <img src='<c:out value="${oneProduct.images}"/>' alt="testing" class="productImgs3">
+                        </div>
+                    </c:when>
+                    <c:otherwise>
+                        <div>
+                            <img src='<c:out value="${oneProduct.images}"/>' alt="testing" class="productImgs4">
+                        </div>
+                    </c:otherwise>
+                </c:choose>
+            </c:forEach>
+        </div>
     </div>
     <script src="/js/dashboard.js"></script>
 </body>

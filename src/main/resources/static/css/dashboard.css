@@ -1,25 +1,41 @@
-:root{
-    --gradient: linear-gradient(
-        45deg,
-        rgb(217,183,40),
-        rgb(238,239,130),
-        rgb(158,158,158),
-        rgb(242,242,234)
-    )
-}
+
 
 
 .height{
-    min-height: 8000px;
-    background-image: var(--gradient);
+    min-height: 800px;
+
 }
 
 .height2{
-    min-height: 1200px;
+    min-height: 700px;
 }
 
+.height3{
+    min-height: 3000px;
+}
+
+
 .gradient{
-    background-image: linear-gradient( to top,rgb(47,86,124), rgb(198,241,241), rgb(19,26,43));
+    background-image: radial-gradient(rgb(116,172,207), rgb(19,26,43) 70%);
+    background-size: 200%;
+    background-position: top;
+}
+
+.gradient2{
+    background-image: radial-gradient( rgb(47,86,124), rgb(19,26,43) 70%);
+}
+
+.gradient3{
+    background-image: radial-gradient(rgb(198,241,241), rgb(19,26,43) 70%);
+    background-size: 800% 200%;
+    background-position: top;
+}
+
+.BRP{
+    max-height: 900px;
+    display: flex;
+    flex-direction:column;
+    flex-wrap:wrap;  
 }
 
 
@@ -74,7 +90,17 @@
 
 .carousel-container{
     height: 300px;
-    width: 900px;
+    width: 940px;
+    margin: 0px auto;
+    overflow-y: hidden;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+.carousel-container2{
+    height: 500px;
+    width: 700px;
     margin: 0px auto;
     overflow-y: hidden;
     overflow-x: auto;
@@ -86,17 +112,80 @@
     display: none;
 }
 
+.carousel-container2::-webkit-scrollbar{
+    display: none;
+}
+
 .carousel{
-    margin-top: 260px;
+    margin-top: 0px;
+}
+
+.carousel2{
+    padding-top: 100px;
 }
 
 .productImgs{
     width: 250px;
     height: 250px;
     object-fit: cover;
-    margin: 0px 30px;
+    margin: 10px 30px;
+    margin-top: 25px;
     scroll-snap-align: center;
+    box-shadow: 3px 3px 10px 10px rgb(246,246,246) ;
+    box-shadow: -3px -3px 10px 10px rgb(246,246,246) ;
     
 }
 
+.productImgs2{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    margin: 10px 30px;
+    margin-top: 25px;
+    box-shadow: 3px 3px 10px 10px rgb(246,246,246) ;
+    box-shadow: -3px -3px 10px 10px rgb(246,246,246) ;
+    
+}
+
+.productImgs3{
+    height: 600px;
+    margin:0px 0px 300px 200px;
+    box-shadow: 3px 3px 10px 10px rgb(246,246,246) ;
+    box-shadow: -3px -3px 10px 10px rgb(246,246,246) ;
+}
+
+.productImgs4{
+    height: 250px;
+    margin: 0px 50px 100px 50px;
+    box-shadow: 3px 3px 10px 10px rgb(246,246,246) ;
+    box-shadow: -3px -3px 10px 10px rgb(246,246,246) ;
+}
+
+.featured{
+    scroll-snap-align: center;
+}
+
+.title{
+    font-size: 300%;
+}
+
+.carouselbuttonright{
+    font-size: 500%;
+    margin-right: 400px;
+    margin-left: -400px;
+    background-color: transparent;
+    border: none;
+    color: rgb(198,241,241);
+    cursor: pointer;
+}
+
+.carouselbuttonleft{
+    font-size: 500%;
+    margin-left: 400px;
+    margin-right: -400px;
+    background-color: transparent;
+    border: none;
+    color: rgb(198,241,241);
+    cursor: pointer;
+}
 

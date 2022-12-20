@@ -73,7 +73,11 @@
     background-color: rgb(198,241,241);
 }
 
-.text-white{
+.text-dark{
+    color: rgb(19,26,43);
+}
+
+.text-light{
     color: rgb(198,241,241);
 }
 
