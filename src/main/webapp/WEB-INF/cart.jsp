@@ -41,6 +41,9 @@
                             <button class="productBtn">Update Quantity</button>
                         </div>
                 </form>
+                <form action="/cart/delete/${oneKey.getKey().id}">
+                    <button>Remove from cart</button>
+                </form>
         </c:forEach>
         
     </c:forEach>
