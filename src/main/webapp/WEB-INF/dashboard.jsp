@@ -108,7 +108,7 @@
         <div class="BRP mt-10">
             <c:forEach var = "oneProduct" items = "${allProducts}">
                 <c:choose>
-                    <c:when test ="${oneProduct.id == 1}">
+                    <c:when test ="${allProducts.indexOf(oneProduct) == 0}">
                         <div>
                             <img src='<c:out value="${oneProduct.images}"/>' alt="testing" class="productImgs3">
                         </div>
