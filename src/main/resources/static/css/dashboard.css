@@ -38,6 +38,9 @@
     flex-wrap:wrap;  
 }
 
+.searchbar{
+    border-radius: 5px 5px;
+}
 
 
 @media only screen and (max-width: 699px) {
