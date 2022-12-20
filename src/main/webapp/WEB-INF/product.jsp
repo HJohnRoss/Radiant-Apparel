@@ -47,15 +47,8 @@
                             <div class="d-flex justify-content-center p-10">
                                 <div>
                                     <img class="productImage" src='<c:out value="${product.images}"/>' alt="testing">
-                                    <form:form action="/product/review/${product.id}" method="post"
-                                        modelAttribute="review">
-                                        <input type="hidden" value="${product.id}" name="product">
-                                        <input type="hidden" value="${userId}" name="reviewer">
-                                        <form:label path="name">Add a review</form:label>
-                                        <form:textarea class="input" path="name" />
-                                        <form:errors path="name" />
-                                        <input type="submit" value="Post" />
-                                    </form:form>
+                                    <div>
+                                    </div>
                                 </div>
                                 <div class="ml-5 productOptions">
                                     <div class="d-flex flex-column ">
@@ -91,40 +84,38 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="reviews">
-                                    <c:forEach var="review" items="${productReviews}">
-                                        <c:if test="${review.reviewer != null}">
-                                            <div class="oneReview">
-                                                <h4>Posted by <c:out value="${review.reviewer.firstName}">
-                                                    </c:out>: </h4>
-                                                <h5 class="dateReviewed">Reviewed on
-                                                    <fmt:formatDate value="${review.createdAt}"
-                                                        pattern="MMMM dd yyyy" />
-                                                </h5>
-                                                <p>
-                                                    <c:out value="${review.name}"></c:out>
-                                                </p>
-                                            </div>
-                                        </c:if>
-                                    </c:forEach>
-                                </div>
+                                <c:if test="${userId != null}">
+                                    <form:form action="/product/review/${product.id}" method="post" modelAttribute="review">
+                                        <input type="hidden" value="${product.id}" name="product">
+                                        <input type="hidden" value="${userId}" name="reviewer">
+                                        <div class="d-flex flex-column reviewForm">
+                                            <form:label path="name">Add a review</form:label>
+                                            <form:textarea class="input stupidTextBox" rows="4" cols="50" maxlength="200"
+                                                path="name" />
+                                            <form:errors path="name" />
+                                            <button class="btn">Post</button>
+                                        </div>
+                                    </form:form>
+                                </c:if>
                             </div>
                         </div>
+                        <div class="reviewLine"></div>
+                        <div class="reviews">
+                            <c:forEach var="review" items="${productReviews}">
+                                    <div class="oneReview">
+                                        <h4>Posted by <c:out value="${review.reviewer.firstName}">
+                                            </c:out>: </h4>
+                                        <h5 class="dateReviewed">Reviewed on
+                                            <fmt:formatDate value="${review.createdAt}"
+                                                pattern="MMMM dd yyyy" />
+                                        </h5>
+                                        <p>
+                                            <c:out value="${review.name}"></c:out>
+                                        </p>
+                                    </div>
+                                    <div class="oneReviewLine"></div>
+                            </c:forEach>
+                        </div>
                     </body>
-                    <!-- <div class="reviews">
-                        <c:forEach var="review" items="${productReviews}">
-                            <c:if test="${review.reviewer != null}">
-                                <div class="oneReview">
-                                    <h4>Posted by <c:out value="${review.reviewer.firstName}"></c:out>: </h4>
-                                    <h5 class="dateReviewed">Reviewed on
-                                        <fmt:formatDate value="${review.createdAt}" pattern="MMMM dd yyyy" />
-                                    </h5>
-                                    <p>
-                                        <c:out value="${review.name}"></c:out>
-                                    </p>
-                                </div>
-                            </c:if>
-                        </c:forEach>
-                    </div> -->
 
                     </html>

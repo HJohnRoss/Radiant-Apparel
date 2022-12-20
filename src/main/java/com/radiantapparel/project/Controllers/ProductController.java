@@ -84,10 +84,18 @@ public class ProductController {
     @PostMapping("/product/review/{productId}")
     public String postReview(@Valid @ModelAttribute("review")Review review, BindingResult result, @PathVariable("productId")Long id, Model model, HttpSession session) {
         Long userId = (Long) session.getAttribute("userId");
+        if(userId == null) {
+            return "redirect:/product/show/" + id;
+        }
         if(result.hasErrors()) {
             model.addAttribute("product", productService.findProductById(id));
             model.addAttribute("currencyFormat",NumberFormat.getCurrencyInstance());
             model.addAttribute("productReviews", reviewService.productReviews(id));
+            if(session.getAttribute("cart") == null){
+                ArrayList<Map<ProductDatabase, String>> newCart = new ArrayList<>();
+                session.setAttribute("cart", newCart);
+                model.addAttribute("cart", session.getAttribute("cart"));
+            }
             return "product.jsp";
         }
         Review newReview = reviewService.createReview(review);
