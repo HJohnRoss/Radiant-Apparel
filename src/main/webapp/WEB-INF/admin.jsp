@@ -28,7 +28,7 @@
             <div class="d-flex align-items-center justify-content-between">
                 <a href="/" class = "nav-tag">Home</a>
                 <p>|</p>
-                <a href="#" class = "nav-tag">About</a>
+                <a href="/about" class = "nav-tag">About</a>
                 <p>|</p>
                 <a href="/shop" class = "nav-tag">Shop</a>
                 <p>|</p>

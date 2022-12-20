@@ -33,7 +33,7 @@
                                 <div class="d-flex align-items-center justify-content-between">
                                     <a href="/" class="nav-tag">Home</a>
                                     <p class = "nav-space">|</p>
-                                    <a href="#" class="nav-tag">About</a>
+                                    <a href="/about" class="nav-tag">About</a>
                                     <p class = "nav-space">|</p>
                                     <a href="/shop" class="nav-tag">Shop</a>
                                     <p class = "nav-space">|</p>
@@ -97,7 +97,7 @@
                                     <div class="d-flex justify-content-between productColumns">
                                         <c:forEach var="oneProduct" items="${categoryProducts}">
                                             <div class="oneProduct">
-                                                <a class="productNames text-light" href="/product/show/${oneProduct.id}"><img
+                                                <a class="productNames" href="/product/show/${oneProduct.id}"><img
                                                     src='<c:out value="${oneProduct.images}"/>' alt="testing"
                                                     class="productImgs">
                                                     <p class="text-light">

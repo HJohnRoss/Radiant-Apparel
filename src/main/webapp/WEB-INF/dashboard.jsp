@@ -36,7 +36,7 @@
             <div class="d-flex align-items-center justify-content-between">
                 <a href="/" class = "nav-tag pointer-select">Home</a>
                 <p class = "nav-space">|</p>
-                <a href="#" class = "nav-tag">About</a>
+                <a href="/about" class = "nav-tag">About</a>
                 <p class = "nav-space">|</p>
                 <a href="/shop" class = "nav-tag">Shop</a>
                 <p class = "nav-space">|</p>
@@ -68,7 +68,9 @@
                         <div class="pb-10 carousel1 d-flex" >
                             <c:forEach var="oneProduct" items="${allProducts}">
                                 <div>
-                                    <img src='<c:out value="${oneProduct.images}"/>' alt="testing" class="productImgs item${oneProduct.id}">
+                                    <a href="/product/show/${oneProduct.id}">
+                                        <img src='<c:out value="${oneProduct.images}"/>' alt="testing" class="productImgs item${oneProduct.id}">
+                                    </a>
                                 </div>
                             </c:forEach>
                         </div>
@@ -82,7 +84,7 @@
 
     </div>
     <div class="gradient height text-center">
-        <h1 class="text-dark title pt-10">Featured Products</h1>
+        <h1 class="text-light title pt-10">Featured Products</h1>
         <div class="d-flex justify-content-center">
 
             <div class="carousel2 d-flex align-items-center justify-content-center">
@@ -90,8 +92,12 @@
                 <div class="carousel-container2 d-flex" id="carousel-container2">
                     <div class="pb-10 carousel1 d-flex" >
                         <c:forEach var="oneProduct" items="${allProducts}">
-                            <div>
-                                <img src='<c:out value="${oneProduct.images}"/>' alt="testing" class="productImgs2 ">
+                            <div class="center-text">
+                                <a class="producta" href="/product/show/${oneProduct.id}">
+                                    <img src='<c:out value="${oneProduct.images}"/>' alt="testing" class="productImgs2 ">
+                                    <p class="producttag"><c:out value="${oneProduct.name}"></c:out></p>
+                                    <p class="producttag"><c:out value="${currencyFormat.format(oneProduct.price.unitAmount)}"></c:out></p>
+                                </a>
                             </div>
                             <div class="featured"></div>
                         </c:forEach>
@@ -109,13 +115,21 @@
             <c:forEach var = "oneProduct" items = "${allProducts}">
                 <c:choose>
                     <c:when test ="${oneProduct.id == 1}">
-                        <div>
-                            <img src='<c:out value="${oneProduct.images}"/>' alt="testing" class="productImgs3">
+                        <div class="text-center">
+                            <a class="producta" href="/product/show/${oneProduct.id}">
+                                <img src='<c:out value="${oneProduct.images}"/>' alt="testing" class="productImgs3 ">
+                                <p class="producttag2"><c:out value="${oneProduct.name}"></c:out></p>
+                                <p class="producttag5"><c:out value="${currencyFormat.format(oneProduct.price.unitAmount)}"></c:out></p>
+                            </a>
                         </div>
                     </c:when>
                     <c:otherwise>
-                        <div>
-                            <img src='<c:out value="${oneProduct.images}"/>' alt="testing" class="productImgs4">
+                        <div class="text-center">
+                            <a class="producta" href="/product/show/${oneProduct.id}">
+                                <img src='<c:out value="${oneProduct.images}"/>' alt="testing" class="productImgs4 ">
+                                <p class="producttag3"><c:out value="${oneProduct.name}"></c:out></p>
+                                <p class="producttag4"><c:out value="${currencyFormat.format(oneProduct.price.unitAmount)}"></c:out></p>
+                            </a>
                         </div>
                     </c:otherwise>
                 </c:choose>
