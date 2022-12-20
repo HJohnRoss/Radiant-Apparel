@@ -16,10 +16,33 @@
     <title>Your Cart</title>
 </head>
 <body>
-    <c:forEach var="oneProduct" items="${cart}">
-        <img src='<c:out value="${oneProduct.images}"/>' alt="">
-        <p><c:out value="${oneProduct.name}"></c:out></p>
-        <p><c:out value="${currencyFormat.format(oneProduct.price.unitAmount)}"></c:out></p>
+    <c:forEach var="oneObject" items="${cart}">
+        <c:forEach var="oneKey" items="${oneObject.entrySet()}">
+                <h1><c:out value="${oneKey.getKey().name}"></c:out></h1>
+                <img src="${oneKey.getKey().image}"/>
+                <h4>Price: <c:out value="${currencyFormat.format(oneKey.getKey().price.unitAmount * oneKey.getValue())}"></c:out></h4>
+                <form action="/cart/update/${oneKey.getKey().id}" method="post">
+                    <label for="quantity">Quantity:</label>
+                    <select name="quantity">
+                        <option value="${oneKey.getValue()}"><c:out value="${oneKey.getValue()}"></c:out></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <div class="mt-10 d-flex">
+                        <div class="cartBtn">
+                            <button class="productBtn">Update Quantity</button>
+                        </div>
+                </form>
+        </c:forEach>
+        
     </c:forEach>
     <form action="/checkout" method="post">
         <button>Checkout</button>
