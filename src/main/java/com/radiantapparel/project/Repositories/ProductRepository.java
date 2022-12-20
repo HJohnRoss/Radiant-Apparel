@@ -1,13 +1,13 @@
 package com.radiantapparel.project.Repositories;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.radiantapparel.project.Models.Category;
 import com.radiantapparel.project.Models.ProductDatabase;
+import com.radiantapparel.project.Models.User;
 
 
 
@@ -20,4 +20,6 @@ public interface ProductRepository extends CrudRepository<ProductDatabase, Long>
     List<ProductDatabase> findByCategoriesNotContains(Category category);
 
     List<ProductDatabase> findByNameContaining(String name);
+
+    List<ProductDatabase> findAllByUsers(User user);
 }

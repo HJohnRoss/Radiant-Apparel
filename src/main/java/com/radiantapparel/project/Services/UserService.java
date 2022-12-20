@@ -9,8 +9,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
 import com.radiantapparel.project.Models.LoginUser;
+import com.radiantapparel.project.Models.ProductDatabase;
 import com.radiantapparel.project.Models.User;
 import com.radiantapparel.project.Repositories.UserRepository;
+
 
 
 
@@ -77,7 +79,6 @@ public class UserService {
 	public List<User> allUsers() {
 		return userRepository.findAll();
 	}
-	
 
 	
 }

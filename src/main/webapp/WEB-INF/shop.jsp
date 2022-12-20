@@ -39,7 +39,7 @@
                                     <p class = "nav-space">|</p>
                                     <a href="/admin" class="nav-tag">Admin</a>
                                     <p class = "nav-space">|</p>
-                                    <a href="#" class="nav-tag">Help</a>
+                                    <a href="/wishlist/${userId}" class="nav-tag">Wishlist</a>
                                 </div>
                                 <div class="navcart">
                                     <button

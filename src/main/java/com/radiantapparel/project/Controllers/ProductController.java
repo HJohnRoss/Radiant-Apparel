@@ -3,6 +3,7 @@ package com.radiantapparel.project.Controllers;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -17,12 +18,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.radiantapparel.project.Models.ProductDatabase;
 import com.radiantapparel.project.Models.Review;
+import com.radiantapparel.project.Models.User;
 import com.radiantapparel.project.Services.ProductService;
 import com.radiantapparel.project.Services.ReviewService;
+import com.radiantapparel.project.Services.UserService;
 
 
 @Controller
@@ -34,9 +38,19 @@ public class ProductController {
     @Autowired
     ReviewService reviewService;
 
+    @Autowired
+    UserService userService;
+
     @GetMapping("/product/show/{id}")
     public String showProduct(@PathVariable("id")Long id, Model model, Review review, HttpSession session) {
-        model.addAttribute("userId", session.getAttribute("userId"));
+        boolean loggedIn = false;
+
+        if(session.getAttribute("userId") != null) {
+            model.addAttribute("userId", session.getAttribute("userId"));
+            Long userId = (Long) session.getAttribute("userId");
+            model.addAttribute("wishlist", productService.userProducts(userService.findUser(userId)));
+            loggedIn = true;
+        }
         model.addAttribute("product", productService.findProductById(id));
         model.addAttribute("currencyFormat",NumberFormat.getCurrencyInstance());
         model.addAttribute("productReviews", reviewService.productReviews(id));
@@ -45,7 +59,7 @@ public class ProductController {
             session.setAttribute("cart", newCart);
             model.addAttribute("cart", session.getAttribute("cart"));
         }
-
+        model.addAttribute("loggedIn", loggedIn);
         return "product.jsp";
     }
 
@@ -96,6 +110,20 @@ public class ProductController {
         }
         Review newReview = reviewService.createReview(review);
         productService.addReview(id, newReview);
+        return "redirect:/product/show/" + id;
+    }
+
+    @PostMapping("/wishlist/add/{id}")
+    public String addItem(@PathVariable("id")Long id, HttpSession session, Model model) {
+        Long userId = (Long) session.getAttribute("userId");
+        User user = userService.findUser(userId);
+        if(userId == null) {
+            return "redirect:product/show/" + id;
+        }
+        if(!user.getProducts().contains(productService.findProductById(id))) {
+            productService.addProduct(id, user);
+            userService.updateUser(user);
+        }
         return "redirect:/product/show/" + id;
     }
 }

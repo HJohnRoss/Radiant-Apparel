@@ -79,7 +79,7 @@ a {
 .productImgs {
     /* margin: 25px; */
     height: 650px;
-    transition-duration: 1s;
+    transition-duration: .3s;
 }
 
 .productImgs:hover{
