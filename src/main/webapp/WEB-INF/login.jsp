@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <title>Insert title here</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" href="/css/library.css">
 
 </head>
 
@@ -34,6 +34,10 @@
                         <p class="nav-space">|</p>
                         <a href="/admin" class="nav-tag">Admin</a>
                     </c:if>
+                </c:if>
+                <c:if test="${userId == null}">
+                    <p class="nav-space">|</p>
+                    <a href="/login" class="nav-tag">Login/Register</a>
                 </c:if>
             </div>
             <div class="navcart">
