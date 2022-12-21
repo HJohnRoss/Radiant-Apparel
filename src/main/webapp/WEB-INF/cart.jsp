@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="/css/cart.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Admin</title>
+    <title>Your Cart</title>
 </head>
 <body class="gradient">
     <div class="navextension bgdark d-flex align-items-center">
@@ -84,10 +84,10 @@
                                                     <button class="productBtn cartbtn">Update Quantity</button>
                                                 </div>
                                             </div>
-                                            <form action="/cart/delete/${oneKey.getKey().id}" method="post">
-                                                <button class="cartbtn"><img class="deletebtn" src="/img/delete.png"
-                                                        alt="Delete icons created by Ilham Fitrotul Hayat - Flaticon"></button>
-                                            </form>
+                                        </form>
+                                        <form action="/cart/delete/${oneKey.getKey().id}" method="post">
+                                            <button class="cartbtn"><img class="deletebtn" src="/img/delete.png"
+                                                    alt="Delete icons created by Ilham Fitrotul Hayat - Flaticon"></button>
                                         </form>
                                     </div>
                                 </div>

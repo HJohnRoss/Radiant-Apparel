@@ -75,7 +75,7 @@ public class CartController {
         ProductDatabase product = productService.findProductById(productId);
 
         ArrayList<Map<ProductDatabase, String>> cart = (ArrayList) session.getAttribute("cart");
-
+        System.out.println("================================================================");
         for(Map<ProductDatabase, String> oneProduct : cart){
             for(Entry<ProductDatabase, String> oneKey : oneProduct.entrySet()){
                 if(oneKey.getKey().getId().equals(product.getId())){
