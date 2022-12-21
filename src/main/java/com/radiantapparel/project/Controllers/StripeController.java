@@ -1,5 +1,6 @@
 package com.radiantapparel.project.Controllers;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -47,12 +48,13 @@ public class StripeController {
                 total += (oneKey.getKey().getPrice().getUnitAmount() * Integer.parseInt(oneKey.getValue()));
             }
         }
-
+        NumberFormat formatNum = NumberFormat.getCurrencyInstance();
+        String newTotal = formatNum.format(total);
         StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append(total);
+        stringBuilder.append(newTotal);
         for(int i = 0; i < stringBuilder.length(); i++){
-            if(stringBuilder.charAt(i) == '.'){
+            if(stringBuilder.charAt(i) == '.' || stringBuilder.charAt(i) == '$'){
                 stringBuilder.deleteCharAt(i);
             }
         }

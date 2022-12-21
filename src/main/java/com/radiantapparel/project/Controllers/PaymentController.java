@@ -21,7 +21,17 @@ import com.stripe.model.PaymentIntent;
 public class PaymentController {
     
     @GetMapping("/checkout")
-    public String showCheckout() {
+    public String showCheckout(Model model, HttpSession session) {
+        ArrayList<Map<ProductDatabase, String>> cart = (ArrayList<Map<ProductDatabase, String>>) session.getAttribute("cart");
+        Double total = 0.0;
+        for(Map<ProductDatabase, String> oneProduct : cart){
+            for(Entry<ProductDatabase, String> oneKey : oneProduct.entrySet()){
+                total += (oneKey.getKey().getPrice().getUnitAmount() * Integer.parseInt(oneKey.getValue()));
+            }
+        }
+        model.addAttribute("total", total);
+        model.addAttribute("cart", cart);
+        model.addAttribute("currencyFormat",NumberFormat.getCurrencyInstance());
         return "payment.jsp";
     }
 }
