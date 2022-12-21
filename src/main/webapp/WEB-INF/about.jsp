@@ -68,9 +68,11 @@
                 <h1 class="about-text">John Ross</h1>
                 <h3 class="about-text">Back-End Dev</h3>
             </div>
-            <div>
+            <div class="ciaran">
                 <h1 class="about-text">Ciaran Voros</h1>
                 <h3 class="about-text">Full-Stack Dev</h3>
+                <h3 class="about-text"><a class="about-text" href="https://github.com/CiaranVoros">GitHub</a></h3>
+                <h3 class="about-text"><a class="about-text" href="https://linkedin.com/in/ciaranvoros">LinkedIn</a></h3>
             </div>
         </div>
             

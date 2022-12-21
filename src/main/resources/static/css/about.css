@@ -14,5 +14,8 @@
 }
 
 .about-text{
-    color: rgb(116,172,207)
+    color: rgb(116,172,207);
+    width: 200px;
+    margin-bottom: 50px;
 }
+
