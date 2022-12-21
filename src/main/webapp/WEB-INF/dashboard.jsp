@@ -113,8 +113,7 @@
         <h1 class="title text-center text-light">Best Reviewed Products</h1>
         <div class="BRP mt-10">
             <c:forEach var = "oneProduct" items = "${allProducts}">
-                <c:choose>
-                    <c:when test ="${allProducts.indexOf(oneProduct) == 0}">
+                    <c:if test ="${allProducts.indexOf(oneProduct) == 0}">
                         <div class="text-center">
                             <a class="producta" href="/product/show/${oneProduct.id}">
                                 <img src='<c:out value="${oneProduct.images}"/>' alt="testing" class="productImgs3 ">
@@ -122,17 +121,19 @@
                                 <p class="producttag5"><c:out value="${currencyFormat.format(oneProduct.price.unitAmount)}"></c:out></p>
                             </a>
                         </div>
-                    </c:when>
-                    <c:otherwise>
-                        <div class="text-center">
-                            <a class="producta" href="/product/show/${oneProduct.id}">
-                                <img src='<c:out value="${oneProduct.images}"/>' alt="testing" class="productImgs4 ">
-                                <p class="producttag3"><c:out value="${oneProduct.name}"></c:out></p>
-                                <p class="producttag4"><c:out value="${currencyFormat.format(oneProduct.price.unitAmount)}"></c:out></p>
-                            </a>
-                        </div>
-                    </c:otherwise>
-                </c:choose>
+                    </c:if>
+                    <c:if test = "${allProducts.indexOf(oneProduct) < 6}">
+                        <c:if test = "${allProducts.indexOf(oneProduct) != 0}">
+                            <div class="text-center">
+                                <a class="producta" href="/product/show/${oneProduct.id}">
+                                    <img src='<c:out value="${oneProduct.images}"/>' alt="testing" class="productImgs4 ">
+                                    <p class="producttag3"><c:out value="${oneProduct.name}"></c:out></p>
+                                    <p class="producttag4"><c:out value="${currencyFormat.format(oneProduct.price.unitAmount)}"></c:out></p>
+                                </a>
+                            </div>
+                        </c:if>
+                    </c:if>
+
             </c:forEach>
         </div>
     </div>
