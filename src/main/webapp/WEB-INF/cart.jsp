@@ -16,11 +16,46 @@
     <title>Your Cart</title>
 </head>
 <body>
+    <div class = "navextension bgdark d-flex align-items-center">
+    </div>
+    <nav class="navbar bgdark">
+        <div class = "navcontentstart bgdark">
+            <img src="/img/thirdlogodark.png" alt="Radiance Logo" id = "logo">
+        </div>
+        <div class = "navcontentend bgdark">
+            <div class="d-flex align-items-center justify-content-between">
+                <a href="/" class = "nav-tag pointer-select">Home</a>
+                <p class = "nav-space">|</p>
+                <a href="/about" class = "nav-tag">About</a>
+                <p class = "nav-space">|</p>
+                <a href="/shop" class = "nav-tag">Shop</a>
+                <c:if test="${userId != null}">
+                    <p class = "nav-space">|</p>
+                    <a href="/wishlist/${userId}" class="nav-tag">Wishlist</a>
+                    <c:if test="${userId == 1}">
+                        <p class = "nav-space">|</p>
+                        <a href="/admin" class = "nav-tag">Admin</a>
+                    </c:if>
+                    <p class="nav-space">|</p>
+                    <a href="/logout" class="nav-tag">Logout</a>
+                </c:if>
+                <c:if test="${userId == null}">
+                    <p class="nav-space">|</p>
+                    <a href="/login" class="nav-tag">Login/Register</a>
+                </c:if>
+            </div>
+            <div class = "navcart">
+                <form action="/cart">
+                    <button type = "submit" style="cursor:pointer; border: none; background-color: transparent; color: rgb(198,241,241); font-size:24px"><i class="fa fa-shopping-cart"></i> Cart</button>
+                </form>
+            </div>
+        </div>
+    </nav>
     <c:choose>
         <c:when test="${cart != []}">            
             <c:forEach var="oneObject" items="${cart}">
                 <c:forEach var="oneKey" items="${oneObject.entrySet()}">
-                        <h1><c:out value="${oneKey.getKey().name}"></c:out></h1>
+                        <h1 class="mt-10"><c:out value="${oneKey.getKey().name}"></c:out></h1>
                         <img src="${oneKey.getKey().image}"/>
                         <h4>Price: <c:out value="${currencyFormat.format(oneKey.getKey().price.unitAmount * oneKey.getValue())}"></c:out></h4>
                         <form action="/cart/update/${oneKey.getKey().id}" method="post">

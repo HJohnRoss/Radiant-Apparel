@@ -44,6 +44,10 @@
                         <p class="nav-space">|</p>
                         <a href="/admin" class="nav-tag">Admin</a>
                     </c:if>
+                    <c:if test="${userId == null}">
+                        <p class="nav-space">|</p>
+                        <a href="/login" class="nav-tag">Login/Register</a>
+                    </c:if>
                 </c:if>
             </div>
             <div class="navcart">
