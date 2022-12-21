@@ -19,40 +19,29 @@
     <title>Radiant Apparel</title>
 </head>
 <body>
-    <div class = "navextension bgdark d-flex align-items-center">
+    <div class="navextension bgdark d-flex align-items-center">
     </div>
     <nav class="navbar bgdark">
-        <div class = "navcontentstart bgdark">
-            <img src="/img/thirdlogodark.png" alt="Radiance Logo" id = "logo">
-            <div class = "searchbox">
-                <form action="#">
-                    <!-- <input type="image" name = "searchimg" src="/img/magnifying-glass.png" alt="Icon made by Chanut from www.flaticon.com" id = searchimg> -->
-                    <input type="text" name = "search" class = "searchbar" placeholder="Search....">
-                    <input type="submit" class="searchbtn bgblue">
-                </form>
-            </div>
+        <div class="navcontentstart bgdark">
+            <img src="/img/thirdlogodark.png" alt="Radiance Logo" id="logo">
         </div>
-        <div class = "navcontentend bgdark">
-            <div class="d-flex align-items-center justify-content-between">
-                <a href="/" class = "nav-tag pointer-select">Home</a>
-                <p class = "nav-space">|</p>
-                <a href="/about" class = "nav-tag">About</a>
-                <p class = "nav-space">|</p>
-                <a href="/shop" class = "nav-tag">Shop</a>
-                <p class = "nav-space">|</p>
-                <a href="/admin" class = "nav-tag">Admin</a>
-                <p class = "nav-space">|</p>
-                <a href="#" class = "nav-tag">Help</a>
-            </div>
-            <div class = "navcart">
-                <form action="#">
-                    <button type = "submit" style="cursor:pointer; border: none; background-color: transparent; color: rgb(198,241,241); font-size:24px"><i class="fa fa-shopping-cart"></i> Cart</button>
-                </form>
-            </div>
-            
-            
+        <div class="navcontentend bgdark">
+            <a href="/" class="nav-tag">Home</a>
+            <p>|</p>
+            <a href="#" class="nav-tag">About</a>
+            <p>|</p>
+            <a href="/shop" class="nav-tag ">Shop</a>
+            <p>|</p>
+            <a href="/admin" class="nav-tag">Help</a>
+            <c:if test="${loggedIn == true}">
+                <p>|</p>
+                <a href="/wishlist/${userId}" class="nav-tag">Wishlist</a>
+            </c:if>
+            <p>|</p>
+            <a href="/cart" class="pointer-select"
+                style="border: none; background-color: transparent; color: white; font-size:24px"><i
+                    class="fa fa-shopping-cart"></i> Cart</a>
         </div>
-        
     </nav>
     <h1>It's Working</h1>
 </body>
