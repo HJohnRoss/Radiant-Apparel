@@ -41,7 +41,7 @@ public class StripeController {
             model.addAttribute("cart", session.getAttribute("cart"));
         }
         ArrayList<Map<ProductDatabase, String>> cart = (ArrayList<Map<ProductDatabase, String>>) session.getAttribute("cart");
-
+        System.out.println("CHECK ===========================");
         Double total = 0.0;
         for(Map<ProductDatabase, String> oneProduct : cart){
             for(Entry<ProductDatabase, String> oneKey : oneProduct.entrySet()){
@@ -59,7 +59,7 @@ public class StripeController {
                 stringBuilder.deleteCharAt(i);
             }
         }
-
+        System.out.println("CHECK ===========================");
         List<Object> paymentMethodTypes = new ArrayList<>();
         paymentMethodTypes.add("card");
         Map<String, Object> params = new HashMap<>();
