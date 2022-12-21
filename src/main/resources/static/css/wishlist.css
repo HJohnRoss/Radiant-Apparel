@@ -4,7 +4,7 @@
 }
 
 .gradient{
-    background-image: radial-gradient(rgb(116,172,207), rgb(19,26,43) 70%);
+    background-image: linear-gradient(to right,rgb(116,172,207), rgb(19,26,43) 75%);
     background-size: 150% 200%;
     background-position: top;
 }
@@ -16,6 +16,7 @@
 }
 
 .wishListHead {
+    color: rgb(198,241,241);
     margin-bottom: 20px;
     text-align: center;
 }
