@@ -1,0 +1,18 @@
+.gradient{
+    background-image: radial-gradient(rgb(198,241,241), rgb(19,26,43) 70%);
+    background-size: 33% 300%;
+    background-position: top;
+    height: 100%;
+}
+
+.fullheight{
+    height: 100%
+}
+
+.about-margin{
+    padding-top: 100px;
+}
+
+.about-text{
+    color: rgb(116,172,207)
+}

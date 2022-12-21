@@ -8,9 +8,9 @@
 <!-- for rendering errors on PUT routes -->
 <%@ page isErrorPage="true" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="fullheight">
 
-<head>
+<head">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +21,7 @@
     <title>Radiant Apparel</title>
 </head>
 
-<body>
+<body class="fullheight">
     <div class="navextension bgdark d-flex align-items-center">
     </div>
     <nav class="navbar bgdark">
@@ -57,7 +57,24 @@
             </div>
         </div>
     </nav>
-    <h1>It's Working</h1>
+    <div class="gradient  text-center">
+        <h1 class="text-light about-margin">This Site was made to demonstrate the skills of these three developers</h1>
+        <div class="d-flex justify-content-around about-margin">
+            <div>
+                <h1 class="about-text">Ben Ackerman</h1>
+                <h3 class="about-text">Front-End Dev</h3>
+            </div>
+            <div>
+                <h1 class="about-text">John Ross</h1>
+                <h3 class="about-text">Back-End Dev</h3>
+            </div>
+            <div>
+                <h1 class="about-text">Ciaran Voros</h1>
+                <h3 class="about-text">Full-Stack Dev</h3>
+            </div>
+        </div>
+            
+    </div>
 </body>
 
 </html>
