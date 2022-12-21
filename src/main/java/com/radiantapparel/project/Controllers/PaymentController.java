@@ -22,6 +22,11 @@ public class PaymentController {
     
     @GetMapping("/checkout")
     public String showCheckout(Model model, HttpSession session) {
+        if(session.getAttribute("cart") == null){
+            ArrayList<Map<ProductDatabase, String>> newCart = new ArrayList<>();
+            session.setAttribute("cart", newCart);
+            model.addAttribute("cart", session.getAttribute("cart"));
+        }
         ArrayList<Map<ProductDatabase, String>> cart = (ArrayList<Map<ProductDatabase, String>>) session.getAttribute("cart");
         Double total = 0.0;
         for(Map<ProductDatabase, String> oneProduct : cart){

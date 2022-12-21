@@ -26,8 +26,8 @@ async function initialize() {
     const paymentElementOptions = {
     layout: "tabs",
     };
-
     const paymentElement = elements.create("payment", paymentElementOptions);
+    console.log(paymentElement)
     paymentElement.mount("#payment-element");
 }
 

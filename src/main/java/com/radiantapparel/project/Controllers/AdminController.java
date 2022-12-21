@@ -226,7 +226,7 @@ public class AdminController {
     public String addProduct(@PathVariable("id") Long categoryId, @RequestParam("productId") Long productId){
 
         categoryService.addProduct(categoryId, productId);
-        return "redirect:/admin";
+        return "redirect:/category/{id}";
     }
 
     // ========================================== DELETE ==========================================

@@ -56,7 +56,7 @@ public class CartController {
     public String updateQuantity(@PathVariable("productId") Long productId, @RequestParam("quantity") String quantity, HttpSession session){
         ProductDatabase product = productService.findProductById(productId);
 
-        ArrayList<Map<ProductDatabase, String>> cart = (ArrayList) session.getAttribute("cart");
+        ArrayList<Map<ProductDatabase, String>> cart = (ArrayList<Map<ProductDatabase, String>>) session.getAttribute("cart");
 
         for(Map<ProductDatabase, String> oneProduct : cart){
             for(Entry<ProductDatabase, String> oneKey : oneProduct.entrySet()){

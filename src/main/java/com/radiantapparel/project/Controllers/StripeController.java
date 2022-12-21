@@ -48,6 +48,7 @@ public class StripeController {
                 total += (oneKey.getKey().getPrice().getUnitAmount() * Integer.parseInt(oneKey.getValue()));
             }
         }
+
         NumberFormat formatNum = NumberFormat.getCurrencyInstance();
         String newTotal = formatNum.format(total);
         StringBuilder stringBuilder = new StringBuilder();
@@ -71,6 +72,7 @@ public class StripeController {
 
         PaymentIntent paymentIntent = PaymentIntent.create(params);
         CreatePaymentResponse paymentResponse = new CreatePaymentResponse(paymentIntent.getClientSecret());
+        System.out.println(paymentResponse);
         return  ResponseEntity.ok(gson.toJson(paymentResponse));
     }
 }
