@@ -31,16 +31,16 @@
                                 <img src="/img/thirdlogodark.png" alt="Radiance Logo" id="logo">
                             </div>
                             <div class="navcontentend bgdark">
-                                <a href="/" class="text-white">Home</a>
+                                <a href="/" class="nav-tag">Home</a>
                                 <p>|</p>
-                                <a href="#" class="text-white">About</a>
+                                <a href="#" class="nav-tag">About</a>
                                 <p>|</p>
-                                <a href="/shop" class="text-white ">Shop</a>
+                                <a href="/shop" class="nav-tag ">Shop</a>
                                 <p>|</p>
-                                <a href="/admin" class="text-white">Help</a>
+                                <a href="/admin" class="nav-tag">Help</a>
                                 <c:if test="${loggedIn == true}">
                                     <p>|</p>
-                                    <a href="/wishlist/${userId}" class="text-white">Wishlist</a>
+                                    <a href="/wishlist/${userId}" class="nav-tag">Wishlist</a>
                                 </c:if>
                                 <p>|</p>
                                 <a href="/cart" class="pointer-select"
