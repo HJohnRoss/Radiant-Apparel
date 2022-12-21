@@ -66,7 +66,7 @@
                     <button class="carouselbuttonleft" onclick="scrollleft()"> < </button>
                     <div class="carousel-container d-flex" id="carousel-container">
                         <div class="pb-10 carousel1 d-flex" >
-                            <c:forEach var="oneProduct" items="${allProducts}">
+                            <c:forEach var="oneProduct" items="${featured}">
                                 <div>
                                     <a href="/product/show/${oneProduct.id}">
                                         <img src='<c:out value="${oneProduct.images}"/>' alt="testing" class="productImgs item${oneProduct.id}">

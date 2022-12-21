@@ -22,4 +22,5 @@ public interface ProductRepository extends CrudRepository<ProductDatabase, Long>
     List<ProductDatabase> findByNameContaining(String name);
 
     List<ProductDatabase> findAllByUsers(User user);
+    
 }
