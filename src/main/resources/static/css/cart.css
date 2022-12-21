@@ -1,0 +1,69 @@
+.gradient{
+    background-image: radial-gradient(rgb(61,119,166), rgb(19,26,43) 70%);
+    background-size: 200% 400%;
+    background-position: top;
+}
+
+.cartimg{
+    height: 175px;
+}
+
+
+
+.cartwidth{
+    width: 700px;
+}
+
+.carttotalwidth{
+    width: 70%;
+}
+
+.cartbtn{
+    background-color: rgb(228,102,7);
+    color: rgb(19,26,43);
+    border: none;
+    border-radius: 5px 5px;
+    padding: 5px;
+    margin: 6px;
+    font-weight: bold;
+    transition-duration: 1s;
+    text-decoration: none;
+}
+
+.cartbtn:hover{
+    box-shadow:0px 0px 5px 2px rgb(198,241,241),0px 0px 10px 5px  rgb(228,102,7), 0px 0px 10px 2px rgb(198,241,241) inset;
+}
+
+.deletebtn{
+    height: 25px;
+}
+
+.cartslct{
+    height: 30px;
+}
+
+.cart-name-width{
+    width: 300px;
+}
+
+.cart-item-margin{
+    margin-top: 50px;
+}
+
+.checkout-margin{
+    margin-bottom: 50px;
+}
+
+.quantity-margin{
+    margin-top: 10px;
+}
+
+.emptycart{
+    padding-top: 20%;
+    font-size: 300%;
+}
+
+.emptycart2{
+    margin: 10px 0px;
+    font-size: 150%;
+}
