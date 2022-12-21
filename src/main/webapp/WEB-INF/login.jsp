@@ -56,62 +56,52 @@
         <div class="bottle register">
             <h2>Register</h2>
             <form:form action="/register" method="post" modelAttribute="newUser" class="">
-                <p>
-                    <form:errors class="text-danger" path="firstName" />
                     <div>
-                        <form:label path="firstName"> First Name: </form:label>
-                        <form:input path="firstName" />
+                        <p>First Name: </p>
+                        <form:errors class="text-danger" path="firstName" />
                     </div>
-                </p>
-                <p>
-                    <form:errors class="text-danger" path="lastName" />
+                    <form:input path="firstName" />
                     <div>
-                        <form:label path="lastName"> Last Name: </form:label>
-                        <form:input path="lastName" />
+                        <p>Last Name: </p>
+                        <form:errors class="text-danger" path="lastName" />
                     </div>
-                </p>
-                <p>
-                    <form:errors class="text-danger" path="email" />
+                    <form:input path="lastName" />
                     <div>
-                        <form:label path="email"> Email: </form:label>
-                        <form:input path="email" />
+                        <p> Email: </p>
+                        <form:errors class="text-danger" path="email" />
                     </div>
-                </p>
-                <p>
-                    <form:errors class="text-danger" path="password" />
+                    <form:input path="email" />
                     <div>
-                        <form:label path="password"> Password: </form:label>
-                        <form:input type="password" path="password" />
+                        <p> Password: </p>
+                        <form:errors class="text-danger" path="password" />
                     </div>
-                </p>
-                <p>
-                    <form:errors class="text-danger" path="confirm" />
+                    <form:input type="password" path="password" />
                     <div>
-                        <form:label path="confirm"> Confirm Password: </form:label>
+                        <p> Confirm Password: </p>
+                        <form:errors class="text-danger" path="confirm" />
+                    </div>
+                    <div>
                         <form:input type="password" path="confirm" />
                     </div>
-                </p>
                 <button>Register</button>
             </form:form>
         </div>
         <div class="bottle login">
             <h2>Login</h2>
             <form:form action="/loguser" modelAttribute="newLogin" class="">
-                <p>
+                <div>
                     <form:errors class="text-danger" path="email" />
-                    <div>
-                        <form:label path="email"> Email: </form:label>
-                        <form:input path="email" />
-                    </div>
-                </p>
-                <p>
+                    <p>Email: </p>
+                </div>
+                <form:input path="email"/>
+                <div>
+                    <p> Password: </p>
                     <form:errors class="text-danger" path="password" />
-                    <div>
-                        <form:label path="password"> Password: </form:label>
-                        <form:input type="password" path="password" />
-                    </div>
-                </p>
-                <button>Log in</button>
+                </div>
+                <div>
+                    <form:input type="password" path="password"/>
+                </div>
+            <button>Log in</button>
             </form:form>
         </div>
     </div>
