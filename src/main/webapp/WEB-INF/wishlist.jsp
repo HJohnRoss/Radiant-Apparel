@@ -43,10 +43,10 @@
                         <p class="nav-space">|</p>
                         <a href="/admin" class="nav-tag">Admin</a>
                     </c:if>
-                    <c:if test="${userId == null}">
-                        <p class="nav-space">|</p>
-                        <a href="/login" class="nav-tag">Login/Register</a>
-                    </c:if>
+                </c:if>
+                <c:if test="${userId == null}">
+                    <p class="nav-space">|</p>
+                    <a href="/login" class="nav-tag">Login/Register</a>
                 </c:if>
             </div>
             <div class="navcart">
@@ -58,6 +58,7 @@
             </div>
         </div>
     </nav>
+    
     <div class="wrapper">
         <h1 class="wishListHead">Your wishlist</h1>
         <c:forEach var="product" items="${wishlist}">

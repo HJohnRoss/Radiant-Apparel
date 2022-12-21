@@ -28,23 +28,34 @@
         </div>
         <div class="navcontentend bgdark">
             <div class="d-flex align-items-center justify-content-between">
-                <a href="/" class="nav-tag">Home</a>
-                <p class="nav-tag">|</p>
+                <a href="/" class="nav-tag pointer-select">Home</a>
+                <p class="nav-space">|</p>
                 <a href="/about" class="nav-tag">About</a>
-                <p class="nav-tag">|</p>
+                <p class="nav-space">|</p>
                 <a href="/shop" class="nav-tag">Shop</a>
-                <p class="nav-tag">|</p>
-                <a href="/admin" class="nav-tag">Admin</a>
-                <p class="nav-tag">|</p>
-                <a href="#" class="nav-tag">Help</a>
+                <c:if test="${userId != null}">
+                    <p class="nav-space">|</p>
+                    <a href="/wishlist/${userId}" class="nav-tag">Wishlist</a>
+                    <c:if test="${userId == 1}">
+                        <p class="nav-space">|</p>
+                        <a href="/admin" class="nav-tag">Admin</a>
+                    </c:if>
+                </c:if>
+                <c:if test="${userId == null}">
+                    <p class="nav-space">|</p>
+                    <a href="/login" class="nav-tag">Login/Register</a>
+                </c:if>
             </div>
             <div class="navcart">
-                <button
-                    style="border: none; background-color: transparent; color: rgb(198,241,241); font-size:24px"
-                    id="cartbtn"><i class="fa fa-shopping-cart"></i> Cart</button>
+                <form action="/cart">
+                    <button type="submit"
+                        style="cursor:pointer; border: none; background-color: transparent; color: rgb(198,241,241); font-size:24px"><i
+                            class="fa fa-shopping-cart"></i> Cart</button>
+                </form>
             </div>
         </div>
     </nav>
+    
     <div class="gradient">
         <c:choose>
             <c:when test="${cart != []}">

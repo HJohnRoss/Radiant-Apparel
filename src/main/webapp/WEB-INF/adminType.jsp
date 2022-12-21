@@ -42,10 +42,10 @@
                         <p class="nav-space">|</p>
                         <a href="/admin" class="nav-tag">Admin</a>
                     </c:if>
-                    <c:if test="${userId == null}">
-                        <p class="nav-space">|</p>
-                        <a href="/login" class="nav-tag">Login/Register</a>
-                    </c:if>
+                </c:if>
+                <c:if test="${userId == null}">
+                    <p class="nav-space">|</p>
+                    <a href="/login" class="nav-tag">Login/Register</a>
                 </c:if>
             </div>
             <div class="navcart">
@@ -57,6 +57,7 @@
             </div>
         </div>
     </nav>
+    
     <div class="pd-admin text-center bottle set-width">
         <div class="d-flex align-items-center justify-content-center">
             <h2 class="adminstuff">Select a Category</h2>
