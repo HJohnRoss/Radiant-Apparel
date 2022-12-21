@@ -27,19 +27,24 @@
         </div>
         <div class = "navcontentend bgdark">
             <div class="d-flex align-items-center justify-content-between">
-                <a href="/success/dashboard" class = "nav-tag pointer-select">Home</a>
+                <a href="/" class = "nav-tag pointer-select">Home</a>
                 <p class = "nav-space">|</p>
-                <a href="/success/about" class = "nav-tag">About</a>
+                <a href="/about" class = "nav-tag">About</a>
                 <p class = "nav-space">|</p>
-                <a href="/success/shop" class = "nav-tag">Shop</a>
+                <a href="/shop" class = "nav-tag">Shop</a>
                 <c:if test="${userId != null}">
                     <p class = "nav-space">|</p>
-                    <a href="/success/wishlist/${userId}" class="nav-tag">Wishlist</a>
+                    <a href="/wishlist/${userId}" class="nav-tag">Wishlist</a>
                     <c:if test="${userId == 1}">
                         <p class = "nav-space">|</p>
-                        <a href="/success/admin"" class = "nav-tag">Admin</a>   
+                        <a href="/admin" class = "nav-tag">Admin</a>
                     </c:if>
                 </c:if>
+            </div>
+            <div class = "navcart">
+                <form action="/cart">
+                    <button type = "submit" style="cursor:pointer; border: none; background-color: transparent; color: rgb(198,241,241); font-size:24px"><i class="fa fa-shopping-cart"></i> Cart</button>
+                </form>
             </div>
         </div>
     </nav>
