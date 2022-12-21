@@ -62,12 +62,12 @@
         <div class="bottle">
             <h2>Add a Product</h2>
             <form:form action="/product/create" method="post" modelAttribute="product">
-                <form:errors path="name"></form:errors>
+                <form:errors class="text-danger" path="name"></form:errors>
                 <div>
                     <form:label path="name">Name of product:</form:label>
                     <form:input path="name" name="name" type="text"></form:input>
                 </div>
-                <form:errors path="images"></form:errors>
+                <form:errors class="text-danger" path="images"></form:errors>
                 <div>
                     <form:label path="images">Url for an image:</form:label>
                     <form:input path="images" name="images" type="text"></form:input>
@@ -78,7 +78,7 @@
 
             <h2>Add a Price</h2>
             <form:form action="/price/create" method="post" modelAttribute="price">
-                <form:errors path="unitAmount"></form:errors>
+                <form:errors class="text-danger" path="unitAmount"></form:errors>
                 <div>
                     <form:label path="unitAmount">Price of Product:</form:label>
                     <form:input path="unitAmount" name="unitAmount" type="text" placeholder="1.00"/>
@@ -102,7 +102,7 @@
             <div>
                 <h2>Create a Type of Category:</h2>
                 <form:form action="/type/create" method="post" modelAttribute="type">
-                    <form:errors path="name"></form:errors>
+                    <form:errors class="text-danger" path="name"></form:errors>
                     <div>
                         <form:label path="name">Name of Type:</form:label>
                         <form:input path="name" type="text"></form:input>
@@ -113,7 +113,7 @@
             <div>
                 <h2>Create a Category:</h2>
                 <form:form action="/category/create" method="post" modelAttribute="category">
-                    <form:errors path="name"></form:errors>
+                    <form:errors class="text-danger" path="name"></form:errors>
                     <div>
                         <form:label path="name">Name of Category:</form:label>
                         <form:input path="name" type="text"></form:input>

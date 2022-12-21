@@ -46,7 +46,9 @@ public class LoginController {
 			model.addAttribute("newLogin", new LoginUser());
 			return "login.jsp";
 		}
-		return "redirect:/login";
+		session.setAttribute("userId", user.getId());
+		session.setAttribute("userName", user.getFirstName());
+		return "redirect:/";
 	}
 	
 	@PostMapping("/loguser")
@@ -67,6 +69,6 @@ public class LoginController {
     public String logout(HttpSession session){
         session.removeAttribute("userId");
         session.removeAttribute("userName");
-        return "redirect:/";
+        return "redirect:/login";
     }
 }
