@@ -16,7 +16,7 @@ async function initialize() {
         method: "POST",
         headers: { "Content-Type": "application/json" }
     });
-    console.log(sessionStorage.getItem('cart'))
+    console.log(response)
     const { clientSecret } = await response.json();
 
     const appearance = {

@@ -54,7 +54,7 @@ public class StripeController {
 
         stringBuilder.append(newTotal);
         for(int i = 0; i < stringBuilder.length(); i++){
-            if(stringBuilder.charAt(i) == '.' || stringBuilder.charAt(i) == '$'){
+            if(stringBuilder.charAt(i) == '.' || stringBuilder.charAt(i) == '$' || stringBuilder.charAt(i) == ','){
                 stringBuilder.deleteCharAt(i);
             }
         }

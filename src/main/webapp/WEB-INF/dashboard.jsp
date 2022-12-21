@@ -24,13 +24,6 @@
     <nav class="navbar bgdark">
         <div class = "navcontentstart bgdark">
             <img src="/img/thirdlogodark.png" alt="Radiance Logo" id = "logo">
-            <div class = "searchbox">
-                <form action="#">
-                    <!-- <input type="image" name = "searchimg" src="/img/magnifying-glass.png" alt="Icon made by Chanut from www.flaticon.com" id = searchimg> -->
-                    <input type="text" name = "search" class = "searchbar" placeholder="Search....">
-                    <input type="submit" class="searchbtn bgblue">
-                </form>
-            </div>
         </div>
         <div class = "navcontentend bgdark">
             <div class="d-flex align-items-center justify-content-between">
