@@ -22,7 +22,7 @@
                         <link rel="stylesheet" href="/css/wishlist.css">
                     </head>
 
-                    <body>
+                    <body class="gradient">
                         <div class="navextension bgdark d-flex align-items-center">
                         </div>
                         <nav class="navbar bgdark">
@@ -70,7 +70,7 @@
                                     <div>
                                         <form action="/wishlist/remove/${product.id}" method="post">
                                             <input type="hidden" name="_method" value="put">
-                                            <input type="submit" value="Remove from Wishlist">
+                                            <input type="submit" class="productBtn" value="Remove from Wishlist">
                                         </form>
                                     </div>
 
