@@ -3,16 +3,37 @@
     padding: 0;
 }
 
+.gradient {
+    background-image: linear-gradient(rgb(19,26,43), rgb(61,119,166) 40%); 
+    background-size: 100% 400%;
+    background-position: top;
+}
+
 .productOptions {
-    margin-left: 200px;
+    margin-right: 120px;
     font-size: 150%;
+    color: rgb(198,241,241);
 }
 
 .cartBtn {
     margin-right: 25px;
 }
 
-.productBtn {
+.productBtn{
+    background-color: rgb(228,102,7);
+    color: rgb(19,26,43);
+    border: none;
+    border-radius: 5px 5px;
+    padding: 5px;
+    margin: 6px;
+    font-weight: bold;
+    transition-duration: 1s;
+    text-decoration: none;
+    width: 140px;
+    height: 55px;
+}
+
+/* .productBtn {
     cursor: pointer;
     border: none;
     padding: 15%;
@@ -20,19 +41,25 @@
     height: 55px;
     border-radius: 10px 10px;
     background-color:rgb(204, 204, 204) ;   
+} */
+
+button:hover{
+    box-shadow:0px 0px 5px 2px rgb(198,241,241),0px 0px 10px 5px  rgb(228,102,7), 0px 0px 10px 2px rgb(198,241,241) inset;
 }
 
-.productBtn:hover {
+/* .productBtn:hover {
     transition-duration: 0.4s ;
     /* background-color: rgb(119, 136, 153); */
-    background-color: rgb(159, 160, 161);
-}
+    /* background-color: rgb(159, 160, 161);
+} */ 
 
 .productImage {
+    margin-left: 20px;
     width: 600px;
 }
 
 .oneReview {
+    width: 1000px;
     margin-top: 50px;
 }
 
@@ -43,22 +70,24 @@
 }
 
 .reviewLine {
-    width: 1700px;
-    border: grey solid 2px;
-    margin-left: 150px;
-    opacity: 10%;
+    width: 1800px;
+    border: rgb(228,102,7) solid 2px;
+    margin-left: 50px;
+    opacity: 80%;
     border-radius: 25%;
 
 }
 
 .oneReviewLine {
-    width: 800px;
-    border: grey solid 2px;
-    opacity: 40%;
+    width: 1000px;
+    border:  rgb(228,102,7) solid 2px;
+    opacity: 90%;
+    border-radius: 25%;
 }
 
 .dateReviewed {
-    color: rgb(129, 129, 129);
+    color: rgb(228,102,7);
+    opacity: 90%;
 }
 
 .reviewForm {
@@ -67,7 +96,25 @@
 }
 
 .btn {
+    background-color: rgb(228,102,7);
+    color: rgb(19,26,43);
+    border: none;
+    border-radius: 5px 5px;
+    padding: 5px;
+    font-weight: bold;
+    transition-duration: 1s;
+    text-decoration: none;
     height: 30px;
     width: 100px;
     margin-top: 10px;
+}
+
+.reviewHeading {
+    margin: 20px 0px 20px 100px;
+}
+
+.reviewContent {
+    width: 650px;
+    height: 200px;
+    font-size: 105%;
 }
