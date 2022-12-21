@@ -1,8 +1,6 @@
 const stripe = Stripe("pk_test_51MFlFOA7FBolyCg7cK3frcyvYMSAZYAc98puPEwJnMFMM9JAVcFbeskww2cumO7jt6Z8T6PSDlIlgo9DHYYizQna00ZVAMgPlq");
 // The items the customer wants to buy
 
-const items = [{  }]; // need to fix this
-
 let elements;
 
 initialize();
@@ -16,10 +14,9 @@ document
 async function initialize() {
         const response = await fetch("/create/paymentIntent", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ items }),
+        headers: { "Content-Type": "application/json" }
     });
-    console.log(response)
+    console.log(sessionStorage.getItem('cart'))
     const { clientSecret } = await response.json();
 
     const appearance = {
@@ -42,8 +39,8 @@ async function handleSubmit(e) {
     const { error } = await stripe.confirmPayment({
         elements,
         confirmParams: {
-        // Make sure to change this to your payment completion page
-        return_url: "http://localhost:8080/success.jsp",
+            // Make sure to change this to your payment completion page
+            return_url: "http://localhost:8080/success",
         },
     });
 
@@ -57,7 +54,6 @@ async function handleSubmit(e) {
     } else {
         showMessage("An unexpected error occurred.");
     }
-
     setLoading(false);
 }
 

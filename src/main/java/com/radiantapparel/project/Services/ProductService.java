@@ -1,5 +1,6 @@
 package com.radiantapparel.project.Services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -113,4 +114,12 @@ public class ProductService {
         }
     }
 
+    public List<Review> productReviews(Long productId) {
+        Optional<ProductDatabase> optionalProduct = productRepository.findById(productId);
+        if(optionalProduct.isPresent()){
+            ProductDatabase Product = optionalProduct.get();
+            return Product.getReviews();
+        }
+        return null;
+    }
 }
