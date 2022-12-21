@@ -81,8 +81,7 @@
                 <form:errors path="unitAmount"></form:errors>
                 <div>
                     <form:label path="unitAmount">Price of Product:</form:label>
-                    <form:input path="unitAmount" name="unitAmount" type="text" placeholder="1.00">
-                    </form:input>
+                    <form:input path="unitAmount" name="unitAmount" type="text" placeholder="1.00"/>
                 </div>
                 <div>
                     <form:label path="product">Product:</form:label>

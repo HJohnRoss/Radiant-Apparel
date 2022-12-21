@@ -25,7 +25,6 @@ import com.radiantapparel.project.Models.ProductDatabase;
 import com.radiantapparel.project.Models.Review;
 import com.radiantapparel.project.Models.Type;
 import com.radiantapparel.project.Models.User;
-import com.radiantapparel.project.Repositories.UserRepository;
 import com.radiantapparel.project.Services.CategoryService;
 import com.radiantapparel.project.Services.PriceService;
 import com.radiantapparel.project.Services.ProductService;
@@ -63,11 +62,6 @@ public class AdminController {
         model.addAttribute("category", new Category());
         model.addAttribute("type", new Type());
 
-        Object userId = session.getAttribute("userId");
-        if((Long) userId != 1){
-            return "redirect:/";
-        }
-
 
         if(session.getAttribute("cart") == null){
             ArrayList<Map<ProductDatabase, String>> newCart = new ArrayList<>();
@@ -75,6 +69,7 @@ public class AdminController {
             model.addAttribute("cart", session.getAttribute("cart"));
         }
 
+        model.addAttribute("userId", session.getAttribute("userId"));
         model.addAttribute("allProducts", productService.allProducts());
         model.addAttribute("allTypes", typeService.allTypes());
         return "admin.jsp";
@@ -83,7 +78,7 @@ public class AdminController {
     // CREATE PRODUCT
     @PostMapping("/product/create")
     public String createProduct(@Valid @ModelAttribute("product") ProductDatabase product, BindingResult result,
-            Model model, @RequestParam("name") String name, @RequestParam("images") String image)
+            Model model, @RequestParam("name") String name, @RequestParam("images") String image, HttpSession session)
             throws StripeException {
 
         if (result.hasErrors()) {
@@ -93,6 +88,7 @@ public class AdminController {
             model.addAttribute("type", new Type());
             model.addAttribute("allProducts", productService.allProducts());
             model.addAttribute("allTypes", typeService.allTypes());
+            model.addAttribute("userId", session.getAttribute("userId"));
             return "admin.jsp";
         }
 
@@ -116,7 +112,7 @@ public class AdminController {
     // CREATE PRICE
     @PostMapping("/price/create")
     public String createPrice(@Valid @ModelAttribute("price") PriceDatabase price, BindingResult result,
-            Model model, @RequestParam("unitAmount") String unitAmount) throws StripeException {
+            Model model, @RequestParam("unitAmount") String unitAmount, HttpSession session) throws StripeException {
 
         if(result.hasErrors()){
             model.addAttribute("price", price);
@@ -125,6 +121,7 @@ public class AdminController {
             model.addAttribute("type", new Type());
             model.addAttribute("allProducts", productService.allProducts());
             model.addAttribute("allTypes", typeService.allTypes());
+            model.addAttribute("userId", session.getAttribute("userId"));
             return "admin.jsp";
         }
 
@@ -157,7 +154,7 @@ public class AdminController {
     // CREATE TYPE
     @PostMapping("/type/create")
     public String createType(@Valid @ModelAttribute("type") Type type, BindingResult result,
-    Model model){
+    Model model, HttpSession session){
 
         if(result.hasErrors()){
             model.addAttribute("type", type);
@@ -166,6 +163,7 @@ public class AdminController {
             model.addAttribute("product", new ProductDatabase());
             model.addAttribute("allProducts", productService.allProducts());
             model.addAttribute("allTypes", typeService.allTypes());
+            model.addAttribute("userId", session.getAttribute("userId"));
         }
 
         typeService.createType(type);
@@ -175,7 +173,7 @@ public class AdminController {
     // CREATE CATEGORY
     @PostMapping("/category/create")
     public String createCategory(@Valid @ModelAttribute("category") Category category, BindingResult result,
-    Model model){
+    Model model, HttpSession session){
 
         if(result.hasErrors()){
             model.addAttribute("category", category);
@@ -184,6 +182,7 @@ public class AdminController {
             model.addAttribute("type", new Type());
             model.addAttribute("allProducts", productService.allProducts());
             model.addAttribute("allTypes", typeService.allTypes());
+            model.addAttribute("userId", session.getAttribute("userId"));
             return "admin.jsp";
         }
 
@@ -202,6 +201,7 @@ public class AdminController {
         }
 
         model.addAttribute("oneType", typeService.oneType((Long) id));
+        model.addAttribute("userId", session.getAttribute("userId"));
         return "adminType.jsp";
     }
 
@@ -217,6 +217,7 @@ public class AdminController {
 
         model.addAttribute("oneCategory", categoryService.oneCategory(id));
         model.addAttribute("someProducts", productService.findByCategoriesNotContains(categoryService.oneCategory(id)));
+        model.addAttribute("userId", session.getAttribute("userId"));
         return "adminCategory.jsp";
     }
 
@@ -240,6 +241,7 @@ public class AdminController {
         }
 
         model.addAttribute("allProducts", productService.allProducts());
+        model.addAttribute("userId", session.getAttribute("userId"));
         return "adminDeleteProducts.jsp";
     }
 
@@ -291,6 +293,7 @@ public class AdminController {
         }
 
         model.addAttribute("allTypes", typeService.allTypes());
+        model.addAttribute("userId", session.getAttribute("userId"));
         return "adminDeleteTypes.jsp";
     }
 
