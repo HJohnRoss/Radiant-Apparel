@@ -16,11 +16,10 @@ async function initialize() {
         method: "POST",
         headers: { "Content-Type": "application/json" }
     });
-    console.log(response)
     const { clientSecret } = await response.json();
 
     const appearance = {
-        theme: 'stripe',
+        theme: 'night',
     };
     elements = stripe.elements({ appearance, clientSecret });
 
