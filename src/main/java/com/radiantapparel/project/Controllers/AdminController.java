@@ -22,10 +22,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.radiantapparel.project.Models.Category;
 import com.radiantapparel.project.Models.PriceDatabase;
 import com.radiantapparel.project.Models.ProductDatabase;
+import com.radiantapparel.project.Models.Review;
 import com.radiantapparel.project.Models.Type;
 import com.radiantapparel.project.Services.CategoryService;
 import com.radiantapparel.project.Services.PriceService;
 import com.radiantapparel.project.Services.ProductService;
+import com.radiantapparel.project.Services.ReviewService;
 import com.radiantapparel.project.Services.TypeService;
 import com.stripe.exception.StripeException;
 import com.stripe.model.Price;
@@ -44,6 +46,9 @@ public class AdminController {
 
     @Autowired
     TypeService typeService;
+
+    @Autowired
+    ReviewService reveiwService;
 
     @GetMapping("/admin")
     public String showAdmin(Model model, HttpSession session) {
@@ -241,6 +246,11 @@ public class AdminController {
         // setting categories = null
         ProductDatabase product = productService.oneProduct(productId);
         product.setCategories(null);
+
+        for(Review oneReview : productService.productReviews(productId)){
+            System.out.println(oneReview);
+            reveiwService.deleteReview(oneReview);
+        }
 
         // deleting all the prices for that product
         priceService.deletePrice(productService.productPrices(productId));
