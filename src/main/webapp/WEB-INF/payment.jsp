@@ -20,7 +20,7 @@
     <title>Radiant Apparel</title>
 </head>
 
-<body class="fullheight">
+<body class="fullheight gradient">
     <div class="navextension bgdark d-flex align-items-center">
     </div>
     <nav class="navbar bgdark">
@@ -56,31 +56,31 @@
             </div>
         </div>
     </nav>
-    <div class="gradient fullheight">
-    <c:choose>
-        <c:when test="${cart != []}">
-            <div class="text-center">
-                <h2 class="checkout-total">Total: <c:out value="${currencyFormat.format(total)}"></c:out>
-            </div>
-        </c:when>
-        <c:otherwise>
-            <p>Cart is empty</p>
-        </c:otherwise>
-    </c:choose>
-    <!-- Display a payment form -->
-    <div>
-        <form id="payment-form">
-            <div id="payment-element">
-                
-            </div>
-            <button id="submit">
-                <div class="spinner hidden" id="spinner"></div>
-                <span id="button-text">Pay now</span>
-            </button>
-            <div id="payment-message" class="hidden"></div>
-        </form>
+    <div class="mt-10">
+        <c:choose>
+            <c:when test="${cart != []}">
+                <div class="text-center">
+                    <h2 class="checkout-total">Total: <c:out value="${currencyFormat.format(total)}"></c:out>
+                </div>
+            </c:when>
+            <c:otherwise>
+                <p>Cart is empty</p>
+            </c:otherwise>
+        </c:choose>
+        <!-- Display a payment form -->
+        <div id="around-form">
+            <form id="payment-form">
+                <div id="payment-element">
+                    
+                </div>
+                <button id="submit">
+                    <div class="spinner hidden" id="spinner"></div>
+                    <span id="button-text">Pay now</span>
+                </button>
+                <div id="payment-message" class="hidden"></div>
+            </form>
+        </div>
     </div>
-</div>
 </body>
 
 </html>
