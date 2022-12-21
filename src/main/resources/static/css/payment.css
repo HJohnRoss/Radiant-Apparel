@@ -1,0 +1,21 @@
+/* .gradient{
+        background-image: radial-gradient(rgb(61,119,166), rgb(19,26,43) 60%);
+        background-size: 200% 400%;
+        background-position: top;
+} */
+
+.gradient{
+        background-image: radial-gradient(rgb(254,216,0), rgb(255,111,1), rgb(253,47,36), rgb(129,29,94), rgb(152,50,117), rgb(19,26,43) 60%);
+        background-size: 200% 200%;
+        background-position: top;
+}
+
+.fullheight{
+    height: 100%;
+}
+
+.checkout-total{
+    padding: 250px 0px;
+    font-size: 300%;
+    color: rgb(198,241,241);
+}
