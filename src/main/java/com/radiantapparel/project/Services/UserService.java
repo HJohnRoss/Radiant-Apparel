@@ -72,6 +72,10 @@ public class UserService {
 		return userRepository.save(u);
 	}
 	
+    public void deleteUser(User oneUser) {
+        userRepository.delete(oneUser);
+    }
+    
 	public void deleteUser(Long id) {
 		userRepository.deleteById(id);
 	}
@@ -79,6 +83,7 @@ public class UserService {
 	public List<User> allUsers() {
 		return userRepository.findAll();
 	}
+
 
 	
 }

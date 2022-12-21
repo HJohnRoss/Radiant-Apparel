@@ -78,7 +78,7 @@ public class ProductController {
         for(Map<ProductDatabase, String> oneProduct : cart){
             for(Entry<ProductDatabase, String> oneKey : oneProduct.entrySet()){
                 if(oneKey.getKey().getId().equals(product.getId())){
-                    oneProduct = cartObject;
+                    oneProduct.replace(oneKey.getKey(), quantity);
                     inCart = true;
                 }
             }

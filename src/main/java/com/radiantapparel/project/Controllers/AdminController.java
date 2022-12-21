@@ -22,11 +22,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.radiantapparel.project.Models.Category;
 import com.radiantapparel.project.Models.PriceDatabase;
 import com.radiantapparel.project.Models.ProductDatabase;
+import com.radiantapparel.project.Models.Review;
 import com.radiantapparel.project.Models.Type;
+import com.radiantapparel.project.Models.User;
+import com.radiantapparel.project.Repositories.UserRepository;
 import com.radiantapparel.project.Services.CategoryService;
 import com.radiantapparel.project.Services.PriceService;
 import com.radiantapparel.project.Services.ProductService;
+import com.radiantapparel.project.Services.ReviewService;
 import com.radiantapparel.project.Services.TypeService;
+import com.radiantapparel.project.Services.UserService;
 import com.stripe.exception.StripeException;
 import com.stripe.model.Price;
 import com.stripe.model.Product;
@@ -44,6 +49,12 @@ public class AdminController {
 
     @Autowired
     TypeService typeService;
+
+    @Autowired
+    ReviewService reveiwService;
+
+    @Autowired
+    UserService userService;
 
     @GetMapping("/admin")
     public String showAdmin(Model model, HttpSession session) {
@@ -241,6 +252,17 @@ public class AdminController {
         // setting categories = null
         ProductDatabase product = productService.oneProduct(productId);
         product.setCategories(null);
+
+        // deleting reviews for a product
+        for(Review oneReview : productService.productReviews(productId)){
+            reveiwService.deleteReview(oneReview);
+        }
+
+        // deleting wishlists for a product
+        ProductDatabase oneProduct = productService.findProductById(productId);
+        for(User oneUser : oneProduct.getUsers()){
+            userService.deleteUser(oneUser);
+        }
 
         // deleting all the prices for that product
         priceService.deletePrice(productService.productPrices(productId));

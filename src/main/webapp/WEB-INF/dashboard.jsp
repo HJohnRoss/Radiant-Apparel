@@ -57,7 +57,6 @@
     <div class="gradient2 height2 pt-10">
         <div class="text-center">
             <h1 class="head">Radient Apparel</h1>
-            <h1 class="head text-danger">CHANGE STRIPE KEY!!!</h1>
             <div class="d-flex justify-content-center">
             </div>
             <div class="d-flex justify-content-center">
@@ -76,9 +75,7 @@
                         </div>
                     </div>
                     <button class="carouselbuttonright" onclick="scrollright()" > > </button>
-                    
                 </div>
-                
             </div>
         </div>
 
