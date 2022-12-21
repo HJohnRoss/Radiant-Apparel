@@ -32,9 +32,31 @@ public class SuccessController {
         return "success.jsp";
     }
 
-    @GetMapping("/cart/delete")
-    public String deleteCart(HttpSession session){
+    @GetMapping("/success/dashboard")
+    public String dashboard(HttpSession session){
         session.setAttribute("cart", null);
         return "redirect:/";
+    }
+
+    @GetMapping("/success/about")
+    public String about(HttpSession session){
+        session.setAttribute("cart", null);
+        return "redirect:/about";
+    }
+
+    @GetMapping("/success/shop")
+    public String shop(HttpSession session){
+        session.setAttribute("cart", null);
+        return "redirect:/shop";
+    }
+    @GetMapping("/success/wishlist/{id}")
+    public String wishlist(HttpSession session){
+        session.setAttribute("cart", null);
+        return "redirect:/wishlist/{id}";
+    }
+    @GetMapping("/success/admin")
+    public String admin(HttpSession session){
+        session.setAttribute("cart", null);
+        return "redirect:/admin";
     }
 }

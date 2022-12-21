@@ -3,6 +3,12 @@
     padding: 0;
 }
 
+.gradient{
+    background-image: radial-gradient(rgb(116,172,207), rgb(19,26,43) 70%);
+    background-size: 150% 200%;
+    background-position: top;
+}
+
 .wrapper {
     padding: 75px 200px 0px 200px ;
     font-size: 150%;
@@ -23,11 +29,15 @@
     padding-right: 100px;
 }
 
+a {
+    color: rgb(198,241,241);
+}
+
 .seperator {
     width: 1600px;
     margin-right: 300px;
-    border: grey solid 2px;
-    opacity: 20%;
+    border: rgb(228,102,7) solid 2px;
+    opacity: 80%;
     border-radius: 25%;
     margin-bottom: 15px;
 }
@@ -41,4 +51,20 @@
 .productInfo p {
     margin-top: 50px;
     margin-bottom: 50px;
+}
+
+.productBtn{
+    background-color: rgb(228,102,7);
+    color: rgb(19,26,43);
+    border: none;
+    border-radius: 5px 5px;
+    padding: 10px;
+    margin: 6px;
+    font-weight: bold;
+    transition-duration: 1s;
+    text-decoration: none;
+}
+
+.productBtn:hover{
+    box-shadow:0px 0px 5px 2px rgb(198,241,241),0px 0px 10px 5px  rgb(228,102,7), 0px 0px 10px 2px rgb(198,241,241) inset;
 }

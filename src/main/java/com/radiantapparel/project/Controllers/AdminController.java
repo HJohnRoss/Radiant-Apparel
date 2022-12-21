@@ -62,6 +62,13 @@ public class AdminController {
         model.addAttribute("price", new PriceDatabase());
         model.addAttribute("category", new Category());
         model.addAttribute("type", new Type());
+
+        Object userId = session.getAttribute("userId");
+        if((Long) userId != 1){
+            return "redirect:/";
+        }
+
+
         if(session.getAttribute("cart") == null){
             ArrayList<Map<ProductDatabase, String>> newCart = new ArrayList<>();
             session.setAttribute("cart", newCart);

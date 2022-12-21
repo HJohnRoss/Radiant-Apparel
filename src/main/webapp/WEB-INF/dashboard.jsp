@@ -24,13 +24,6 @@
     <nav class="navbar bgdark">
         <div class = "navcontentstart bgdark">
             <img src="/img/thirdlogodark.png" alt="Radiance Logo" id = "logo">
-            <div class = "searchbox">
-                <form action="#">
-                    <!-- <input type="image" name = "searchimg" src="/img/magnifying-glass.png" alt="Icon made by Chanut from www.flaticon.com" id = searchimg> -->
-                    <input type="text" name = "search" class = "searchbar" placeholder="Search....">
-                    <input type="submit" class="searchbtn bgblue">
-                </form>
-            </div>
         </div>
         <div class = "navcontentend bgdark">
             <div class="d-flex align-items-center justify-content-between">
@@ -39,21 +32,23 @@
                 <a href="/about" class = "nav-tag">About</a>
                 <p class = "nav-space">|</p>
                 <a href="/shop" class = "nav-tag">Shop</a>
-                <p class = "nav-space">|</p>
-                <a href="/admin" class = "nav-tag">Admin</a>
-                <p class = "nav-space">|</p>
-                <a href="#" class = "nav-tag">Help</a>
+                <c:if test="${userId != null}">
+                    <p class = "nav-space">|</p>
+                    <a href="/wishlist/${userId}" class="nav-tag">Wishlist</a>
+                    <c:if test="${userId == 1}">
+                        <p class = "nav-space">|</p>
+                        <a href="/admin" class = "nav-tag">Admin</a>
+                    </c:if>
+                </c:if>
             </div>
             <div class = "navcart">
-                <form action="#">
+                <form action="/cart">
                     <button type = "submit" style="cursor:pointer; border: none; background-color: transparent; color: rgb(198,241,241); font-size:24px"><i class="fa fa-shopping-cart"></i> Cart</button>
                 </form>
             </div>
-            
-            
         </div>
-        
     </nav>
+
     <div class="gradient2 height2 pt-10">
         <div class="text-center">
             <h1 class="head">Radient Apparel</h1>
@@ -119,7 +114,7 @@
                             </a>
                         </div>
                     </c:if>
-                    <c:if test = "${allProducts.indexOf(oneProduct) < 6}">
+                    <c:if test = "${allProducts.indexOf(oneProduct) < 5}">
                         <c:if test = "${allProducts.indexOf(oneProduct) != 0}">
                             <div class="text-center">
                                 <a class="producta" href="/product/show/${oneProduct.id}">

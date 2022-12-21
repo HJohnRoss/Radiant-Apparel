@@ -215,5 +215,9 @@ ul {
     cursor: pointer;
 }
 
-
-
+.navcontentend p {
+    color: rgb(198,241,241);
+    text-decoration: none;
+    font-size: 20px;
+    margin-left: 30px;
+}
