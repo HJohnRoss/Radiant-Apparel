@@ -11,6 +11,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- this is the stylesheet for the stripe checkout u can change it to our needs (from stripe) -->
     <!-- <link rel="stylesheet" href="/css/stripeCheckout.css" /> -->
+    <link rel="stylesheet" href="/css/library.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://js.stripe.com/v3/"></script>
     <script src="/js/checkout.js" defer></script>
     <title>Radiant Apparel</title>
