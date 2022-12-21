@@ -23,7 +23,7 @@
                         <link rel="stylesheet" href="/css/product.css">
                     </head>
 
-                    <body>
+                    <body class="gradient">
                         <div class="navextension bgdark d-flex align-items-center">
                         </div>
                         <nav class="navbar bgdark">
@@ -31,20 +31,25 @@
                                 <img src="/img/thirdlogodark.png" alt="Radiance Logo" id="logo">
                             </div>
                             <div class="navcontentend bgdark">
-                                <a href="#" class="text-white">Home</a>
+                                <a href="/" class="text-white">Home</a>
                                 <p>|</p>
                                 <a href="#" class="text-white">About</a>
                                 <p>|</p>
                                 <a href="/shop" class="text-white ">Shop</a>
                                 <p>|</p>
                                 <a href="/admin" class="text-white">Help</a>
+                                <c:if test="${loggedIn == true}">
+                                    <p>|</p>
+                                    <a href="/wishlist/${userId}" class="text-white">Wishlist</a>
+                                </c:if>
+                                <p>|</p>
                                 <a href="/cart" class="pointer-select"
                                     style="border: none; background-color: transparent; color: white; font-size:24px"><i
                                         class="fa fa-shopping-cart"></i> Cart</a>
                             </div>
                         </nav>
-                        <div>
-                            <div class="d-flex justify-content-center p-10">
+                        <div class="productGradient">
+                            <div class="d-flex justify-content-between p-10">
                                 <div>
                                     <img class="productImage" src='<c:out value="${product.images}"/>' alt="testing">
                                     <div>
@@ -101,23 +106,27 @@
                                 </c:if>
                             </div>
                         </div>
-                        <h1>Reviews</h1>
                         <div class="reviewLine"></div>
-                        <div class="reviews">
-                            <c:forEach var="review" items="${productReviews}">
-                                    <div class="oneReview">
-                                        <h4>Posted by <c:out value="${review.reviewer.firstName}">
-                                            </c:out>: </h4>
-                                        <h5 class="dateReviewed">Reviewed on
-                                            <fmt:formatDate value="${review.createdAt}"
-                                                pattern="MMMM dd yyyy" />
-                                        </h5>
-                                        <p>
-                                            <c:out value="${review.name}"></c:out>
-                                        </p>
-                                    </div>
-                                    <div class="oneReviewLine"></div>
-                            </c:forEach>
+                        <div class="reviewGradient">
+                            <h1 class="reviewHeading">Reviews</h1>
+                            <div class="reviews">
+                                <c:forEach var="review" items="${productReviews}">
+                                        <div class="oneReview d-flex justify-content-between">
+                                            <div>
+                                                <h4>Posted by <c:out value="${review.reviewer.firstName}">
+                                                    </c:out>: </h4>
+                                                <h5 class="dateReviewed">Reviewed on
+                                                    <fmt:formatDate value="${review.createdAt}"
+                                                        pattern="MMMM dd yyyy" />
+                                                </h5>
+                                            </div>
+                                            <p class="reviewContent">
+                                                <c:out value="${review.name}"></c:out>
+                                            </p>
+                                        </div>
+                                        <div class="oneReviewLine"></div>
+                                </c:forEach>
+                            </div>
                         </div>
                     </body>
 
