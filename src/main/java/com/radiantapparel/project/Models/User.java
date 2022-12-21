@@ -30,20 +30,20 @@ public class User {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotEmpty(message="first name is required")
+	@NotEmpty(message="First name is required")
 	@Size(min = 3, max = 30, message="Username must be between 3 and 30 characters")
 	private String firstName;
 	
-	@NotEmpty(message="last name is required")
-	@Size(min=3, max=30, message="lsat name must be between 3 and 30 characters")
+	@NotEmpty(message="Last name is required")
+	@Size(min=3, max=30, message="Last name must be between 3 and 30 characters")
 	private String lastName;
 	
 	@NotEmpty(message="Email is required")
 	@Email(message="Please enter a valid email")
 	private String email;
 	
-	@NotEmpty(message="password is required")
-	@Size(min=8, max=128, message="password must be between 8 and 128 characters")
+	@NotEmpty(message="Password is required")
+	@Size(min=8, max=128, message="Password must be between 8 and 128 characters")
 	private String password;
 	
 	@Transient

@@ -9,12 +9,13 @@
     <meta charset="UTF-8">
     <title>Insert title here</title>
     <link rel="stylesheet" href="/css/library.css">
+    <link rel="stylesheet" href="/css/login.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
-<body>
+<body class="gradient">
     <div class="navextension bgdark d-flex align-items-center">
     </div>
     <nav class="navbar bgdark">
@@ -51,50 +52,66 @@
         </div>
     </nav>
     
-    <div class="d-flex justify-content-center ">
-        <div>
+    <div class="d-flex justify-content-center cardboard">
+        <div class="bottle register">
+            <h2>Register</h2>
             <form:form action="/register" method="post" modelAttribute="newUser" class="">
                 <p>
-                    <form:label path="firstName"> firstName </form:label>
-                    <form:errors path="firstName" />
-                    <form:input path="firstName" />
+                    <form:errors class="text-danger" path="firstName" />
+                    <div>
+                        <form:label path="firstName"> First Name: </form:label>
+                        <form:input path="firstName" />
+                    </div>
                 </p>
                 <p>
-                    <form:label path="lastName"> lastName </form:label>
-                    <form:errors path="lastName" />
-                    <form:input path="lastName" />
+                    <form:errors class="text-danger" path="lastName" />
+                    <div>
+                        <form:label path="lastName"> Last Name: </form:label>
+                        <form:input path="lastName" />
+                    </div>
                 </p>
                 <p>
-                    <form:label path="email"> email </form:label>
-                    <form:errors path="email" />
-                    <form:input path="email" />
+                    <form:errors class="text-danger" path="email" />
+                    <div>
+                        <form:label path="email"> Email: </form:label>
+                        <form:input path="email" />
+                    </div>
                 </p>
                 <p>
-                    <form:label path="password"> password </form:label>
-                    <form:errors path="password" />
-                    <form:input type="password" path="password" />
+                    <form:errors class="text-danger" path="password" />
+                    <div>
+                        <form:label path="password"> Password: </form:label>
+                        <form:input type="password" path="password" />
+                    </div>
                 </p>
                 <p>
-                    <form:label path="confirm">confirm password </form:label>
-                    <form:errors path="confirm" />
-                    <form:input type="password" path="confirm" />
+                    <form:errors class="text-danger" path="confirm" />
+                    <div>
+                        <form:label path="confirm"> Confirm Password: </form:label>
+                        <form:input type="password" path="confirm" />
+                    </div>
                 </p>
-                <input type="submit" value="submit" />
+                <button>Register</button>
             </form:form>
         </div>
-        <div>
+        <div class="bottle login">
+            <h2>Login</h2>
             <form:form action="/loguser" modelAttribute="newLogin" class="">
                 <p>
-                    <form:label path="email"> email </form:label>
-                    <form:errors path="email" />
-                    <form:input path="email" />
+                    <form:errors class="text-danger" path="email" />
+                    <div>
+                        <form:label path="email"> Email: </form:label>
+                        <form:input path="email" />
+                    </div>
                 </p>
                 <p>
-                    <form:label path="password"> password </form:label>
-                    <form:errors path="password" />
-                    <form:input type="password" path="password" />
+                    <form:errors class="text-danger" path="password" />
+                    <div>
+                        <form:label path="password"> Password: </form:label>
+                        <form:input type="password" path="password" />
+                    </div>
                 </p>
-                <input type="submit" value="submit" />
+                <button>Log in</button>
             </form:form>
         </div>
     </div>
