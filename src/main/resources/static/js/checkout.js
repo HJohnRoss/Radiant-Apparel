@@ -1,8 +1,6 @@
 const stripe = Stripe("pk_test_51MFlFOA7FBolyCg7cK3frcyvYMSAZYAc98puPEwJnMFMM9JAVcFbeskww2cumO7jt6Z8T6PSDlIlgo9DHYYizQna00ZVAMgPlq");
 // The items the customer wants to buy
 
-const items = sessionStorage.getItem("cart"); // need to fix this
-
 let elements;
 
 initialize();
@@ -16,8 +14,7 @@ document
 async function initialize() {
         const response = await fetch("/create/paymentIntent", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ items }),
+        headers: { "Content-Type": "application/json" }
     });
     console.log(sessionStorage.getItem('cart'))
     const { clientSecret } = await response.json();
@@ -43,7 +40,7 @@ async function handleSubmit(e) {
         elements,
         confirmParams: {
             // Make sure to change this to your payment completion page
-            return_url: "http://localhost:8080/success.jsp",
+            return_url: "http://localhost:8080/success",
         },
     });
 
