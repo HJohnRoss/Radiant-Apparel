@@ -164,6 +164,7 @@ public class AdminController {
             model.addAttribute("allProducts", productService.allProducts());
             model.addAttribute("allTypes", typeService.allTypes());
             model.addAttribute("userId", session.getAttribute("userId"));
+            return "admin.jsp";
         }
 
         typeService.createType(type);
