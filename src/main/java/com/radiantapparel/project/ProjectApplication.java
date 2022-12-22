@@ -21,16 +21,4 @@ public class ProjectApplication {
         // Ben's key
         Stripe.apiKey = "sk_test_51MG1wTL9pzCvrE7mkvdoxzPp8ZA7iUx8uKgSqIU8s7JD7Fwh27h0Ax4L7l8IIw12fneoWK5MHBMTLB9c4DpMsP9I00C4HX7tmk";
 	}
-        @Bean
-        public TomcatServletWebServerFactory servletContainer() {
-            TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory();
-            Connector ajpConnector = new Connector("AJP/1.3");
-            ajpConnector.setPort(9090);
-            ajpConnector.setSecure(false);
-            ajpConnector.setAllowTrace(false);
-            ajpConnector.setScheme("http");
-    ((AbstractAjpProtocol)ajpConnector.getProtocolHandler()).setSecretRequired(false);
-            tomcat.addAdditionalTomcatConnectors(ajpConnector);
-            return tomcat;
-        }
 }
