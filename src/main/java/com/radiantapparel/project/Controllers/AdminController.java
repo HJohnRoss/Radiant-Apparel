@@ -325,6 +325,9 @@ public class AdminController {
     @DeleteMapping("/category/delete/{id}")
     public String deleteCategory(@PathVariable("id") Long categoryId){
 
+        Category oneCategory = categoryService.oneCategory(categoryId);
+        oneCategory.setProducts(null);
+
         categoryService.deleteCategory(categoryId);
         return "redirect:/category/delete";
     }
