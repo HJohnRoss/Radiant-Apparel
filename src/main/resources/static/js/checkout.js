@@ -1,5 +1,5 @@
 // John's 
-// const stripe = Stripe("pk_test_51MFlFOA7FBolyCg7cK3frcyvYMSAZYAc98puPEwJnMFMM9JAVcFbeskww2cumO7jt6Z8T6PSDlIlgo9DHYYizQna00ZVAMgPlq");
+const stripe = Stripe("pk_test_51MFlFOA7FBolyCg7cK3frcyvYMSAZYAc98puPEwJnMFMM9JAVcFbeskww2cumO7jt6Z8T6PSDlIlgo9DHYYizQna00ZVAMgPlq");
 // Ciaron's
 
 //Ben's
