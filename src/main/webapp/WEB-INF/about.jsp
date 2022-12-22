@@ -22,37 +22,37 @@
 </head>
 
 <body class="fullheight">
-    <div class="navextension bgdark d-flex align-items-center">
+    <div class = "navextension bgdark d-flex align-items-center">
     </div>
     <nav class="navbar bgdark">
-        <div class="navcontentstart bgdark">
-            <img src="/img/thirdlogodark.png" alt="Radiance Logo" id="logo">
+        <div class = "navcontentstart bgdark">
+            <img src="/img/thirdlogodark.png" alt="Radiance Logo" id = "logo">
         </div>
-        <div class="navcontentend bgdark">
+        <div class = "navcontentend bgdark">
             <div class="d-flex align-items-center justify-content-between">
-                <a href="/" class="nav-tag pointer-select">Home</a>
-                <p class="nav-space">|</p>
-                <a href="/about" class="nav-tag">About</a>
-                <p class="nav-space">|</p>
-                <a href="/shop" class="nav-tag">Shop</a>
+                <a href="/" class = "nav-tag pointer-select">Home</a>
+                <p class = "nav-space">|</p>
+                <a href="/about" class = "nav-tag">About</a>
+                <p class = "nav-space">|</p>
+                <a href="/shop" class = "nav-tag">Shop</a>
                 <c:if test="${userId != null}">
-                    <p class="nav-space">|</p>
+                    <p class = "nav-space">|</p>
                     <a href="/wishlist/${userId}" class="nav-tag">Wishlist</a>
                     <c:if test="${userId == 1}">
-                        <p class="nav-space">|</p>
-                        <a href="/admin" class="nav-tag">Admin</a>
+                        <p class = "nav-space">|</p>
+                        <a href="/admin" class = "nav-tag">Admin</a>
                     </c:if>
+                    <p class="nav-space">|</p>
+                    <a href="/logout" class="nav-tag">Logout</a>
                 </c:if>
                 <c:if test="${userId == null}">
                     <p class="nav-space">|</p>
                     <a href="/login" class="nav-tag">Login/Register</a>
                 </c:if>
             </div>
-            <div class="navcart">
+            <div class = "navcart">
                 <form action="/cart">
-                    <button type="submit"
-                        style="cursor:pointer; border: none; background-color: transparent; color: rgb(198,241,241); font-size:24px"><i
-                            class="fa fa-shopping-cart"></i> Cart</button>
+                    <button type = "submit" style="cursor:pointer; border: none; background-color: transparent; color: rgb(198,241,241); font-size:24px"><i class="fa fa-shopping-cart"></i> Cart</button>
                 </form>
             </div>
         </div>
