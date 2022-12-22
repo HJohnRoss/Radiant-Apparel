@@ -3,7 +3,7 @@
 // Ciaron's
 
 //Ben's
-// const stripe = Stripe("pk_test_51MG1wTL9pzCvrE7mndm2dljOoTYWgPfzXRb9FY20vtFEOEKTAG1u4AB5AsW6xgT6Dor5yU90Dl9TRxIdCBkZRQqO00bLQO9cKz");
+const stripe = Stripe("pk_test_51MG1wTL9pzCvrE7mndm2dljOoTYWgPfzXRb9FY20vtFEOEKTAG1u4AB5AsW6xgT6Dor5yU90Dl9TRxIdCBkZRQqO00bLQO9cKz");
 // The items the customer wants to buy
 
 let elements;
