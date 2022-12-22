@@ -8,7 +8,7 @@
 <!-- for rendering errors on PUT routes -->
 <%@ page isErrorPage="true" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="fullheight">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Your purchase</title>
 </head>
-<body>
+<body class="fullheight">
     <div class="navextension bgdark d-flex align-items-center">
     </div>
     <nav class="navbar bgdark">
@@ -54,30 +54,31 @@
             </div>
         </div>
     </nav>
-    
-    <div class="d-flex mt-5 justify-content-between">
-        <div>
-            <h1>Thank you for shopping at Radiant Apparel</h1>
-            <h2>This is a project used for learning purposes!</h2>
-            <h3>Not a real store</h3>
-        </div>
-        <div class="bottle">
-            <h1 class="mb-2">Your Purchase!</h1>
-            <div class="d-flex flex-wrap gap-2 mb-2 container line">
-                <c:forEach var="oneObject" items="${cart}">
-                    <c:forEach var="oneKey" items="${oneObject.entrySet()}">
-                        <div class="mb-2">
-                            <img class="productImage" src="${oneKey.getKey().image}"/>
-                            <h4 class="word-wrap w-1"><c:out value="${oneKey.getKey().name}"></c:out></h4>
-                            <h4><c:out value="${currencyFormat.format(oneKey.getKey().price.unitAmount * oneKey.getValue())}"></c:out></h4>
-                        </div>
-                    </c:forEach>
-                </c:forEach>
+    <div class="gradient fullheight">
+        <div class="d-flex pt-5 justify-content-around">
+            <div>
+                <h1 class="text-light">Thank you for shopping at Radiant Apparel</h1>
+                <h2 class="text-light">This is a project used for learning purposes!</h2>
+                <h3 class="text-light">Not a real store</h3>
             </div>
-            <h2 class="mb-2">Total: <c:out value="${currencyFormat.format(total)}"></c:out></h2>
-            <form action="/success/dashboard">
-                <button class="btn" type = "submit" style="cursor:pointer; font-size:24px">Home</button>
-            </form>
+            <div class="bottle">
+                <h1 class="mb-2 text-light">Your Purchase!</h1>
+                <div class="d-flex flex-wrap gap-2 mb-2 container line">
+                    <c:forEach var="oneObject" items="${cart}">
+                        <c:forEach var="oneKey" items="${oneObject.entrySet()}">
+                            <div class="mb-2">
+                                <img class="productImage" src="${oneKey.getKey().image}"/>
+                                <h4 class="word-wrap w-1 text-light"><c:out value="${oneKey.getKey().name}"></c:out></h4>
+                                <h4 class="text-light"><c:out value="${currencyFormat.format(oneKey.getKey().price.unitAmount * oneKey.getValue())}"></c:out></h4>
+                            </div>
+                        </c:forEach>
+                    </c:forEach>
+                </div>
+                <h2 class="mb-2 text-light">Total: <c:out value="${currencyFormat.format(total)}"></c:out></h2>
+                <form action="/success/dashboard">
+                    <button class="btn" type = "submit" style="cursor:pointer; font-size:24px">Home</button>
+                </form>
+            </div>
         </div>
     </div>
 </body>

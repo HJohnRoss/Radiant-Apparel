@@ -46,3 +46,17 @@
 .w-1{
     width: 100px;
 }
+
+.gradient{
+    background-image: radial-gradient(rgb(61,119,166), rgb(19,26,43) 60%);
+    background-size: 200% 400%;
+    background-position: top;
+}
+
+.pt-5{
+    padding-top: 50px;
+}
+
+.fullheight{
+    height: 100%;
+}
