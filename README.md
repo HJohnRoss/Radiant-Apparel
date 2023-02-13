@@ -1,6 +1,6 @@
 <br />
 <div>
-  <a  href="https://github.com/S-Hightower/Flick-ITS">
+  <a  href="https://github.com/HJohnRoss/Radiant-Apparel">
     <img src="src/main/resources/static/img/thirdlogodark.png" alt="Logo" width="600">
   </a>
 
