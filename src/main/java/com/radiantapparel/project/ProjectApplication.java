@@ -1,7 +1,12 @@
 package com.radiantapparel.project;
 
+import org.apache.catalina.connector.Connector;
+import org.apache.coyote.ajp.AbstractAjpProtocol;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
+import org.springframework.context.annotation.Bean;
+
 import com.stripe.Stripe;
 
 @SpringBootApplication
@@ -14,6 +19,6 @@ public class ProjectApplication {
         // Ciaran's key
         // Stripe.apiKey = "sk_test_51MFpnALrPQlCjFmwmbp9TYyuUnyJl5KRKH9aY92qVUgEnioVB4zwrSP1yS6vSW2tZtWKYYRGCO4wGB55E9eK2NmR00ugMxu2aY";
         // Ben's key
-        // Stripe.apiKey = "sk_test_51MG1wTL9pzCvrE7mkvdoxzPp8ZA7iUx8uKgSqIU8s7JD7Fwh27h0Ax4L7l8IIw12fneoWK5MHBMTLB9c4DpMsP9I00C4HX7tmk";
+        Stripe.apiKey = "sk_test_51MG1wTL9pzCvrE7mkvdoxzPp8ZA7iUx8uKgSqIU8s7JD7Fwh27h0Ax4L7l8IIw12fneoWK5MHBMTLB9c4DpMsP9I00C4HX7tmk";
 	}
 }
