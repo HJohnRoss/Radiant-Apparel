@@ -251,13 +251,13 @@ public class AdminController {
 
         
         // getting stripe product object
-        Product StripeProduct = Product.retrieve(stripeProductId);
+        // Product StripeProduct = Product.retrieve(stripeProductId);
 
-        // setting productive to false
-        Map<String, Object> params = new HashMap<>();
-        params.put("active", false);
+        // // setting productive to false
+        // Map<String, Object> params = new HashMap<>();
+        // params.put("active", false);
 
-        StripeProduct.update(params);
+        // StripeProduct.update(params);
         
         // setting categories = null
         ProductDatabase product = productService.oneProduct(productId);
